@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.satrangolimitless.User_UI.Home_user.HomeFragment_user"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home_maps" />
+    <fragment
+        android:id="@+id/nav_category"
+        android:name="com.satrangolimitless.User_UI.Browsecategories.CategoriesFragment"
+        android:label="@string/menu_Browsecat"
+        tools:layout="@layout/fragment_categories" />
+    <fragment
+        android:id="@+id/nav_Mybooking"
+        android:name="com.satrangolimitless.User_UI.Mybooking.MybookingFragment"
+        android:label="@string/menu_Mybooking"
+        tools:layout="@layout/fragment_mybooking" />
+
+
+    <fragment
+
+        android:id="@+id/nav_offer"
+        android:name="com.satrangolimitless.User_UI.Offer.OfferFragment"
+        android:label="@string/menu_offer"
+        tools:layout="@layout/fragment_offer" />
+    <fragment
+        android:id="@+id/nav_Postjob"
+        android:name="com.satrangolimitless.User_UI.Postjob.PostJobFragment"
+        android:label="@string/menu_Postjob"
+        tools:layout="@layout/fragment_post_job" />
+    <fragment
+        android:id="@+id/nav_Myaccount"
+        android:name="com.satrangolimitless.User_UI.Myaccount.MyaccountFragment"
+        android:label="@string/menu_Myaccount"
+        tools:layout="@layout/fragment_myaccount" />
+
+    <fragment
+        android:id="@+id/nav_chatwithsupport"
+        android:name="com.satrangolimitless.User_UI.cahtwithsupport.ChatwithSupportFragment"
+        android:label="@string/menu_SupportTeam"
+        tools:layout="@layout/fragment_chatwith_support" />
+    <fragment
+        android:id="@+id/nav_faq"
+        android:name="com.satrangolimitless.User_UI.FAQ.FaqFragment"
+        android:label="@string/menu_Faqs"
+        tools:layout="@layout/fragment_faq" />
+
+
+    <fragment
+        android:id="@+id/nav_Settings"
+        android:name="com.satrangolimitless.User_UI.Settings.SettingsFragment"
+        android:label="@string/menu_Settings"
+        tools:layout="@layout/fragment_settings" />
+
+
+    <fragment
+        android:id="@+id/nav_LogOut"
+        android:name="com.satrangolimitless.User_UI.slideshow.SlideshowFragment"
+        android:label="@string/menu_LogOut"
+        tools:layout="@layout/fragment_slideshow" />
+</navigation>

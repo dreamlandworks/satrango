@@ -1,0 +1,591 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+
+
+
+
+    <LinearLayout
+        android:layout_margin="@dimen/_15sdp"
+        android:background="@color/colorPrimaryDark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:visibility="gone"
+            android:src="@drawable/recomanded"
+            android:layout_gravity="center"
+            android:paddingBottom="@dimen/_7sdp"
+            android:paddingTop="@dimen/_7sdp"
+            android:paddingRight="@dimen/_10sdp"
+            android:paddingLeft="@dimen/_10sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <!-- <TextView
+             android:layout_gravity="center"
+             android:paddingLeft="@dimen/_15sdp"
+             android:paddingTop="@dimen/_5sdp"
+             android:layout_marginTop="@dimen/_5sdp"
+             android:fontFamily="@font/neosanspro_medium"
+             android:textColor="@color/black"
+             android:textSize="@dimen/_18sdp"
+             android:textStyle="bold"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:text="RECOMANDED"/>-->
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardUseCompatPadding="true"
+            app:cardElevation="@dimen/_1sdp"
+            app:cardBackgroundColor="@color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+
+                <LinearLayout
+                    android:weightSum="3"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_weight="1.2"
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content">
+
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_120sdp"
+                            android:src="@drawable/usernew"/>
+
+
+                        <TextView
+
+                            android:id="@+id/txt_u_rank"
+                            android:background="@color/yellow"
+                            android:textStyle="bold"
+                            android:textAlignment="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_18sdp"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:weightSum="2"
+                        android:layout_marginRight="@dimen/_5sdp"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        android:layout_weight=".7"
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content">
+
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight=".05">
+
+                            <TextView
+                                android:id="@+id/txt_uname"
+                                android:fontFamily="@font/poppinsmedium"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:textStyle="bold"
+                                android:textSize="@dimen/_20sdp"
+                                android:text="John Doe"/>
+
+
+
+                            <TextView
+                                android:id="@+id/txtskill"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/gray"
+                                android:textSize="@dimen/_12sdp"
+                                android:text="AC Mechanic"/>
+
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/gray"
+                                    android:textStyle="bold"
+                                    android:textSize="@dimen/_10sdp"
+                                    android:text="Over all ratting"/>
+
+                                <TextView
+                                    android:id="@+id/txt_rating"
+                                    android:drawablePadding="@dimen/_5sdp"
+                                    android:layout_marginLeft="@dimen/_10sdp"
+                                    android:drawableRight="@drawable/ic_stars"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/gray"
+                                    android:textSize="@dimen/_10sdp"
+                                    android:text="4.8"/>
+
+                                <TextView
+                                    android:drawablePadding="@dimen/_5sdp"
+                                    android:layout_marginLeft="@dimen/_10sdp"
+                                    android:drawableRight="@drawable/ic_groups"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/gray"
+                                    android:textSize="@dimen/_10sdp"
+                                    android:text="233"/>
+
+                            </LinearLayout>
+                            <LinearLayout
+                                android:weightSum="3"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_weight=".85"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/gray"
+                                    android:textSize="@dimen/_10sdp"
+                                    android:text="Professionalism"/>
+
+
+                                <androidx.appcompat.widget.AppCompatRatingBar
+                                  android:id="@+id/rating_professionalism"
+                                    android:layout_weight=".85"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    style="?android:attr/ratingBarStyleSmall"
+                                    android:progressTint="@color/yellow"
+
+                                    />
+
+                                <TextView
+                                    android:id="@+id/txtrating_professionalism"
+                                    android:layout_weight="1.3"
+                                    android:drawablePadding="@dimen/_5sdp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/gray"
+                                    android:textSize="@dimen/_10sdp"
+                                    android:text="4.5"/>
+
+                            </LinearLayout>
+                            <LinearLayout
+                                android:weightSum="3"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_weight=".85"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/gray"
+                                    android:textSize="@dimen/_10sdp"
+                                    android:text="Behaviour"/>
+
+                                <androidx.appcompat.widget.AppCompatRatingBar
+                                    android:id="@+id/rating_behaviour"
+                                    android:layout_weight=".85"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:progressTint="@color/yellow"
+                                    style="?android:attr/ratingBarStyleSmall"/>
+
+                                <TextView
+                                    android:id="@+id/txtrating_behaviour"
+                                    android:layout_weight="1.3"
+                                    android:drawablePadding="@dimen/_5sdp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/gray"
+                                    android:textSize="@dimen/_10sdp"
+                                    android:text="4.5"/>
+
+                            </LinearLayout>
+                            <LinearLayout
+                                android:weightSum="3"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_weight=".85"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/gray"
+                                    android:textSize="@dimen/_10sdp"
+                                    android:text="Satisfaction"/>
+
+
+                                <androidx.appcompat.widget.AppCompatRatingBar
+                                    android:id="@+id/rating_satisfaction"
+                                    android:layout_weight=".85"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:progressTint="@color/yellow"
+                                    style="?android:attr/ratingBarStyleSmall"/>
+
+                                <TextView
+                                    android:id="@+id/txtrating_satisfaction"
+                                    android:layout_weight="1.3"
+                                    android:drawablePadding="@dimen/_5sdp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/gray"
+                                    android:textSize="@dimen/_10sdp"
+                                    android:text="3.5"/>
+
+                            </LinearLayout>
+                            <LinearLayout
+                                android:weightSum="3"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_weight=".85"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/gray"
+                                    android:textSize="@dimen/_10sdp"
+                                    android:text="Requisite Skills"/>
+
+
+                                <androidx.appcompat.widget.AppCompatRatingBar
+                                  android:id="@+id/rating_equisite_skills"
+                                    android:layout_width="match_parent"
+                                    android:layout_weight=".85"
+                                    android:layout_height="wrap_content"
+                                    android:progressTint="@color/yellow"
+                                    style="?android:attr/ratingBarStyleSmall"/>
+
+                                <TextView
+                                    android:id="@+id/txtrating_equisite_skills"
+                                    android:layout_weight="1.3"
+                                    android:drawablePadding="@dimen/_5sdp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/gray"
+                                    android:textSize="@dimen/_10sdp"
+                                    android:text="5.0"/>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1.1"
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content">
+
+
+                        <TextView
+                            android:textStyle="bold"
+                            android:fontFamily="@font/quicksand_bold"
+                            android:textAlignment="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:text="Min. Amount"/>
+
+                        <TextView
+                            android:id="@+id/txtamount"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:fontFamily="@font/poppinsmedium"
+                            android:textSize="@dimen/_18sdp"
+                            android:textStyle="bold"
+                            android:textAlignment="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/red"
+                            android:text="₹ 00"
+                            android:drawablePadding="@dimen/_7sdp"/>
+
+                        <TextView
+                            android:id="@+id/txtminamount"
+                            android:textAlignment="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppinsmedium"
+                            android:text="00"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/_12sdp"
+                            android:textStyle="bold" />
+
+
+                        <TextView
+                            android:visibility="invisible"
+                            android:textStyle="italic"
+                            android:fontFamily="@font/neosanspro_medium"
+                            android:textAlignment="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:text="Know more"
+                            android:textSize="@dimen/_12sdp"
+                            android:drawablePadding="@dimen/_7sdp"/>
+                        <View
+                            android:layout_gravity="center"
+                            android:layout_width="@dimen/_60sdp"
+                            android:layout_height="@dimen/_2sdp"
+                            android:background="@color/blue600"/>
+
+
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:weightSum="3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_weight="1.15"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:layout_gravity="center"
+                            android:textAlignment="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/_12sdp"
+                            android:text="Job Done"/>
+
+                        <TextView
+                            android:id="@+id/txtjobs"
+                            android:layout_gravity="center"
+                            android:textAlignment="center"
+                            android:fontFamily="@font/poppinsmedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textStyle="bold"
+                            android:textSize="@dimen/_12sdp"
+                            android:text="55"/>
+
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                          android:layout_weight="1.1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+
+                        <TextView
+                            android:layout_gravity="center"
+                            android:textAlignment="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/_12sdp"
+                            android:text="Experience"/>
+
+                        <TextView
+                            android:layout_gravity="center"
+                            android:textAlignment="center"
+                            android:fontFamily="@font/poppinsmedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textStyle="bold"
+                            android:textSize="@dimen/_12sdp"
+                            android:text="3 - 5 Years"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_weight=".75"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/_12sdp"
+                            android:text="Languages Known"/>
+
+                        <TextView
+                            android:id="@+id/txtlanguage"
+                            android:fontFamily="@font/poppinsmedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textStyle="bold"
+                            android:textSize="@dimen/_12sdp"
+                            android:text="Telugu, English, Hindi"/>
+
+
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_weight=".75"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:layout_marginRight="@dimen/_25sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/_12sdp"
+                        android:text="Job Skills"/>
+
+                    <TextView
+                        android:id="@+id/txtjobskill"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/_12sdp"
+                        android:text="Telugu, English, Hindi"/>
+
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_weight=".75"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:layout_marginRight="@dimen/_20sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/_12sdp"
+                        android:text="About Me"/>
+
+                    <TextView
+                        android:id="@+id/txtabout"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/_12sdp"
+                        android:text="I am a specialist in AC Mechanism."/>
+
+
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_marginBottom="-7dp"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:weightSum="2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_weight="1"
+                            android:layout_marginTop="@dimen/_7sdp"
+                            android:layout_gravity="bottom"
+                            android:padding="@dimen/_5sdp"
+                            android:gravity="center"
+                            android:id="@+id/AG_Close"
+                            android:textSize="@dimen/_16sdp"
+                            android:textAlignment="center"
+                            android:fontFamily="@font/poppinsmedium"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:background="@color/grey_600"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40sdp"
+                            android:text="Close"
+                            android:textStyle="bold"/>
+
+
+
+                        <TextView
+                            android:layout_weight="1"
+                            android:layout_marginTop="@dimen/_7sdp"
+                            android:layout_gravity="bottom"
+                            android:padding="@dimen/_5sdp"
+                            android:gravity="center"
+                            android:id="@+id/AG_BOOKNOW"
+                            android:textSize="@dimen/_16sdp"
+                            android:textAlignment="center"
+                            android:fontFamily="@font/poppinsmedium"
+                            android:textColor="@color/black"
+                            android:background="@color/yellow"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40sdp"
+                            android:text="Book Now"
+                            android:textStyle="bold"/>
+
+                    </LinearLayout>
+                </RelativeLayout>
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
+            android:title="@string/menu_home" />
+
+        <item
+            android:id="@+id/nav_postajob"
+            android:icon="@drawable/ic_poasajob"
+            android:title="@string/menu_postajob" />
+
+
+        <item
+        android:id="@+id/nav_category"
+        android:icon="@drawable/ic_browsecategory"
+        android:title="@string/menu_Browsecat" />
+
+        <item
+            android:id="@+id/nav_Myaccount"
+            android:icon="@drawable/ic_myaccount"
+            android:title="@string/menu_Myaccount" />
+
+        <item
+            android:id="@+id/nav_Mybooking"
+            android:icon="@drawable/ic_mybooking"
+            android:title="@string/menu_Mybooking" />
+       <!-- <item
+            android:id="@+id/nav_offer"
+            android:icon="@drawable/ic_offer"
+            android:title="@string/menu_offer" />-->
+        <item
+            android:id="@+id/nav_Postjob"
+            android:icon="@drawable/ic_myjob"
+            android:title="@string/menu_Postjob" />
+
+        <item
+            android:id="@+id/nav_Myprofile"
+            android:icon="@drawable/ic_myprofile"
+            android:title="@string/menu_myprofile" />
+        <!--<item
+            android:id="@+id/nav_chatwithsupport"
+            android:icon="@drawable/ic_support"
+            android:title="@string/menu_SupportTeam" />
+
+        <item
+            android:id="@+id/nav_faq"
+            android:icon="@drawable/ic_faq"
+            android:title="@string/menu_Faqs" />-->
+
+        <item
+            android:id="@+id/nav_Settings"
+            android:icon="@drawable/ic_settings"
+            android:title="@string/menu_Settings" />
+
+        <item
+            android:id="@+id/nav_LogOut"
+            android:icon="@drawable/ic_logout"
+            android:title="@string/menu_LogOut" />
+
+
+    </group>
+</menu>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/relativelayout"
+            android:layout_height="?attr/actionBarSize"
+            android:paddingLeft="@dimen/_15sdp"
+            android:paddingBottom="@dimen/_10sdp"
+            android:paddingRight="@dimen/_10sdp"
+            android:paddingTop="@dimen/_15sdp"
+            android:background="@color/white"
+            android:layout_width="match_parent">
+
+
+            <ImageView
+                android:id="@+id/imgarbak"
+                android:layout_gravity="left"
+                android:src="@drawable/ic_orangebacks"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_24sdp"/>
+
+            <TextView
+                android:id="@+id/txtback"
+
+                android:layout_marginLeft="@dimen/_30sdp"
+                android:fontFamily="@font/quicksand_bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:textSize="14sp"
+                android:textColor="@color/vendororange"
+                android:text="Home" />
+
+            <TextView
+                android:layout_marginLeft="@dimen/_100sdp"
+                android:id="@+id/textView"
+                android:fontFamily="@font/quicksand_bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:textAllCaps="false"
+                android:textSize="18sp"
+                android:textColor="@color/vendorprimerycolor"
+                android:text="My Bids" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_alignParentEnd="true"
+                android:layout_weight="1.1"
+                android:layout_gravity="right"
+                android:src="@drawable/images"
+                app:civ_border_color="@color/vendororange"
+                android:layout_width="@dimen/_60sdp"
+                app:civ_border_width="@dimen/_2sdp"
+                android:layout_height="wrap_content"/>
+
+
+        </RelativeLayout>
+
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/lightgreencolor"
+            app:tabIndicatorColor="@color/vendorprimerycolor"
+            app:tabSelectedTextColor="@color/vendorprimerycolor"
+            app:tabTextColor="@color/vendorprimerycolor"
+            tools:ignore="MissingConstraints"/>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPager2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/tabLayout"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="8dp" />
+
+
+    </LinearLayout>
+
+
+
+
+</FrameLayout>

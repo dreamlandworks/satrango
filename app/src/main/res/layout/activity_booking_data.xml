@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".BookingDataActivity">
+
+    <include android:id="@+id/news_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/header"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+       <LinearLayout
+           android:padding="@dimen/_15sdp"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="vertical">
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="vertical">
+               <TextView
+                   android:layout_margin="@dimen/_10sdp"
+                   android:layout_gravity="center"
+                   android:textStyle="bold"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:textColor="@color/colorAccent"
+                   android:textSize="@dimen/_16sdp"
+                   android:text="Booking Date and Time"/>
+
+               <LinearLayout
+                   android:weightSum="2"
+                   android:layout_width="match_parent"
+                   android:orientation="horizontal"
+                   android:layout_height="wrap_content">
+
+
+                   <TextView
+                       android:layout_weight="1"
+                       android:windowSoftInputMode="stateAlwaysVisible"
+                       android:overScrollMode="always"
+                       android:scrollbarStyle="insideInset"
+                       android:scrollbars="vertical"
+                       android:singleLine="false"
+                       android:isScrollContainer="true"
+                       android:focusable="true"
+                       android:id="@+id/signIn_DATE"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_margin="@dimen/_10sdp"
+                       android:background="@drawable/gray_corner"
+                       android:drawableRight="@drawable/ic_date"
+                       android:drawablePadding="@dimen/_10sdp"
+                       android:hint="@string/date"
+                       android:imeOptions="actionNext"
+                       android:theme="@style/SignInSignUpEditText"
+                       android:inputType="text"
+                       android:textSize="16sp"
+                       android:padding="@dimen/_10sdp" />
+                   <TextView
+                       android:layout_margin="@dimen/_10sdp"
+                       android:layout_weight="1"
+                       android:windowSoftInputMode="stateAlwaysVisible"
+                       android:overScrollMode="always"
+                       android:scrollbarStyle="insideInset"
+                       android:scrollbars="vertical"
+                       android:singleLine="false"
+                       android:isScrollContainer="true"
+                       android:focusable="true"
+                       android:id="@+id/signIn_TIME"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_marginTop="@dimen/_10sdp"
+                       android:background="@drawable/gray_corner"
+                       android:drawableRight="@drawable/ic_time"
+                       android:drawablePadding="@dimen/_10sdp"
+                       android:hint="@string/time"
+                       android:imeOptions="actionNext"
+                       android:theme="@style/SignInSignUpEditText"
+                       android:inputType="text"
+                       android:textSize="16sp"
+                       android:padding="@dimen/_10sdp" />
+
+
+               </LinearLayout>
+               <LinearLayout
+                   android:background="@drawable/gray_corner"
+                   android:paddingLeft="@dimen/_10sdp"
+                   android:paddingRight="@dimen/_10sdp"
+                   android:paddingTop="@dimen/_20sdp"
+                   android:paddingBottom="@dimen/_20sdp"
+                   android:layout_marginTop="@dimen/_30sdp"
+                   android:weightSum="2"
+                   android:layout_marginLeft="@dimen/_5sdp"
+                   android:layout_marginRight="@dimen/_5sdp"
+                   android:layout_width="match_parent"
+                   android:orientation="horizontal"
+                   android:layout_height="wrap_content">
+
+                   <TextView
+                       android:textStyle="bold"
+                       android:fontFamily="@font/neosans_pro_regular"
+                       android:layout_weight="1.2"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:textColor="@color/colorPrimaryDark"
+                       android:textSize="@dimen/_18sdp"
+                       android:text="Total Amount : "/>
+
+                   <TextView
+                       android:textAlignment="textEnd"
+                       android:fontFamily="@font/neosans_pro_regular"
+                       android:textStyle="bold"
+                       android:layout_weight=".8"
+                       android:layout_marginLeft="@dimen/_10sdp"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:textColor="@color/colorAccent"
+                       android:textSize="@dimen/_18sdp"
+                       android:text="Rs: 1500 aprox"/>
+               </LinearLayout>
+
+           </LinearLayout>
+           <Button
+               android:padding="@dimen/_5sdp"
+               android:layout_marginTop="@dimen/_50sdp"
+               android:id="@+id/buttonShowDialog"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_marginEnd="5dp"
+               android:background="@drawable/btn_rounded_primary"
+               android:text="@string/Confirmbooking"
+               android:textAllCaps="false"
+               android:textStyle="bold"
+               android:textColor="@color/white"
+               android:textSize="@dimen/_16sdp"
+               android:layout_marginRight="5dp" />
+       </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

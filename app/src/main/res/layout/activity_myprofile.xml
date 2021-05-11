@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MyprofileActivity_User">
+
+
+    <RelativeLayout
+        android:id="@+id/relativelayout"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimaryDark"
+        android:paddingLeft="@dimen/_15sdp"
+        android:paddingTop="@dimen/_15sdp"
+        android:paddingRight="@dimen/_10sdp"
+        android:paddingBottom="@dimen/_10sdp">
+
+
+        <ImageView
+            android:id="@+id/im_back"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_gravity="left"
+            android:src="@drawable/ic_backs" />
+
+        <TextView
+            android:id="@+id/txt_back"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_30sdp"
+            android:fontFamily="@font/quicksand_bold"
+            android:text="Home"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="@dimen/_100sdp"
+            android:fontFamily="@font/quicksand_bold"
+            android:text="My Proﬁle"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-5dp"
+        android:src="@drawable/ic_yellowline" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_120sdp"
+                    android:background="@color/colorPrimaryDark" />
+
+                <!--  <ImageView
+                      android:layout_gravity="center"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_centerHorizontal="true"
+                      android:adjustViewBounds="true"
+                      android:scaleType="fitXY"
+                      android:src="@drawable/loginbackground"
+                      />-->
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_50sdp"
+                    android:orientation="vertical">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="@dimen/_20sdp"
+                        app:cardElevation="@dimen/_3sdp"
+                        app:cardUseCompatPadding="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_50sdp"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <RelativeLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="@dimen/_100sdp"
+                                    android:layout_gravity="bottom"
+                                    android:gravity="bottom">
+
+
+                                    <de.hdodenhof.circleimageview.CircleImageView
+                                        android:id="@+id/profilepic"
+                                        android:layout_width="@dimen/_90sdp"
+                                        android:layout_height="@dimen/_90sdp"
+                                        android:layout_margin="@dimen/_10sdp"
+                                        android:src="@drawable/images"
+                                        app:civ_border_color="@color/yellow"
+                                        app:civ_border_width="@dimen/_3sdp" />
+
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="@dimen/_24sdp"
+                                        android:layout_alignParentBottom="true"
+                                        android:layout_marginLeft="@dimen/_30sdp"
+                                        android:src="@drawable/ic_cameras" />
+
+                                </RelativeLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="@dimen/_15sdp"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:gravity="center"
+                                        android:orientation="horizontal">
+
+                                        <EditText
+                                            android:id="@+id/edt_name"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:layout_marginTop="@dimen/_5sdp"
+                                            android:background="@color/transparent"
+                                            android:drawablePadding="@dimen/_10sdp"
+                                            android:enabled="false"
+                                            android:fontFamily="@font/quicksand_bold"
+                                            android:text="@string/name"
+                                            android:textColor="@color/black"
+                                            android:textSize="@dimen/_16sdp"
+                                            android:textStyle="bold" />
+
+                                        <ImageView
+                                            android:id="@+id/imgeditname"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:layout_marginTop="@dimen/_5sdp"
+                                            android:src="@drawable/ic_pencils"
+
+                                            >
+
+                                        </ImageView>
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal">
+
+                                        <EditText
+                                            android:id="@+id/edt_phone"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:layout_marginTop="@dimen/_5sdp"
+                                            android:background="@color/transparent"
+                                            android:digits="0123456789"
+                                            android:drawablePadding="@dimen/_10sdp"
+                                            android:enabled="false"
+                                            android:fontFamily="@font/quicksand_bold"
+                                            android:inputType="number"
+                                            android:text="@string/mobileno"
+                                            android:textColor="@color/black"
+                                            android:textSize="@dimen/_14sdp"
+                                            android:textStyle="bold" />
+
+                                        <ImageView
+                                            android:id="@+id/imgeditmob"
+
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:layout_marginTop="@dimen/_5sdp"
+                                            android:src="@drawable/ic_pencils">
+
+                                        </ImageView>
+
+                                    </LinearLayout>
+
+                                    <TextView
+                                        android:id="@+id/txtchangepass"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_marginTop="@dimen/_5sdp"
+                                        android:drawablePadding="@dimen/_10sdp"
+                                        android:fontFamily="@font/quicksand_bold"
+                                        android:text="@string/changepassword"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/_16sdp" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:padding="@dimen/_15sdp">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                    <com.google.android.material.textfield.TextInputLayout
+                                        android:id="@+id/signIn_email"
+                                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                        android:layout_width="@dimen/_300sdp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1">
+
+                                        <com.google.android.material.textfield.TextInputEditText
+                                            android:id="@+id/edt_mail"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:drawableLeft="@drawable/ic_mail"
+                                            android:drawablePadding="@dimen/_10sdp"
+                                            android:hint="@string/email"
+                                            android:inputType="textEmailAddress"
+                                            android:maxLines="1"
+                                            android:enabled="false"
+
+                                            android:theme="@style/AppTheme1" />
+                                    </com.google.android.material.textfield.TextInputLayout>
+
+                                    <ImageView
+
+                                        android:id="@+id/imgmailedt"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_gravity="center"
+                                        android:layout_marginTop="@dimen/_20sdp"
+                                        android:layout_marginLeft="@dimen/_5sdp"
+                                        android:src="@drawable/ic_pencils">
+
+                                    </ImageView>
+
+
+                                </RelativeLayout>
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:id="@+id/DateOfBirth"
+                                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/_10sdp">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/edt_dob"
+                                        android:layout_width="@dimen/_220sdp"
+                                        android:layout_height="wrap_content"
+                                        android:drawableLeft="@drawable/ic_calenders"
+                                        android:drawableRight="@drawable/ic_pencils"
+                                        android:drawablePadding="@dimen/_10sdp"
+                                        android:editable="false"
+                                        android:hint="@string/DateOfBirth"
+                                        android:inputType="text"
+                                        android:maxLines="1"
+                                        android:text="14 Jun 2012 "
+                                        android:theme="@style/AppTheme1" />
+                                </com.google.android.material.textfield.TextInputLayout>
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/_15sdp"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:text=" Saved Addresses"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/_18sdp"
+                                        android:textStyle="bold" />
+
+
+                                    <HorizontalScrollView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content">
+
+                                        <LinearLayout
+                                            android:id="@+id/ll_adres"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/_10sdp"
+                                            android:orientation="horizontal">
+
+
+                                            <TextView
+                                                android:id="@+id/txt_adres"
+                                                android:layout_width="@dimen/_200sdp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center"
+                                                android:layout_margin="@dimen/_10sdp"
+                                                android:background="@drawable/locationbackground"
+                                                android:padding="@dimen/_15sdp"
+
+                                                android:textColor="@color/grey_60"
+                                                android:textSize="@dimen/_14sdp" />
+                                            <ImageView
+                                                android:id="@+id/imgdel"
+                                                android:layout_gravity="center"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:src="@drawable/ic_close"
+                                                ></ImageView>
+
+
+                                            <TextView
+                                                android:layout_width="@dimen/_200sdp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center"
+                                                android:layout_margin="@dimen/_10sdp"
+                                                android:background="@drawable/locationbackground"
+                                                android:padding="@dimen/_15sdp"
+                                                android:text="@string/address"
+                                                android:textColor="@color/grey_60"
+                                                android:textSize="@dimen/_14sdp"
+                                                android:visibility="gone" />
+
+                                            <TextView
+                                                android:layout_width="@dimen/_200sdp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center"
+                                                android:layout_margin="@dimen/_10sdp"
+                                                android:background="@drawable/locationbackground"
+                                                android:padding="@dimen/_15sdp"
+                                                android:text="@string/address"
+                                                android:textColor="@color/grey_60"
+                                                android:textSize="@dimen/_14sdp"
+                                                android:visibility="gone" />
+
+                                        </LinearLayout>
+
+                                    </HorizontalScrollView>
+
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal"
+                                        android:weightSum="2">
+
+                                        <Button
+                                            android:id="@+id/btn_back"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="@dimen/_50sdp"
+                                            android:layout_margin="@dimen/_20sdp"
+                                            android:layout_weight="1"
+                                            android:text="@string/Back"
+                                            android:textStyle="bold" />
+
+                                        <Button
+                                            android:id="@+id/btn_apply"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="@dimen/_50sdp"
+                                            android:layout_margin="@dimen/_20sdp"
+                                            android:layout_weight="1"
+                                            android:background="@drawable/ic_yellowline"
+                                            android:text="@string/Apply"
+                                            android:textStyle="bold" />
+
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+
+                    </androidx.cardview.widget.CardView>
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_myprofileicon" />
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

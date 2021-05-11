@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "670500485578",
+    "project_id": "satrango-6b984",
+    "storage_bucket": "satrango-6b984.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:670500485578:android:9d92c7ad3c5d0dc7a5f733",
+        "android_client_info": {
+          "package_name": "com.satrangolimitless"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "670500485578-3b2b6j108dnltg7o741vbb6jtv67t5pf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.satrangolimitless",
+            "certificate_hash": "05e3503683bf465eaaf9971fc262c5c26a5e2048"
+          }
+        },
+        {
+          "client_id": "670500485578-h84f9acgjau239jvmohlhdf1dpf22oo9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.satrangolimitless",
+            "certificate_hash": "16618372925625ee9b986788236078fd76222af2"
+          }
+        },
+        {
+          "client_id": "670500485578-17cjtr894e6leccfcnr6uc4bq2doe78o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKpjKBx00zDOpEDQ68hPDcsCR5mzkNgLw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "670500485578-17cjtr894e6leccfcnr6uc4bq2doe78o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

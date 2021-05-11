@@ -1,0 +1,1127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SearchListActivity">
+
+    <include android:id="@+id/news_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/header"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/_14sdp"
+                android:background="@color/white"
+                android:padding="@dimen/_10sdp"
+                android:textStyle="italic"
+                  android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Search results for need an ac Mechanics "/>
+
+            <LinearLayout
+             android:background="@color/lightgreen600"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:orientation="vertical">
+
+                <TextView
+                    android:layout_gravity="center"
+                    android:paddingLeft="@dimen/_15sdp"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:fontFamily="@font/neosanspro_medium"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18sdp"
+                    android:textStyle="bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="RECOMANDED"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardUseCompatPadding="true"
+                app:cardElevation="@dimen/_3sdp"
+                app:cardBackgroundColor="@color/white">
+
+            <LinearLayout
+                android:padding="@dimen/_7sdp"
+                android:weightSum="3"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_weight="1.2"
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:src="@drawable/images"
+                        app:civ_border_color="@color/white"
+                        app:civ_border_width="@dimen/_2sdp" />
+
+                    <RatingBar
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:id="@+id/myRatingBar"
+                        style="?android:attr/ratingBarStyleSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:numStars="5"
+                        android:isIndicator="false" />
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp"
+                        android:text="(5/5 Stars)"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_margin="@dimen/_10sdp"
+                    android:layout_weight=".7"
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:fontFamily="@font/neosanspro_medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_20sdp"
+                        android:text="Vendor Name"/>
+
+                    <LinearLayout
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_weight=".7"
+                        android:layout_width="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/_14sdp"
+                        android:textStyle="bold"
+                        android:text="skils:"/>
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/blue600"
+                            android:textSize="@dimen/_14sdp"
+                            android:text="Repair, car services"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_weight=".7"
+                        android:layout_width="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_height="wrap_content">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/_14sdp"
+                            android:textStyle="bold"
+                            android:text="Experience:"/>
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/blue600"
+                            android:textSize="@dimen/_14sdp"
+                            android:text="3-5 years"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_weight=".7"
+                        android:layout_width="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_height="wrap_content">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/_14sdp"
+                            android:textStyle="bold"
+                            android:text="About:"/>
+
+                        <TextView
+                            android:ellipsize="end"
+                           android:maxLines="1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/blue600"
+                            android:textSize="@dimen/_14sdp"
+                            android:text="I have 3-5 years experience in this field"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_weight=".7"
+                        android:layout_width="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_height="wrap_content">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/_14sdp"
+                            android:textStyle="bold"
+                            android:text="Language:"/>
+
+                        <TextView
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/blue600"
+                            android:textSize="@dimen/_14sdp"
+                            android:text="Hindi, English"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_weight=".7"
+                        android:layout_width="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_height="wrap_content">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/neosanspro_medium"
+                            android:text="Rank:"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/_14sdp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/neosanspro_medium"
+                            android:text="24"
+                            android:textColor="@color/red"
+                            android:textSize="@dimen/_16sdp"
+                            android:textStyle="bold" />
+
+
+                        <TextView
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/darkred"
+                            android:textSize="@dimen/_14sdp"
+                            android:drawablePadding="@dimen/_5sdp"
+                            android:textStyle="bold"
+                            android:text="3.8km away"/>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_gravity="center"
+                    android:layout_weight="1.1"
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:textStyle="bold"
+                        android:fontFamily="@font/neosans_pro_regular"
+                        android:textAlignment="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:text="Min. Charges"/>
+
+                    <TextView
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:fontFamily="@font/neosanspro_medium"
+                        android:textSize="@dimen/_16sdp"
+                        android:textStyle="bold"
+                        android:textAlignment="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/red"
+                        android:text="R 567.00"
+                        android:drawablePadding="@dimen/_7sdp"/>
+
+
+                    <TextView
+                        android:layout_marginTop="@dimen/_7sdp"
+                        android:textStyle="italic"
+                        android:fontFamily="@font/neosanspro_medium"
+                        android:textAlignment="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:text="Know more"
+                        android:textSize="@dimen/_12sdp"
+                        android:drawablePadding="@dimen/_7sdp"/>
+                    <View
+                        android:layout_gravity="center"
+                        android:layout_width="@dimen/_60sdp"
+                        android:layout_height="@dimen/_2sdp"
+                        android:background="@color/blue600"/>
+
+
+                    <TextView
+                        android:gravity="center"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:id="@+id/AG_BOOKNOW"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:background="@drawable/booknowbutton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Book Now"
+                        android:textStyle="bold"/>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+              </LinearLayout>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardUseCompatPadding="true"
+                app:cardElevation="@dimen/_3sdp"
+                app:cardBackgroundColor="@color/white">
+
+                <LinearLayout
+                    android:padding="@dimen/_7sdp"
+                    android:weightSum="3"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_weight="1.2"
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content">
+
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="60dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:src="@drawable/images"
+                            app:civ_border_color="@color/white"
+                            app:civ_border_width="@dimen/_2sdp" />
+
+                        <RatingBar
+                            android:layout_marginTop="@dimen/_10sdp"
+                            style="?android:attr/ratingBarStyleSmall"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:numStars="5"
+                            android:isIndicator="false" />
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp"
+                            android:text="(5/5 Stars)"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_margin="@dimen/_10sdp"
+                        android:layout_weight=".7"
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:fontFamily="@font/neosanspro_medium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_20sdp"
+                            android:text="Vendor Name"/>
+
+                        <LinearLayout
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_weight=".7"
+                            android:layout_width="match_parent"
+                            android:orientation="horizontal"
+                            android:layout_height="wrap_content">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textSize="@dimen/_14sdp"
+                                android:textStyle="bold"
+                                android:text="skils:"/>
+
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/blue600"
+                                android:textSize="@dimen/_14sdp"
+                                android:text="Repair, car services"/>
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_weight=".7"
+                            android:layout_width="match_parent"
+                            android:orientation="horizontal"
+                            android:layout_height="wrap_content">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textSize="@dimen/_14sdp"
+                                android:textStyle="bold"
+                                android:text="Experience:"/>
+
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/blue600"
+                                android:textSize="@dimen/_14sdp"
+                                android:text="3-5 years"/>
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_weight=".7"
+                            android:layout_width="match_parent"
+                            android:orientation="horizontal"
+                            android:layout_height="wrap_content">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textSize="@dimen/_14sdp"
+                                android:textStyle="bold"
+                                android:text="About:"/>
+
+                            <TextView
+                                android:ellipsize="end"
+                                android:maxLines="1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/blue600"
+                                android:textSize="@dimen/_14sdp"
+                                android:text="I have 3-5 years experience in this field"/>
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_weight=".7"
+                            android:layout_width="match_parent"
+                            android:orientation="horizontal"
+                            android:layout_height="wrap_content">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textSize="@dimen/_14sdp"
+                                android:textStyle="bold"
+                                android:text="Language:"/>
+
+                            <TextView
+                                android:ellipsize="end"
+                                android:maxLines="1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/blue600"
+                                android:textSize="@dimen/_14sdp"
+                                android:text="Hindi, English"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_weight=".7"
+                            android:layout_width="match_parent"
+                            android:orientation="horizontal"
+                            android:layout_height="wrap_content">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/neosanspro_medium"
+                                android:text="Rank:"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textSize="@dimen/_14sdp"
+                                android:textStyle="bold" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/neosanspro_medium"
+                                android:text="24"
+                                android:textColor="@color/red"
+                                android:textSize="@dimen/_16sdp"
+                                android:textStyle="bold" />
+
+
+                            <TextView
+                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/darkred"
+                                android:textSize="@dimen/_14sdp"
+                                android:drawablePadding="@dimen/_5sdp"
+                                android:textStyle="bold"
+                                android:text="3.8km away"/>
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_gravity="center"
+                        android:layout_weight="1.1"
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content">
+
+
+                        <TextView
+                            android:textStyle="bold"
+                            android:fontFamily="@font/neosans_pro_regular"
+                            android:textAlignment="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:text="Min. Charges"/>
+
+                        <TextView
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:fontFamily="@font/neosanspro_medium"
+                            android:textSize="@dimen/_16sdp"
+                            android:textStyle="bold"
+                            android:textAlignment="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/red"
+                            android:text="R 567.00"
+                            android:drawablePadding="@dimen/_7sdp"/>
+
+
+                        <TextView
+                            android:layout_marginTop="@dimen/_7sdp"
+                            android:textStyle="italic"
+                            android:fontFamily="@font/neosanspro_medium"
+                            android:textAlignment="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:text="Know more"
+                            android:textSize="@dimen/_12sdp"
+                            android:drawablePadding="@dimen/_7sdp"/>
+                        <View
+                            android:layout_gravity="center"
+                            android:layout_width="@dimen/_60sdp"
+                            android:layout_height="@dimen/_2sdp"
+                            android:background="@color/blue600"/>
+
+
+                        <TextView
+                            android:gravity="center"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            android:background="@drawable/booknowbutton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Book Now"
+                            android:textStyle="bold"/>
+
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardUseCompatPadding="true"
+                app:cardElevation="@dimen/_3sdp"
+                app:cardBackgroundColor="@color/white">
+
+                <LinearLayout
+                    android:padding="@dimen/_7sdp"
+                    android:weightSum="3"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_weight="1.2"
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content">
+
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="60dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:src="@drawable/images"
+                            app:civ_border_color="@color/white"
+                            app:civ_border_width="@dimen/_2sdp" />
+
+                        <RatingBar
+                            android:layout_marginTop="@dimen/_10sdp"
+                            style="?android:attr/ratingBarStyleSmall"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:numStars="5"
+                            android:isIndicator="false" />
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp"
+                            android:text="(5/5 Stars)"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_margin="@dimen/_10sdp"
+                        android:layout_weight=".7"
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:fontFamily="@font/neosanspro_medium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_20sdp"
+                            android:text="Vendor Name"/>
+
+                        <LinearLayout
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_weight=".7"
+                            android:layout_width="match_parent"
+                            android:orientation="horizontal"
+                            android:layout_height="wrap_content">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textSize="@dimen/_14sdp"
+                                android:textStyle="bold"
+                                android:text="skils:"/>
+
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/blue600"
+                                android:textSize="@dimen/_14sdp"
+                                android:text="Repair, car services"/>
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_weight=".7"
+                            android:layout_width="match_parent"
+                            android:orientation="horizontal"
+                            android:layout_height="wrap_content">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textSize="@dimen/_14sdp"
+                                android:textStyle="bold"
+                                android:text="Experience:"/>
+
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/blue600"
+                                android:textSize="@dimen/_14sdp"
+                                android:text="3-5 years"/>
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_weight=".7"
+                            android:layout_width="match_parent"
+                            android:orientation="horizontal"
+                            android:layout_height="wrap_content">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textSize="@dimen/_14sdp"
+                                android:textStyle="bold"
+                                android:text="About:"/>
+
+                            <TextView
+                                android:ellipsize="end"
+                                android:maxLines="1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/blue600"
+                                android:textSize="@dimen/_14sdp"
+                                android:text="I have 3-5 years experience in this field"/>
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_weight=".7"
+                            android:layout_width="match_parent"
+                            android:orientation="horizontal"
+                            android:layout_height="wrap_content">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textSize="@dimen/_14sdp"
+                                android:textStyle="bold"
+                                android:text="Language:"/>
+
+                            <TextView
+                                android:ellipsize="end"
+                                android:maxLines="1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/blue600"
+                                android:textSize="@dimen/_14sdp"
+                                android:text="Hindi, English"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_weight=".7"
+                            android:layout_width="match_parent"
+                            android:orientation="horizontal"
+                            android:layout_height="wrap_content">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/neosanspro_medium"
+                                android:text="Rank:"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textSize="@dimen/_14sdp"
+                                android:textStyle="bold" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/neosanspro_medium"
+                                android:text="24"
+                                android:textColor="@color/red"
+                                android:textSize="@dimen/_16sdp"
+                                android:textStyle="bold" />
+
+
+                            <TextView
+                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/darkred"
+                                android:textSize="@dimen/_14sdp"
+                                android:drawablePadding="@dimen/_5sdp"
+                                android:textStyle="bold"
+                                android:text="3.8km away"/>
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_gravity="center"
+                        android:layout_weight="1.1"
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content">
+
+
+                        <TextView
+                            android:textStyle="bold"
+                            android:fontFamily="@font/neosans_pro_regular"
+                            android:textAlignment="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:text="Min. Charges"/>
+
+                        <TextView
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:fontFamily="@font/neosanspro_medium"
+                            android:textSize="@dimen/_16sdp"
+                            android:textStyle="bold"
+                            android:textAlignment="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/red"
+                            android:text="R 567.00"
+                            android:drawablePadding="@dimen/_7sdp"/>
+
+
+                        <TextView
+                            android:layout_marginTop="@dimen/_7sdp"
+                            android:textStyle="italic"
+                            android:fontFamily="@font/neosanspro_medium"
+                            android:textAlignment="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:text="Know more"
+                            android:textSize="@dimen/_12sdp"
+                            android:drawablePadding="@dimen/_7sdp"/>
+                        <View
+                            android:layout_gravity="center"
+                            android:layout_width="@dimen/_60sdp"
+                            android:layout_height="@dimen/_2sdp"
+                            android:background="@color/blue600"/>
+
+
+                        <TextView
+                            android:gravity="center"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            android:background="@drawable/booknowbutton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Book Now"
+                            android:textStyle="bold"/>
+
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardUseCompatPadding="true"
+                app:cardElevation="@dimen/_3sdp"
+                app:cardBackgroundColor="@color/white">
+
+                <LinearLayout
+                    android:padding="@dimen/_7sdp"
+                    android:weightSum="3"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_weight="1.2"
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content">
+
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="60dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:src="@drawable/images"
+                            app:civ_border_color="@color/white"
+                            app:civ_border_width="@dimen/_2sdp" />
+
+                        <RatingBar
+                            android:layout_marginTop="@dimen/_10sdp"
+                            style="?android:attr/ratingBarStyleSmall"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:numStars="5"
+                            android:isIndicator="false" />
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp"
+                            android:text="(5/5 Stars)"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_margin="@dimen/_10sdp"
+                        android:layout_weight=".7"
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:fontFamily="@font/neosanspro_medium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_20sdp"
+                            android:text="Vendor Name"/>
+
+                        <LinearLayout
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_weight=".7"
+                            android:layout_width="match_parent"
+                            android:orientation="horizontal"
+                            android:layout_height="wrap_content">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textSize="@dimen/_14sdp"
+                                android:textStyle="bold"
+                                android:text="skils:"/>
+
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/blue600"
+                                android:textSize="@dimen/_14sdp"
+                                android:text="Repair, car services"/>
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_weight=".7"
+                            android:layout_width="match_parent"
+                            android:orientation="horizontal"
+                            android:layout_height="wrap_content">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textSize="@dimen/_14sdp"
+                                android:textStyle="bold"
+                                android:text="Experience:"/>
+
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/blue600"
+                                android:textSize="@dimen/_14sdp"
+                                android:text="3-5 years"/>
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_weight=".7"
+                            android:layout_width="match_parent"
+                            android:orientation="horizontal"
+                            android:layout_height="wrap_content">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textSize="@dimen/_14sdp"
+                                android:textStyle="bold"
+                                android:text="About:"/>
+
+                            <TextView
+                                android:ellipsize="end"
+                                android:maxLines="1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/blue600"
+                                android:textSize="@dimen/_14sdp"
+                                android:text="I have 3-5 years experience in this field"/>
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_weight=".7"
+                            android:layout_width="match_parent"
+                            android:orientation="horizontal"
+                            android:layout_height="wrap_content">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textSize="@dimen/_14sdp"
+                                android:textStyle="bold"
+                                android:text="Language:"/>
+
+                            <TextView
+                                android:ellipsize="end"
+                                android:maxLines="1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/blue600"
+                                android:textSize="@dimen/_14sdp"
+                                android:text="Hindi, English"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_weight=".7"
+                            android:layout_width="match_parent"
+                            android:orientation="horizontal"
+                            android:layout_height="wrap_content">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/neosanspro_medium"
+                                android:text="Rank:"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textSize="@dimen/_14sdp"
+                                android:textStyle="bold" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/neosanspro_medium"
+                                android:text="24"
+                                android:textColor="@color/red"
+                                android:textSize="@dimen/_16sdp"
+                                android:textStyle="bold" />
+
+
+                            <TextView
+                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/darkred"
+                                android:textSize="@dimen/_14sdp"
+                                android:drawablePadding="@dimen/_5sdp"
+                                android:textStyle="bold"
+                                android:text="3.8km away"/>
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_gravity="center"
+                        android:layout_weight="1.1"
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content">
+
+
+                        <TextView
+                            android:textStyle="bold"
+                            android:fontFamily="@font/neosans_pro_regular"
+                            android:textAlignment="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:text="Min. Charges"/>
+
+                        <TextView
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:fontFamily="@font/neosanspro_medium"
+                            android:textSize="@dimen/_16sdp"
+                            android:textStyle="bold"
+                            android:textAlignment="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/red"
+                            android:text="R 567.00"
+                            android:drawablePadding="@dimen/_7sdp"/>
+
+
+                        <TextView
+                            android:layout_marginTop="@dimen/_7sdp"
+                            android:textStyle="italic"
+                            android:fontFamily="@font/neosanspro_medium"
+                            android:textAlignment="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:text="Know more"
+                            android:textSize="@dimen/_12sdp"
+                            android:drawablePadding="@dimen/_7sdp"/>
+                        <View
+                            android:layout_gravity="center"
+                            android:layout_width="@dimen/_60sdp"
+                            android:layout_height="@dimen/_2sdp"
+                            android:background="@color/blue600"/>
+
+
+                        <TextView
+                            android:gravity="center"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            android:background="@drawable/booknowbutton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Book Now"
+                            android:textStyle="bold"/>
+
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

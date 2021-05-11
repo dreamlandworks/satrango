@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+   >
+
+
+    <RelativeLayout
+        android:id="@+id/relativelayout"
+        android:layout_height="?attr/actionBarSize"
+        android:paddingLeft="@dimen/_15sdp"
+        android:paddingBottom="@dimen/_10sdp"
+        android:paddingRight="@dimen/_10sdp"
+        android:paddingTop="@dimen/_15sdp"
+        android:background="@color/colorPrimaryDark"
+        android:layout_width="match_parent">
+
+
+        <ImageView
+            android:id="@+id/icback"
+            android:layout_gravity="left"
+            android:src="@drawable/ic_backs"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_24sdp"/>
+
+        <TextView
+            android:layout_marginLeft="@dimen/_30sdp"
+            android:fontFamily="@font/quicksand_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:text="Search" />
+
+        <TextView
+            android:layout_marginLeft="@dimen/_100sdp"
+            android:id="@+id/textView"
+            android:fontFamily="@font/quicksand_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:text="Booking Details" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imgprofile"
+            android:layout_alignParentEnd="true"
+            android:layout_weight="1.1"
+            android:layout_gravity="right"
+            android:src="@drawable/images"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_marginTop="-5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_yellowline"/>
+    <View
+        android:layout_marginTop="-3dp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_15sdp"
+        android:background="@color/colorPrimaryDark"/>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_margin="@dimen/_15sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:fontFamily="@font/quicksand_bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:textSize="18sp"
+                android:textColor="@color/colorPrimaryDark"
+                android:text="@string/notificationalerts" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+             <androidx.recyclerview.widget.RecyclerView
+                 android:id="@+id/recv_notification"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent">
+
+             </androidx.recyclerview.widget.RecyclerView>
+
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</LinearLayout>

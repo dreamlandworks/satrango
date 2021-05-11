@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context="com.satrangolimitless.User_UI.Mybooking.MybookingFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/relativelayout"
+            android:layout_height="?attr/actionBarSize"
+            android:paddingLeft="@dimen/_15sdp"
+            android:paddingBottom="@dimen/_10sdp"
+            android:paddingRight="@dimen/_10sdp"
+            android:paddingTop="@dimen/_15sdp"
+            android:background="@color/colorPrimaryDark"
+            android:layout_width="match_parent">
+
+
+            <ImageView
+                android:id="@+id/imgbackb"
+                android:layout_gravity="left"
+                android:src="@drawable/ic_backs"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_24sdp"/>
+
+            <TextView
+                android:id="@+id/txtbacks"
+                android:layout_marginLeft="@dimen/_30sdp"
+                android:fontFamily="@font/quicksand_bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:textSize="14sp"
+                android:textColor="@color/white"
+                android:text="Home" />
+
+            <TextView
+                android:layout_marginLeft="@dimen/_100sdp"
+                android:id="@+id/textView"
+                android:fontFamily="@font/quicksand_bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:text="My Bookings" />
+
+            <ImageView
+                android:id="@+id/imgprobooking"
+                android:layout_alignParentEnd="true"
+                android:layout_weight="1.1"
+                android:layout_gravity="right"
+                android:src="@drawable/images"
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
+
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"
+            app:tabIndicatorColor="@color/yellow"
+            app:tabSelectedTextColor="@color/black"
+            app:tabTextColor="@color/white"
+            tools:ignore="MissingConstraints"/>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPager2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/tabLayout"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="8dp" />
+
+
+    </LinearLayout>
+
+
+
+
+</FrameLayout>

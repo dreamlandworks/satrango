@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+
+        <RelativeLayout
+            android:layout_margin="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+
+
+            <LinearLayout
+                android:background="@drawable/yellow_border"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:padding="@dimen/_10sdp"
+                    android:weightSum="2"
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:weightSum="2"
+                        android:layout_width="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_height="wrap_content">
+
+
+
+                        <LinearLayout
+                            android:layout_weight="1.5"
+                            android:layout_width="match_parent"
+                            android:orientation="vertical"
+                            android:layout_height="wrap_content">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/v_imagebids"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/_15sdp"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_60sdp"
+                                app:civ_border_width="@dimen/_3sdp"
+                                android:src="@drawable/images"
+                                app:civ_border_color="@color/yellow"/>
+
+                            <TextView
+                                android:id="@+id/txtrank"
+                                android:paddingLeft="@dimen/_10sdp"
+                                android:paddingRight="@dimen/_10sdp"
+                                android:background="@color/colorPrimaryDark"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:layout_gravity="center"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="#24"
+                                android:textAlignment="center"
+                                android:textSize="@dimen/_18sdp"
+                                android:textStyle="bold"
+                                android:textColor="@color/white"/>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/lldetails"
+                            android:layout_margin="@dimen/_10sdp"
+                            android:layout_weight=".5"
+                            android:layout_width="match_parent"
+                            android:orientation="vertical"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:weightSum="2"
+                                android:layout_width="match_parent"
+                                android:orientation="horizontal"
+                                android:layout_height="wrap_content">
+
+                                <LinearLayout
+                                    android:layout_weight=".7"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/txtvname"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/_14sdp"
+                                        android:fontFamily="@font/quicksand_bold"
+                                        android:text="Mr. Pablo Escobar"/>
+
+
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:gravity="right"
+                                    android:layout_gravity="right"
+                                    android:layout_weight="1.3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:drawablePadding="@dimen/_5sdp"
+                                        android:layout_marginLeft="@dimen/_10sdp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textColor="@color/colorPrimaryDark"
+                                        android:textSize="@dimen/_10sdp"
+                                        android:text="Bid"/>
+
+                                    <TextView
+                                        android:id="@+id/txtbidamount"
+                                        android:drawablePadding="@dimen/_5sdp"
+                                        android:layout_marginLeft="@dimen/_10sdp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textColor="@color/red"
+                                        android:textSize="@dimen/_10sdp"
+                                        android:text="260.00"/>
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+
+
+
+                            <LinearLayout
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:weightSum="2"
+                                android:layout_width="match_parent"
+                                android:orientation="horizontal"
+                                android:layout_height="wrap_content">
+
+                                <LinearLayout
+                                    android:layout_weight="1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/txtrating"
+                                        android:drawablePadding="@dimen/_5sdp"
+                                        android:layout_marginLeft="@dimen/_10sdp"
+                                        android:drawableRight="@drawable/ic_stars"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/_10sdp"
+                                        android:text="4.8"/>
+
+                                    <TextView
+                                        android:id="@+id/txtuserconn"
+                                        android:drawablePadding="@dimen/_5sdp"
+                                        android:layout_marginLeft="@dimen/_10sdp"
+                                        android:drawableRight="@drawable/ic_groups"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/_10sdp"
+                                        android:text="233"/>
+
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:gravity="right"
+                                    android:layout_gravity="right"
+                                    android:layout_weight="1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:drawablePadding="@dimen/_5sdp"
+                                        android:layout_marginLeft="@dimen/_10sdp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textColor="@color/colorPrimaryDark"
+                                        android:textSize="@dimen/_10sdp"
+                                        android:text="Time"/>
+
+                                    <TextView
+                                        android:id="@+id/txtestimatetime"
+                                        android:drawablePadding="@dimen/_5sdp"
+                                        android:layout_marginLeft="@dimen/_10sdp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textColor="@color/red"
+                                        android:textSize="@dimen/_10sdp"
+                                        android:text="3 Hrs"/>
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/txtproposal"
+                                android:layout_marginBottom="@dimen/_10sdp"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:drawableRight="@drawable/ic_nexts"
+                                android:layout_gravity="right"
+                                android:text="Being a Blue collar Job this needs to be uniquely coloured so that users can easily understand"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_laybackground"
+                    android:paddingBottom="@dimen/_10sdp"
+                    android:weightSum="3"
+                    android:layout_alignParentBottom="true"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:background="@drawable/ic_bookinginprogress"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:layout_weight=".9"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_gravity="right"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/_14sdp"
+                            android:layout_marginRight="@dimen/_10sdp"
+                            android:fontFamily="@font/quicksand_bold"
+                            android:text="Job"/>
+                        <TextView
+                            android:id="@+id/txtjobpoints"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/red"
+                            android:textSize="@dimen/_14sdp"
+                            android:layout_marginRight="@dimen/_10sdp"
+                            android:fontFamily="@font/quicksand_bold"
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_reject"
+                        android:layout_weight="1.1"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/txtreject"
+                            android:gravity="center"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/red"
+                            android:textSize="@dimen/_12sdp"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/quicksand_bold"
+                            android:text="Progress"/>
+                        <View
+                            android:layout_gravity="center"
+                            android:layout_width="@dimen/_30sdp"
+                            android:layout_height="@dimen/_2sdp"
+                            android:background="@color/red"/>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/ll_award"
+
+                        android:layout_weight=".9"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/txtaward"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/_14sdp"
+                            android:gravity="center"
+                            android:layout_marginRight="@dimen/_5sdp"
+                            android:fontFamily="@font/quicksand_bold"
+                            android:text="Awarded"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/vendorprofilebackground"
+    tools:context=".VENDOR.PROFILES.PrifileActivityTwo">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+
+            <TextView
+                android:id="@+id/onestape"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_width="wrap_content"
+                android:textStyle="bold"
+                android:fontFamily="@font/quicksand_bold"
+                android:textSize="@dimen/_26sdp"
+                android:text="Get.. Set"
+                android:textColor="@color/vendorprimerycolor"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_below="@+id/onestape"
+                android:layout_marginLeft="@dimen/_30sdp"
+                android:layout_width="wrap_content"
+                android:textStyle="bold"
+                android:fontFamily="@font/quicksand_bold"
+                android:textSize="@dimen/_26sdp"
+                android:text="Verify.."
+                android:textColor="@color/vendorprimerycolor"
+                android:layout_height="wrap_content"/>
+
+
+            <RelativeLayout
+                android:layout_marginTop="@dimen/_140sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/verticalcardview"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="@dimen/_15sdp"
+                    app:cardElevation="@dimen/_3sdp"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:orientation="vertical"
+                            android:paddingLeft="15dp"
+                            android:layout_marginBottom="@dimen/_30sdp"
+                            android:paddingRight="15dp">
+
+
+
+                            <TextView
+                                android:textAlignment="center"
+                                android:textColor="@color/vendorprimerycolor"
+                                android:fontFamily="@font/quicksand_bold"
+                                android:layout_marginTop="@dimen/_30sdp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/profilethreehint"
+                                android:textSize="@dimen/_16sdp"/>
+
+
+                            <LinearLayout
+                                android:layout_marginBottom="@dimen/_10sdp"
+                                android:layout_marginTop="@dimen/_15sdp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+
+                                <TextView
+
+                                    android:fontFamily="@font/quicksand_bold"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Identity Proof"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_16sdp"/>
+
+                                <TextView
+                                    android:layout_marginLeft="@dimen/_15sdp"
+                                    android:layout_gravity="center"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/vendororange"
+                                    android:text="(PAN Card/ Aadhar Card)"
+                                    android:textSize="@dimen/_12sdp"
+                                    android:fontFamily="@font/quicksand_bold"/>
+
+
+
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:id="@+id/ll_upload"
+                                android:padding="@dimen/_15sdp"
+                                android:background="@drawable/gray_corner"
+                                android:weightSum="2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                 <ImageView
+                                     android:layout_width="wrap_content"
+                                     android:layout_height="wrap_content"
+                                     android:layout_gravity="center"
+                                     android:src="@drawable/ic_profiledocumentupload"/>
+
+
+
+                                <LinearLayout
+                                    android:layout_gravity="right"
+                                    android:gravity="right"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/txtdocument"
+                                        android:layout_marginRight="@dimen/_20sdp"
+                                        android:layout_gravity="left"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        />
+                                
+                                <ImageView
+                                    android:layout_marginRight="@dimen/_10sdp"
+                                    android:layout_width="@dimen/_18sdp"
+                                    android:layout_height="@dimen/_18sdp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/uploaddocument"/>
+
+                                <ImageView
+                                    android:layout_width="@dimen/_18sdp"
+                                    android:layout_height="@dimen/_18sdp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/ic_checkmark"/>
+
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <View
+                                android:layout_margin="@dimen/_20sdp"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_2sdp"
+                                android:background="#CCCCCC"/>
+
+                            <TextView
+                                android:textAlignment="center"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/vendorprimerycolor"
+                                android:text="Please hold your ID Proof in your hand and proceed with video verification"
+                                android:textSize="@dimen/_14sdp"
+                                android:fontFamily="@font/quicksand_bold"/>
+
+
+                            <LinearLayout
+                                android:weightSum="3"
+                                android:layout_marginTop="@dimen/_15sdp"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+
+                                <ImageView
+                                    android:layout_weight="1"
+                                    android:layout_margin="@dimen/_10sdp"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_width="@dimen/_80sdp"
+                                    android:layout_height="@dimen/_80sdp"
+                                    android:src="@drawable/intersection" />
+
+
+                                <ImageView
+                                    android:layout_weight="1"
+                                    android:layout_margin="@dimen/_10sdp"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_width="@dimen/_80sdp"
+                                    android:layout_height="@dimen/_80sdp"
+                                    android:src="@drawable/intersectionone" />
+
+
+                                <ImageView
+                                    android:layout_weight="1"
+                                    android:layout_margin="@dimen/_10sdp"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_width="@dimen/_80sdp"
+                                    android:layout_height="@dimen/_80sdp"
+                                    android:src="@drawable/intructiontwo" />
+
+
+
+
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <LinearLayout
+                    android:layout_margin="@dimen/_10sdp"
+                    android:layout_below="@+id/verticalcardview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:weightSum="2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:layout_weight="1.4"
+                            android:id="@+id/VBack"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_50sdp"
+                            android:background="@drawable/greenborderbutton"
+                            android:text="Back"
+                            android:textAllCaps="false"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/quicksand_bold"
+                            android:textColor="@color/vendorprimerycolor"
+                            android:textSize="@dimen/_14sdp"
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:layout_marginRight="@dimen/_10sdp" />
+
+
+                        <Button
+                            android:layout_weight=".6"
+                            android:id="@+id/btn_submit"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_50sdp"
+                            android:background="@drawable/greenbutton"
+                            android:text="Proceed with Video Verification"
+                            android:textAllCaps="false"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/quicksand_bold"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_14sdp"
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:layout_marginRight="@dimen/_10sdp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:gravity="right">
+
+                <ImageView
+                    android:layout_marginTop="@dimen/_45sdp"
+                    android:layout_marginRight="@dimen/_50sdp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="@dimen/_200sdp"
+                    android:layout_height="114dp"
+                    android:src="@drawable/profileiconthree" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+
+
+
+</LinearLayout>

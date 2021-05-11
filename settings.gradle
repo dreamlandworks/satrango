@@ -1,0 +1,3 @@
+include ':nachos'
+include ':app'
+rootProject.name = "SatrangoLimitless"

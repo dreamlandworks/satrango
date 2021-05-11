@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:layout_marginBottom="@dimen/_100sdp"
+    android:paddingRight="@dimen/_10sdp"
+    android:paddingLeft="@dimen/_10sdp"
+    tools:context=".Setting.SuggestionAndfeedbackfragment">
+
+    <LinearLayout
+        android:layout_marginBottom="@dimen/_50sdp"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+
+        <RelativeLayout
+            android:id="@+id/relativelayout"
+            android:layout_height="?attr/actionBarSize"
+            android:paddingLeft="@dimen/_15sdp"
+            android:paddingBottom="@dimen/_10sdp"
+            android:paddingRight="@dimen/_10sdp"
+            android:paddingTop="@dimen/_15sdp"
+            android:background="@color/white"
+            android:layout_width="match_parent">
+
+
+            <ImageView
+                android:id="@+id/img_back"
+                android:layout_gravity="left"
+                android:src="@drawable/ic_orangebacks"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_24sdp"/>
+
+            <TextView
+                android:id="@+id/txt_back"
+                android:layout_marginLeft="@dimen/_30sdp"
+                android:fontFamily="@font/quicksand_bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:textSize="14sp"
+                android:textColor="@color/vendororange"
+                android:text="Settings" />
+
+            <TextView
+                android:layout_marginLeft="@dimen/_100sdp"
+                android:id="@+id/textView"
+                android:fontFamily="@font/quicksand_bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:textAllCaps="false"
+                android:textSize="18sp"
+                android:textColor="@color/vendorprimerycolor"
+                android:text="Feedback" />
+
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_alignParentEnd="true"
+                        android:layout_weight="1.1"
+                        android:layout_gravity="right"
+                        android:src="@drawable/questionmark"
+                        app:civ_border_color="@color/vendororange"
+                        android:layout_width="@dimen/_60sdp"
+                        app:civ_border_width="@dimen/_2sdp"
+                        android:layout_height="wrap_content"/>
+
+
+        </RelativeLayout>
+
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+
+            <View
+                android:layout_marginLeft="@dimen/_100sdp"
+                android:layout_marginRight="@dimen/_100sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_1sdp"
+                android:background="@color/black"/>
+        </LinearLayout>
+
+
+
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:background="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:fontFamily="@font/quicksand_bold"
+                        android:layout_margin="@dimen/_20sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/vendorprimerycolor"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/_18sdp"
+                        android:text="@string/suggestion"/>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:layout_marginRight="@dimen/_20sdp"
+                        android:layout_marginLeft="@dimen/_20sdp"
+                        android:textSize="@dimen/_16sdp"
+                        android:text="@string/feedbacktext"
+                        android:id="@+id/txt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    </TextView>
+
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:background="@drawable/suggestionbox"
+                    android:orientation="vertical"
+                    android:layout_margin="@dimen/_20sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_150sdp">
+
+                    <EditText
+                        android:background="@color/transparent"
+                        android:id="@+id/et_suggestionmsg"
+                        android:inputType="textMultiLine"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                    </EditText>
+                </LinearLayout>
+                <TextView
+                    android:text="Please also rate us!"
+                    android:layout_margin="@dimen/_20sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </TextView>
+
+                <LinearLayout
+                    android:weightSum="1"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:layout_weight=".5"
+                        android:text="Overall Rating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    </TextView>
+
+                    <!-- <RatingBar
+                         android:layout_weight=".3"
+                         android:id="@+id/rating"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         style="?android:attr/ratingBarStyleSmall"
+                         android:numStars="5"
+                         android:stepSize="0.1"
+                         android:isIndicator="true" />-->
+                    <RatingBar
+                        android:progressTint="@color/yellow"
+
+                        android:layout_weight=".3"
+                        android:id="@+id/rating"
+                        android:stepSize="1.0"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleX="0.5"
+                        android:scaleY="0.5"
+
+                        android:theme="@android:style/Widget.RatingBar"
+                        android:transformPivotX="0dp"
+                        android:numStars="5" />
+
+
+                    <TextView
+                        android:id="@+id/txtrating"
+                        android:text="3/5"
+                        android:layout_weight=".2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    </TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:weightSum="1"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:layout_weight=".5"
+                        android:text="Professionalism"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    </TextView>
+
+                    <RatingBar
+                        android:progressTint="@color/yellow"
+
+                        android:layout_weight=".3"
+                        android:id="@+id/pro_rating"
+                        android:stepSize="1.0"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleX="0.5"
+                        android:scaleY="0.5"
+                        android:transformPivotX="0dp"
+                        android:numStars="5" />
+
+
+
+                    <TextView
+                        android:text="0/5"
+                        android:layout_weight=".2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    </TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:weightSum="1"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:layout_weight=".5"
+                        android:text="Services"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    </TextView>
+
+                    <RatingBar
+                        android:progressTint="@color/yellow"
+
+                        android:id="@+id/services_rating"
+                        android:stepSize="0.1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleX="0.5"
+                        android:scaleY="0.5"
+
+                        android:transformPivotX="0dp"
+                        android:numStars="5"
+                         />
+
+
+
+                    <TextView
+                        android:text="3/5"
+                        android:layout_weight=".2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    </TextView>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:weightSum="1"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:layout_weight=".5"
+                        android:text="App Interface"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    </TextView>
+
+
+
+                    <RatingBar
+                        android:progressTint="@color/yellow"
+
+                        android:layout_weight=".3"
+                        android:id="@+id/app_interface_rating"
+                        android:stepSize="1.0"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleX="0.5"
+                        android:scaleY="0.5"
+                        android:transformPivotX="0dp"
+                        android:numStars="5" />
+
+
+
+
+                    <TextView
+                        android:text="3/5"
+                        android:layout_weight=".2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    </TextView>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:weightSum="1"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:layout_weight=".5"
+                        android:text="Customer Support"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    </TextView>
+
+
+
+                    <RatingBar
+                        android:progressTint="@color/yellow"
+
+                        android:layout_weight=".3"
+                        android:id="@+id/customer_support_rating"
+                        android:stepSize="1.0"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleX="0.5"
+                        android:scaleY="0.5"
+                        android:transformPivotX="0dp"
+                        android:numStars="5" />
+
+
+
+
+                    <TextView
+                        android:text="0/5"
+                        android:layout_weight=".2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                    </TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/l_submit"
+                    android:layout_margin="@dimen/_20sdp"
+                    android:gravity="right"
+                    android:layout_gravity="right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+
+
+                    <Button
+                        android:id="@+id/btnsubmit"
+                        android:textColor="@color/white"
+                        android:text="Submit"
+                        android:background="@drawable/greenbutton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                    </Button>
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+        </ScrollView>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/rounded_corner"
+
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:weightSum="2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+
+        <TextView
+            android:layout_weight=".5"
+            android:textColor="@color/auth_profile_divider_grey"
+            android:textSize="@dimen/_16sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Thanks for the Waiting"
+            android:gravity="right"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+        <ImageView
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_weight="1.5"
+            android:id="@+id/Close"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_gravity="right"
+            android:src="@drawable/ic_cross"
+            android:layout_marginTop="@dimen/_10sdp"/>
+
+
+    </LinearLayout>
+    <TextView
+         android:textColor="@color/auth_profile_divider_grey"
+         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         android:text="We are sorry!"
+        android:gravity="center"
+        android:layout_gravity="center"
+       />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_gravity="center"
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="@dimen/_150sdp"
+        android:src="@drawable/hoursloader"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_gravity="center"
+         >
+
+        <TextView
+              android:textColor="@color/auth_profile_divider_grey"
+            android:textSize="@dimen/_12sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+             android:text="Looks like Service Provider not accepted due to "
+      />
+        <TextView
+             android:textColor="@color/red"
+            android:textSize="@dimen/_12sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+             android:text="Not Fitting his expertise"
+    />
+
+        <TextView
+             android:textSize="@dimen/_12sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Shall we choose the best for your need." />
+
+    </LinearLayout>
+    <LinearLayout
+         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="2"
+            android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnnothanks"
+            android:textAllCaps="false"
+            android:layout_margin="@dimen/_10sdp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:background="@drawable/grey_button"
+            android:text="No thanks,I will Choose"
+            android:textColor="@color/black" />
+
+          <Button
+            android:textAllCaps="false"
+            android:layout_margin="@dimen/_10sdp"
+            android:layout_weight="1"
+            android:id="@+id/btnbookforme"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:background="@drawable/button"
+            android:text="Yes,Book for Me"
+            android:textColor="@color/black" />
+
+    </LinearLayout>
+</LinearLayout>

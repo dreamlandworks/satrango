@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/rounded_corner"
+    >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <ImageView
+            android:layout_gravity="right"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/ic_clear" />
+
+        <TextView
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Verfication Failed!"
+            android:textSize="@dimen/_20sdp"
+            android:textStyle="bold"
+            android:textColor="@color/red"
+            android:layout_margin="@dimen/_20sdp"
+            android:fontFamily="@font/neosans_pro_regular"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+
+
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="94dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/vefificationfailed" />
+
+        <TextView
+            android:textStyle="bold"
+
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:textAlignment="center"
+            android:text="Your activation was not successfull!"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:weightSum="2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+
+        <Button
+            android:visibility="gone"
+            android:layout_weight="1"
+            android:id="@+id/btn_no"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:background="@drawable/greenborderbutton"
+            android:text="NO"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+
+            android:fontFamily="@font/quicksand_bold"
+            android:textColor="@color/green"
+            android:textSize="@dimen/_14sdp"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp" />
+
+        <Button
+            android:id="@+id/btn_yes"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_weight="1"
+            android:background="@color/vendororange"
+            android:fontFamily="@font/quicksand_bold"
+            android:text="Start Again"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14sdp"
+            android:textStyle="bold" />
+    </LinearLayout>
+</LinearLayout>

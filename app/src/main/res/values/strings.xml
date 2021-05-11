@@ -1,0 +1,207 @@
+<resources>
+    <string name="app_name">SatrangoLimitless</string>
+    <string name="title_activity_login">LoginActivity</string>
+
+
+    <string name="facebook_app_id">184529536828797</string>
+    <string name="fb_login_protocol_scheme">fb184529536828797</string>
+
+
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="hint_phoneNumber">Phone Number</string>
+    <string name="hint_password">Password</string>
+    <string name="txt"><![CDATA[Terms & Conditions]]></string>
+    <string name="suggestion">Suggestions and Feed Back</string>
+    <string name="feedbacktext">We are very happy and Thankful for your feed back and suggestions which will in-turn help us with improvements for better user experience</string>
+
+    <string name="button_signIn">Sign In</string>
+    <string name="title_activity_forgot_password">Forgot Password ?</string>
+    <string name="button_dontHaveAccount">Dont have account?</string>
+    <string name="button_signUp">Sign Up</string>
+    <string name="Create_account">Create an Account</string>
+    <string name="hint_firstName">Frist name</string>
+    <string name="hint_lastName">Last name</string>
+    <string name="dob">Date of Birth</string>
+    <string name="Login">Log In</string>
+    <string name="sendotp_key">ENTER KEY HERE</string>
+    <string name="enterphonenumber">Enter your phone number</string>
+    <string name="entername">Enter your Name</string>
+    <string name="selectcountry">Select country</string>
+    <string name="sending_sms">We\'re sending an sms to</string>
+    <string name="inprogress">Verification in\nprogress</string>
+    <string name="verified">Verifified</string>
+    <string name="failed">Verification failed</string>
+    <string name="entercode">Please enter the code you received</string>
+    <string name="enter_your_mobile_number">Enter your mobile number</string>
+    <string name="hi">Hi!</string>
+    <string name="proceed">Proceed</string>
+    <string name="successful">Successful!</string>
+    <string name="title_activity_landing">LandingActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="myprofiles">My Profile</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="menu_Browsecat">Browse Categories</string>
+    <string name="menu_Mybooking">My Booking</string>
+    <string name="menu_Postjob">My Job Posts</string>
+    <string name="menu_Myaccount">My Account</string>
+    <string name="menu_SupportTeam">Chat With Support Team</string>
+    <string name="menu_Faqs">Frequently Asked Questions</string>
+    <string name="menu_Termsandcondition"><![CDATA[Terms & Conditions]]></string>
+    <string name="menu_Settings">Settings</string>
+    <string name="menu_LogOut">Log Out</string>
+    <string name="UserName">Anju</string>
+    <string name="surname">Gupta</string>
+    <string name="phone">7992345857</string>
+    <string name="mail">demo@gmail.com</string>
+    <string name="verify">Verify</string>
+    <string name="editprofile">Edit Profile</string>
+    <string name="Update">Update</string>
+    <string name="submit">Submit</string>
+    <string name="des">Please enter your registerd Mobile no and we will send you OTP to reset your password</string>
+    <string name="otpdesc">Please type the verification code , send to Email Id for the verification process</string>
+    <string name="privecypolicy">Privecy Policy</string>
+    <string name="changepassword">Change Password</string>
+    <string name="Share">Invite With Friends</string>
+    <string name="services">Car Mechine</string>
+    <string name="immediate">Book for Now</string>
+    <string name="Normal">Normal</string>
+    <string name="date">07/09/2020</string>
+    <string name="time">7:30 PM</string>
+    <string name="location">Select your Location</string>
+    <string name="Confirmbooking">Confirm Booking</string>
+    <string name="thanksforpatent">Your Proposal is accepted by Service Provider. We are now taking youto Payment Screen</string>
+    <string name="successbooking">Successful!</string>
+    <string name="congrets">Congratulations!  Your Booking is Sucessfull. Go to my booking To track your booking.</string>
+    <string name="cash">Cash</string>
+    <string name="credit">Credit Card</string>
+    <string name="Upi">UPI</string>
+    <string name="paymentmentod">Select your payment method</string>
+    <string name="selectpayment">Select Payment Method to Pay.</string>
+    <string name="track">Track Service Provider</string>
+    <string name="cancelconfirmation">Rs 200 Will be deducted if you can cancel this booking as cancellationcharges. Are you Shoure want to cancel this Booking ?</string>
+    <string name="askotp">Please Ask OTP from Service Provider to enter and mark job as omplete</string>
+    <string name="system">Service Provider Has Accepted Your Request</string>
+    <string name="enteryourtext">Type message here....</string>
+    <string name="question1">What if i can cancel the booking?</string>
+    <string name="ans1">Demo answer1</string>
+    <string name="question2">What if service provider can cancel the booking after accepting?</string>
+    <string name="ans2">Demo answer 2</string>
+    <string name="question3">What if service provider does\'t show ?</string>
+    <string name="ans3">Demo answer 3</string>
+    <string name="question4">How can i Report the service provider?</string>
+    <string name="ans4">Demo answer 4</string>
+    <string name="question5">How can i contact the admin team?</string>
+    <string name="ans5a">demo answer5</string>
+    <string name="ans5b">Demo answer5b</string>
+    <string name="next">Next</string>
+    <string name="address">Plot No. 422, Bharathi Nagar 14th Line, Srinivasa nagar Bank Colony, Vijayawada</string>
+    <string name="thanksmessage">Thanks for your interest, But We fear as we may not be able to cater some services in your area. Please do not mind and please keep up with us and proceed to register... </string>
+    <string name="mailaddress">Enter Your Mail Address</string>
+    <string name="cheese">I agree to the terms and conditions of Satrango.com</string>
+    <string name="create">Please type the verification code sent to Mobile number/Email</string>
+    <string name="enterpassword">Enter Password</string>
+    <string name="cpassword">Confirm Password</string>
+    <string name="explore">Explore by category</string>
+    <string name="menu_offer">Offer</string>
+    <string name="cpasswordagain">Enter your password again</string>
+    <string name="sucessset">Your password is successfully set.  Please login to continue</string>
+    <string name="passwordhint">Please enter your registered mobile  number and we will send you OTP to  reset your password</string>
+    <string name="menu_postajob">Post a Job</string>
+    <string name="menu_myprofile">My Profile</string>
+    <string name="PopularServices">Popular Services</string>
+    <string name="ExploreCategories">Explore Categories</string>
+    <string name="name">Gnanitha Movva</string>
+    <string name="mobileno">7645465465</string>
+    <string name="mobile">Enter mobile no.</string>
+    <string name="email">Email Address</string>
+    <string name="DateOfBirth">Date Of Birth</string>
+    <string name="Back">Back</string>
+    <string name="Apply">Apply</string>
+    <string name="Balance">Balance</string>
+    <string name="amount">₹280.00</string>
+    <string name="JobPostings">Job Postings</string>
+    <string name="Referrals">Referrals</string>
+    <string name="Bookings">Bookings</string>
+    <string name="withdrawfunds">Add/ Withdraw Funds</string>
+    <string name="feedback">Suggestions/ Feed Back</string>
+    <string name="complaints">Complaints</string>
+    <string name="customercare">Customer Care</string>
+    <string name="tailoroffer">Tailor Made Offers only for you</string>
+    <string name="searchresult">"I Need Mechanic"</string>
+    <string name="sorts"><![CDATA[Sort & Filter]]></string>
+    <string name="cancel">Cancel</string>
+    <string name="ProceedtoPay">Proceed to Pay</string>
+    <string name="home">Home</string>
+    <string name="offers">Offers</string>
+    <string name="alerts">Alerts</string>
+    <string name="chat">Chat</string>
+    <string name="profile">Profile</string>
+    <string name="navigationhome">Home</string>
+    <string name="navigationoffer">Offers</string>
+    <string name="navigationalerts">Alerts</string>
+    <string name="navigationchat">Chat</string>
+    <string name="profilethreehint">profilethreehint</string>
+    <string name="trafic">trafic</string>
+    <string name="rupee">₹  </string>
+    <string name="looks_like_you_haven_t_activated_your_service_provider_account_yet_would_you_like_to_do_it_now">Looks like you haven\'t activated your Service Provider Account yet. Would you like to do it now ?</string>
+
+
+    <!--    nachos chips-->
+
+
+    <string name="info_text_title">Welcome to the Nachos sample app!</string>
+    <string name="info_text_body"><![CDATA[
+        After typing some text, enter any of the following characters to create a chip:
+        <br/><br/>
+        <b>&lt;enter&gt;</b><br/>Will turn all plain text in the text field into chips
+        <br/><br/>
+        <b>;</b><br/>Will turn the current token into a chip
+        <br/><br/>
+        <b>&lt;space&gt;</b><br/>Will turn the text from the beginning of the current token up to the cursor into a chip
+        <br/><br/>
+        You can also touch a chip to edit it
+        ]]>
+    </string>
+
+    <string name="label_chip_text_view">Try it out:</string>
+    <string name="hint_chip_text_view">Type to create plain chips</string>
+    <string name="hint_chip_text_view_with_icons">Type to create chips with icons</string>
+
+    <string name="btn_list_chip_values">List Chip Values</string>
+    <string name="btn_list_chip_and_token_values">List Chip and Token Values</string>
+    <string name="btn_to_string">toString()</string>
+    <string name="btn_steal_focus">Touch to steal focus and chipify text</string>
+
+
+    <string name="iddecsription">I Certify that will neither misbehave with customers nor will cause any damage to user property or reputation of Satrango willfully. If found guilty I will be liable to face the consequences as mentioned in terms and conditions.</string>
+    <string name="notificationalerts"><![CDATA[Notifications & Alerts]]></string>
+    <string name="chattitle">Job - "My Samsung Mobile Needs Chip level Repair"</string>
+    <string name="no_internet">No Internet Connection</string>
+    <string name="go_to_my_home_page">Go to my Home Page</string>
+    <string name="your_activation_is_successfull">Your activation is successfull!</string>
+    <string name="your_payment_is_successfull">Your payment is successfull! Please Wait..</string>
+    <string name="adddesc">Add description</string>
+    <string name="reject">Reject</string>
+    <string name="accept">Accept</string>
+    <string name="ex_delivering_couriers_pick_drop_etc"><![CDATA[Ex: delivering Couriers, pick & drop etc.,]]></string>
+    <string name="ex_web_app_development_data_entry_etc"><![CDATA[Ex: Web & App Development, Data Entry etc.,]]></string>
+    <string name="scheduled_date_time"><![CDATA[Scheduled Date & Time]]></string>
+    <string name="calenderdetails">calenderdetails</string>
+</resources>

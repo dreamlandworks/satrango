@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+     android:background="@color/white"
+    tools:context=".Setting.ComplaintFragment">
+
+
+
+    <RelativeLayout
+        android:id="@+id/relativelayout"
+        android:layout_height="?attr/actionBarSize"
+        android:paddingLeft="@dimen/_15sdp"
+        android:paddingBottom="@dimen/_10sdp"
+        android:paddingRight="@dimen/_10sdp"
+        android:paddingTop="@dimen/_15sdp"
+        android:background="@color/colorPrimaryDark"
+        android:layout_width="match_parent">
+
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_gravity="left"
+            android:src="@drawable/ic_backs"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_24sdp"/>
+
+        <TextView
+            android:layout_marginLeft="@dimen/_30sdp"
+            android:fontFamily="@font/quicksand_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:text="Settings" />
+
+        <TextView
+            android:layout_marginLeft="@dimen/_100sdp"
+            android:id="@+id/textView"
+            android:fontFamily="@font/quicksand_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:text="Complaints" />
+
+        <ImageView
+            android:layout_alignParentRight="true"
+            android:layout_gravity="right"
+            android:src="@drawable/userquestionmark"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_60sdp"/>
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_15sdp"
+            android:background="@drawable/ic_yellowline"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_15sdp"
+            android:background="@color/colorPrimaryDark"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:fontFamily="@font/quicksand_bold"
+            android:layout_margin="@dimen/_20sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:textSize="@dimen/_18sdp"
+            android:text="Complaints"/>
+    </LinearLayout>
+
+
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        >
+
+   <TextView
+       android:layout_marginLeft="@dimen/_20sdp"
+       android:text="We are sorry and feel regretted for the inconvenience occured. Please let us help you finding a suitable solution"
+        android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+
+   </TextView>
+   <TextView
+       android:layout_marginLeft="@dimen/_20sdp"
+
+       android:text="my problem is related to"
+       android:id="@+id/txtview"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+
+   </TextView>
+
+       <LinearLayout
+        android:layout_marginRight="@dimen/_20sdp"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:weightSum="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+
+       <Button
+           android:id="@+id/idbtn1"
+           android:textAllCaps="false"
+           android:text="Booking/job Posting"
+           android:layout_margin="@dimen/_10sdp"
+            android:background="@color/yellow"
+        android:layout_weight=".5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/idbtn2"
+
+            android:textAllCaps="false"
+            android:text="Fund Transfers"
+            android:layout_margin="@dimen/_10sdp"
+            android:background="@color/white"
+            android:layout_weight=".5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:weightSum="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+
+            <Button
+                android:id="@+id/idbtn3"
+
+                android:textAllCaps="false"
+                android:text="Booking/job Posting"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="@color/white"
+                android:layout_weight=".5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:id="@+id/idbtn4"
+
+                android:textAllCaps="false"
+                android:text="Fund Transfers"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="@color/white"
+                android:layout_weight=".5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:weightSum="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+
+            <Button
+                android:id="@+id/idbtn5"
+
+                android:textAllCaps="false"
+                android:text="Booking/job Posting"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="@color/white"
+                android:layout_weight=".5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:visibility="gone"
+                android:textAllCaps="false"
+                android:text="Fund Transfers"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="@color/white"
+                android:layout_weight=".5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+
+
+    <LinearLayout
+        android:background="@drawable/suggestionbox"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/_20sdp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_150sdp">
+
+        <EditText
+            android:id="@+id/et_suggestionmsg"
+            android:inputType="textMultiLine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </EditText>
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_marginRight="@dimen/_20sdp"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:weightSum="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+
+        <Button
+            android:id="@+id/btnback"
+            android:textAllCaps="false"
+            android:text="Back"
+            android:layout_margin="@dimen/_10sdp"
+            android:background="@color/grey_400"
+            android:layout_weight=".5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnsubmit"
+            android:textAllCaps="false"
+            android:text="Submit"
+            android:layout_margin="@dimen/_10sdp"
+            android:background="@color/yellow"
+            android:layout_weight=".5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+
+    </LinearLayout>
+
+
+
+
+
+</LinearLayout>

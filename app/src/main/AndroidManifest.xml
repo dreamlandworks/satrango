@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.satrangolimitless">
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA_TAKEPICTURE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission
+        android:name="android.permission.CAPTURE_AUDIO_OUTPUT"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_VIDEO" />
+    <uses-permission
+        android:name="android.permission.SET_DEBUG_APP"
+        tools:ignore="ProtectedPermissions" />
+
+    <uses-feature
+        android:name="android.hardware.location.network"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.location.gps"
+        android:required="false" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/lunchoriogo"
+        android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@drawable/lunchoriogo"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:replace="android:allowBackup">
+        <activity android:name=".Termsandcond"></activity>
+        <activity android:name=".User_UI.Myaccount.Activity_Transactionhistory" />
+        <activity android:name=".User_UI.Mybooking.Actvity_Supportticket" />
+        <activity android:name=".Vendor_UI.Vendor_MyBooking.Vendor_raiseticket" />
+        <activity android:name=".User_UI.Mybooking.Activity_View_Bookingfiles" />
+        <activity
+            android:name=".User_UI.Mybooking.Activity_User_BookingInprogress_details"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity_reset_password"
+            android:screenOrientation="portrait" /> <!-- SplashActivity -->
+        <activity
+            android:name=".SplashActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".User_UI.Home_user.Selectlocationhomepage"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Booknow.Activity_Multimove_booking"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".User_UI.Mybooking.Activity_Mark_complete_invoicesummary"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Booknow.Activity_Blue_Collar_booking"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Vendor_UI.My_Bids.Activity_vendor_awarded_expired_alldetails"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".PopularcategoriesActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Vendor_UI.Activity_Single_movebooking_details"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".User_UI.Mybooking.User_Cancel_Booking_Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".User_UI.Mybooking.User_Reshedule_BookingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Vendor_UI.My_Bids.Activity_Vendor_PlaceBid"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Vendor_UI.My_Bids.Activity_Vendor_PlaceBidConfirmSubmit"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".User_UI.My_Job_Posts.Activity_user_jobpost_biddetails"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Vendor_UI.My_Bids.Activity_view_job_details_bids_discussions_vendr_side"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ResheduledActivity"
+            android:screenOrientation="portrait" /> <!-- <activity android:name=".TestingActivity" /> -->
+        <!-- <activity android:name=".Activitytest" /> -->
+        <activity
+            android:name=".Otpverification_onLoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".User_UI.My_Job_Posts.Activity_User_jobs_awarded_details"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Booknow.SearchActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize|adjustPan" />
+        <activity
+            android:name=".Booknow.SearchActivityMultimove"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Booknow.Activity_booking_timer_show_dialogue"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".WelcomeSliderActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".JobListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SetPasswordActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".User_UI.ActivityChangePassword"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".WelcomeonboardActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity_login_type"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SignupDetailsActivity_one"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".User_UI.UserchatdetailsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Vendor_UI.VendorchatdetailsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".User_UI.POSTAJOB.Activity_PostJob_First"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".User_UI.POSTAJOB.Activity_PostJob_Second"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".User_UI.POSTAJOB.Activity_PostJob_Third"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".User_UI.POSTAJOB.Activity_PostJob_Four"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".User_UI.Mybooking.Actvity_Userbooking_details_"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".User_UI.My_Job_Posts.Activity_User_jobs_pending_details"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".User_UI.Mybooking.Activity_User_BookingCompleted_Details"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Vendor_UI.Update_vendor_tarrif_details_slots"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Vendor_UI.Activity_VendorCalender"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".User_UI.Mybooking.JobCOmpleteDiglog"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".BookingDetailsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Booknow.PaymentActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SucessbookingDiglog"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".my_dialog"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".BookingDataActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Booknow.BooknowSingleMoveActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SearchListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Vendor_UI.vendor_profile.VendorProfileoneActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Vendor_UI.vendor_profile.ProfileThreeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Vendor_UI.vendor_profile.VendorProfilFourActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Vendor_UI.vendor_profile.VendorProfilFiveActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Vendor_UI.vendor_profile.VendorProfilSixActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Vendor_UI.vendor_profile.VendorProfileActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Vendor_UI.vendor_profile.PrifileActivityTwo"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Vendor_UI.My_profile_vendor"
+            android:screenOrientation="portrait" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" /> <!-- <activity android:name=".Activitytest" /> -->
+        <!-- @string/google_maps_key -->
+        <activity
+            android:name=".Vendor_UI.My_Bids.Activity_Vendor_PlaceBidFulldetails"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Vendor_UI.My_Bids.Activity_Vendor_PlaceBid_Update"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".User_UI.My_Job_Posts.Activity_user_awardedbiddetails"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Vendor_UI.My_Bids.Activity_Vendor_PlaceBidConfirmSubmit_Update"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".User_UI.My_Job_Posts.Activity_SetGoals_Payment"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".User_UI.My_Job_Posts.Activity_PaymentAwardedbid"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".NewpasswordActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ForgotpasswordotpActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".UpdateProfileActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MyprofileActivity_User"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ConfirmationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LandingActivity"
+            android:label="@string/title_activity_landing"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".LandingActivity_Service_provider"
+            android:label="@string/title_activity_landing"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".OtpverificationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SignupUsertypes"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ForgotPasswordActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SignUpActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Vendor_UI.Activity_vendor_accept_newbookingrequest"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Vendor_UI.Vendor_MyBooking.Vendor_CancelBooking_activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Vendor_UI.Vendor_MyBooking.Vendor_ResheduleBooking_activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Vendor_UI.Vendor_MyBooking.Vendor_Booking_ConfirmDetails"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Vendor_UI.Vendor_MyBooking.Vendor_Booking_inprogress_view_files"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Vendor_UI.Vendor_MyBooking.Vendor_Booking_Confirm_Details_Inprogress"
+            android:screenOrientation="portrait" />
+
+        <service
+            android:name=".Firebase_notification.MyFirebaseMessagingService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".Firebase_notification.MyFirebaseInstanceIDService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name=".User_UI.POSTAJOB.Activity_Post_job_Multiplelocation_first"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Vendor_UI.Vendor_MyBooking.Vendor_Bookking_Completed_Details"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".User_UI.POSTAJOB.Activity_PostJob_Multiplelocation_Second"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".User_UI.POSTAJOB.Activity_PostJob_Multiplelocation_Third"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".User_UI.POSTAJOB.Activity_PostJob_Multiplelocation_Fourth"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".User_UI.POSTAJOB.SearchActivity_Multimove_Jobpost"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Booknow.SearchActivityMultimoveEndlocation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".User_UI.POSTAJOB.SearchActivitylocationsinglejobpost"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".User_UI.POSTAJOB.Activity_PostJob_BlueCollarFirst"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".User_UI.POSTAJOB.Activity_PostJob_BluecollarThird"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".User_UI.POSTAJOB.Activity_PostJobBlueCollar_Second"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".User_UI.Myaccount.AddBankAccount"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".User_UI.Myaccount.Activity_userwithdrawfund_addfund"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Vendor_UI.vendor_profile.VendorReviewListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Vendor_UI.MyAccount.Activityvendr_reviews"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".User_UI.Myaccount.UseraddfundsPaymentActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".User_UI.UserchatBookingdetailsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Vendor_UI.VendorchatBookingdetailsActivity"
+            android:screenOrientation="portrait" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.com.vansuita.pickimage.provider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            tools:replace="android:authorities">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/picker_provider_paths" />
+        </provider>
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

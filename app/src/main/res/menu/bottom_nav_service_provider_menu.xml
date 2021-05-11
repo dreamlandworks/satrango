@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+
+        app:showAsAction="withText"
+        android:id="@+id/navigationhomes"
+        android:icon="@drawable/ic_home"
+        android:title="@string/navigationhome" />
+
+    <item
+        app:showAsAction="withText"
+        android:id="@+id/navigationoffers"
+        android:icon="@drawable/offer"
+        android:title="@string/navigationoffer" />
+
+
+    <item
+        app:showAsAction="withText"
+        android:id="@+id/navigation_alerts"
+        android:icon="@drawable/ic_notification"
+        android:title="@string/navigationalerts" />
+
+
+    <item
+        app:showAsAction="withText"
+        android:id="@+id/navigation_chats"
+        android:icon="@drawable/ic_chat"
+        android:title="@string/navigationchat" />
+
+
+
+
+
+
+
+
+</menu>

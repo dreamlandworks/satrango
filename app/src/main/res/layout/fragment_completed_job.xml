@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".User_UI.Postjob.CompletedJobFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:paddingTop="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <androidx.cardview.widget.CardView
+                android:layout_marginRight="@dimen/_3sdp"
+                android:layout_marginLeft="@dimen/_3sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardUseCompatPadding="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:weightSum="2"
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    android:layout_marginRight="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_weight=".8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/_16sdp"
+                        android:text="Job Status"/>
+                    <TextView
+                        android:textAlignment="textEnd"
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:layout_weight="1.2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:textColor="@color/green"
+                        android:textSize="@dimen/_16sdp"
+                        android:text="Completed"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/JobDetails"
+                    android:padding="@dimen/_10sdp"
+                    android:weightSum="3"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_margin="@dimen/_10sdp"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content">
+
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_16sdp"
+                            android:text="Job ID"/>
+
+                        <TextView
+                            android:layout_marginTop="@dimen/_2sdp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14sdp"
+                            android:text="Description:"/>
+                        <TextView
+                            android:layout_marginTop="@dimen/_2sdp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14sdp"
+                            android:textStyle="bold"
+                            android:text="Bids Recived : "/>
+
+                        <TextView
+                            android:layout_marginTop="@dimen/_2sdp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14sdp"
+                            android:text="Maximum Bids"/>
+
+                        <TextView
+                            android:layout_marginTop="@dimen/_2sdp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14sdp"
+                            android:text="Comments"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_margin="@dimen/_10sdp"
+                        android:layout_weight=".7"
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/jobid"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_16sdp"
+                            android:text="15423"/>
+
+                        <TextView
+                            android:maxLines="1"
+                            android:ellipsize="end"
+                            android:layout_marginTop="@dimen/_2sdp"
+                            android:id="@+id/Description"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14sdp"
+                            android:text="Repair, car services"/>
+                        <TextView
+                            android:layout_marginTop="@dimen/_2sdp"
+                            android:id="@+id/totalbids"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14sdp"
+                            android:textStyle="bold"
+                            android:text="20"/>
+
+                        <TextView
+                            android:layout_marginTop="@dimen/_2sdp"
+                            android:id="@+id/MaximumBidAmount"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14sdp"
+                            android:text="Rs:-150"/>
+
+                        <TextView
+                            android:layout_marginTop="@dimen/_2sdp"
+                            android:id="@+id/comments"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14sdp"
+                            android:text="No extra services"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_gravity="center"
+                        android:layout_weight="1.3"
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content">
+
+
+                        <TextView
+                            android:padding="@dimen/_10sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:drawableRight="@drawable/ic_nexts"
+                            android:layout_gravity="right"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_nexts"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_marginRight="@dimen/_3sdp"
+                android:layout_marginLeft="@dimen/_3sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:weightSum="2"
+                        android:layout_marginLeft="@dimen/_15sdp"
+                        android:layout_marginRight="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_weight=".8"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/_16sdp"
+                            android:text="Job Status"/>
+                        <TextView
+                            android:textAlignment="textEnd"
+                            android:drawablePadding="@dimen/_10sdp"
+                            android:layout_weight="1.2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:textColor="@color/green"
+                            android:textSize="@dimen/_16sdp"
+                            android:text="Completed"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/JobDetails"
+                        android:padding="@dimen/_10sdp"
+                        android:weightSum="3"
+                        android:layout_width="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_height="wrap_content">
+                        <LinearLayout
+                            android:layout_margin="@dimen/_10sdp"
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:orientation="vertical"
+                            android:layout_height="wrap_content">
+
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_16sdp"
+                                android:text="Job ID"/>
+
+                            <TextView
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_14sdp"
+                                android:text="Description:"/>
+                            <TextView
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_14sdp"
+                                android:textStyle="bold"
+                                android:text="Bids Recived : "/>
+
+                            <TextView
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_14sdp"
+                                android:text="Maximum Bids"/>
+
+                            <TextView
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_14sdp"
+                                android:text="Comments"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_margin="@dimen/_10sdp"
+                            android:layout_weight=".7"
+                            android:layout_width="match_parent"
+                            android:orientation="vertical"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/jobid"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_16sdp"
+                                android:text="15423"/>
+
+                            <TextView
+                                android:maxLines="1"
+                                android:ellipsize="end"
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:id="@+id/Description"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_14sdp"
+                                android:text="Repair, car services"/>
+                            <TextView
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:id="@+id/totalbids"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_14sdp"
+                                android:textStyle="bold"
+                                android:text="20"/>
+
+                            <TextView
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:id="@+id/MaximumBidAmount"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_14sdp"
+                                android:text="Rs:-150"/>
+
+                            <TextView
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:id="@+id/comments"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_14sdp"
+                                android:text="No extra services"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_gravity="center"
+                            android:layout_weight="1.3"
+                            android:layout_width="match_parent"
+                            android:orientation="vertical"
+                            android:layout_height="wrap_content">
+
+
+                            <TextView
+                                android:padding="@dimen/_10sdp"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:drawableRight="@drawable/ic_nexts"
+                                android:layout_gravity="right"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_nexts"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_marginRight="@dimen/_3sdp"
+                android:layout_marginLeft="@dimen/_3sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:weightSum="2"
+                        android:layout_marginLeft="@dimen/_15sdp"
+                        android:layout_marginRight="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_weight=".8"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/_16sdp"
+                            android:text="Job Status"/>
+                        <TextView
+                            android:textAlignment="textEnd"
+                            android:drawablePadding="@dimen/_10sdp"
+                            android:layout_weight="1.2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:textColor="@color/green"
+                            android:textSize="@dimen/_16sdp"
+                            android:text="Completed"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/JobDetails"
+                        android:padding="@dimen/_10sdp"
+                        android:weightSum="3"
+                        android:layout_width="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_height="wrap_content">
+                        <LinearLayout
+                            android:layout_margin="@dimen/_10sdp"
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:orientation="vertical"
+                            android:layout_height="wrap_content">
+
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_16sdp"
+                                android:text="Job ID"/>
+
+                            <TextView
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_14sdp"
+                                android:text="Description:"/>
+                            <TextView
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_14sdp"
+                                android:textStyle="bold"
+                                android:text="Bids Recived : "/>
+
+                            <TextView
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_14sdp"
+                                android:text="Maximum Bids"/>
+
+                            <TextView
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_14sdp"
+                                android:text="Comments"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_margin="@dimen/_10sdp"
+                            android:layout_weight=".7"
+                            android:layout_width="match_parent"
+                            android:orientation="vertical"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/jobid"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_16sdp"
+                                android:text="15423"/>
+
+                            <TextView
+                                android:maxLines="1"
+                                android:ellipsize="end"
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:id="@+id/Description"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_14sdp"
+                                android:text="Repair, car services"/>
+                            <TextView
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:id="@+id/totalbids"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_14sdp"
+                                android:textStyle="bold"
+                                android:text="20"/>
+
+                            <TextView
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:id="@+id/MaximumBidAmount"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_14sdp"
+                                android:text="Rs:-150"/>
+
+                            <TextView
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:id="@+id/comments"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_14sdp"
+                                android:text="No extra services"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_gravity="center"
+                            android:layout_weight="1.3"
+                            android:layout_width="match_parent"
+                            android:orientation="vertical"
+                            android:layout_height="wrap_content">
+
+
+                            <TextView
+                                android:padding="@dimen/_10sdp"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:drawableRight="@drawable/ic_nexts"
+                                android:layout_gravity="right"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_nexts"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

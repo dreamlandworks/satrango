@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/rounded_corner"
+    >
+
+
+    <LinearLayout
+        android:weightSum="2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+
+        <TextView
+            android:layout_weight=".5"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/_16sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Please rate your experience"
+            android:gravity="right"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+        <ImageView
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_weight="1.5"
+            android:id="@+id/Close"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_gravity="right"
+            android:src="@drawable/ic_cross"
+            android:layout_marginTop="@dimen/_10sdp"/>
+
+
+    </LinearLayout>
+
+
+<LinearLayout
+android:layout_marginLeft="@dimen/_15sdp"
+    android:layout_marginRight="@dimen/_15sdp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+
+        <TextView
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.15"
+            android:text="Overall Rating"
+            android:textSize="@dimen/_10sdp">
+
+        </TextView>
+
+        <!-- <RatingBar
+             android:layout_weight=".3"
+             android:id="@+id/rating"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             style="?android:attr/ratingBarStyleSmall"
+             android:numStars="5"
+             android:stepSize="0.1"
+             android:isIndicator="true" />-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight=".55">
+
+            <RatingBar
+                android:id="@+id/over_rating"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:scaleX="0.5"
+                android:scaleY="0.5"
+                android:stepSize="1.0"
+                android:transformPivotX="0dp" />
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/overrating"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.3"
+            android:text="3/5"
+            android:textColor="@color/colorPrimaryDark">
+
+        </TextView>
+
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+
+        <TextView
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.15"
+            android:text="Professionalism"
+            android:textSize="@dimen/_10sdp">
+
+        </TextView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight=".55">
+
+            <RatingBar
+                android:id="@+id/pro_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:numStars="5"
+                android:scaleX="0.5"
+                android:scaleY="0.5"
+                android:stepSize="1.0"
+                android:transformPivotX="0dp" />
+        </LinearLayout>
+
+
+        <TextView
+            android:textColor="@color/colorPrimaryDark"
+            android:id="@+id/profRatig"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.3"
+            android:text="0/5">
+
+        </TextView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+
+        <TextView
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.15"
+            android:text="Skill"
+            android:textSize="@dimen/_10sdp">
+
+        </TextView>
+
+        <RatingBar
+            android:layout_weight=".55"
+            android:id="@+id/services_rating"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:scaleX="0.5"
+            android:scaleY="0.5"
+            android:stepSize="1.0"
+            android:transformPivotX="0dp" />
+
+
+        <TextView
+            android:textColor="@color/colorPrimaryDark"
+            android:id="@+id/servi_rating"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.3"
+            android:text="3/5">
+
+        </TextView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+
+        <TextView
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.15"
+            android:text="Behaviour"
+            android:textSize="@dimen/_10sdp">
+
+        </TextView>
+
+
+        <RatingBar
+            android:id="@+id/app_interface_rating"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight=".55"
+            android:numStars="5"
+            android:scaleX="0.5"
+            android:scaleY="0.5"
+            android:stepSize="1.0"
+            android:transformPivotX="0dp" />
+
+
+        <TextView
+            android:textColor="@color/colorPrimaryDark"
+            android:id="@+id/app_inter_rating"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.3"
+            android:text="3/5">
+
+        </TextView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+
+        <TextView
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.15"
+            android:text="Satisfaction"
+            android:textSize="@dimen/_10sdp">
+
+        </TextView>
+
+
+        <RatingBar
+            android:id="@+id/customer_support_rating"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight=".55"
+            android:numStars="5"
+            android:scaleX="0.5"
+            android:scaleY="0.5"
+            android:stepSize="1.0"
+            android:transformPivotX="0dp" />
+
+
+        <TextView
+            android:textColor="@color/colorPrimaryDark"
+            android:id="@+id/customer_s_rating"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.3"
+            android:text="0/5"></TextView>
+
+    </LinearLayout>
+</LinearLayout>
+    <LinearLayout
+        android:background="@drawable/suggestionbox"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/_20sdp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_80sdp">
+
+        <EditText
+            android:gravity="top"
+            android:textSize="@dimen/_14sdp"
+            android:background="@drawable/suggestionbox"
+            android:padding="@dimen/_10sdp"
+            android:hint="Your Feedback and Suggestion"
+            android:id="@+id/et_suggestionmsg"
+            android:inputType="textMultiLine"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_80sdp">
+        </EditText>
+    </LinearLayout>
+
+
+    <Button
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:id="@+id/btnsubmit"
+         android:text="Close"
+        android:background="@drawable/button"
+        android:layout_gravity="center"
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="@dimen/_60sdp">
+    </Button>
+</LinearLayout>
