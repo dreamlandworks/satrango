@@ -49,7 +49,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:replace="android:allowBackup">
-        <activity android:name=".Termsandcond"></activity>
+        <activity android:name=".Termsandcond"/>
         <activity android:name=".User_UI.Myaccount.Activity_Transactionhistory" />
         <activity android:name=".User_UI.Mybooking.Actvity_Supportticket" />
         <activity android:name=".Vendor_UI.Vendor_MyBooking.Vendor_raiseticket" />

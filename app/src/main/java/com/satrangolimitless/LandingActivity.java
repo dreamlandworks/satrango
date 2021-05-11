@@ -1,5 +1,6 @@
 package com.satrangolimitless;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -100,8 +101,7 @@ public class LandingActivity extends AppCompatActivity {
             R.drawable.ic_settings,
             R.drawable.ic_logout
     };
-    BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+    BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -475,6 +475,7 @@ public class LandingActivity extends AppCompatActivity {
             this.itemimage = itemimage;
         }
 
+        @SuppressLint("SetTextI18n")
         @Override
         public View getView(final int position, View convertView, ViewGroup parent) {
             final int pos = position;
@@ -526,7 +527,6 @@ public class LandingActivity extends AppCompatActivity {
 
                             break;
                         case 1:
-
                             fragment = null;
                             fragment = new PostAjobFragment();
                             getSupportFragmentManager()
@@ -599,9 +599,7 @@ public class LandingActivity extends AppCompatActivity {
 
 
         public void setSelectedPosition(int position) {
-
             this.selectedPosition = position;
-
         }
 
         class ViewHolder {

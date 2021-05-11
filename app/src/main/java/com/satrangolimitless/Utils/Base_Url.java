@@ -3,8 +3,10 @@ package com.satrangolimitless.Utils;
 public interface Base_Url {
 //https://satrango.com/Api/
 //    http://logicaltest.in/satarango/Api/
-        String BaseUrl = "http://logicaltest.in/satarango/Api/";
-        String Image_url = "http://logicaltest.in/satarango/assets/uploaded/users/";
+//        String BaseUrl = "http://logicaltest.in/satarango/Api/";
+        String BaseUrl = "https://satrango.com/Api/";
+//        String Image_url = "http://logicaltest.in/satarango/assets/uploaded/users/";
+        String Image_url = "https://satrango.com/assets/uploaded/users/";
 
 
 

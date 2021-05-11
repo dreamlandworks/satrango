@@ -40,9 +40,6 @@ import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.bumptech.glide.request.RequestOptions;
-
 import com.satrangolimitless.User_UI.ActivityChangePassword;
 import com.satrangolimitless.Utils.Utility;
 import com.satrangolimitless.session.Session;
@@ -64,28 +61,29 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 import static com.satrangolimitless.Utils.Base_Url.BaseUrl;
 import static com.satrangolimitless.Utils.Base_Url.Image_url;
-import static com.satrangolimitless.Utils.Base_Url.Profileimage_url;
 import static com.satrangolimitless.Utils.Base_Url.Profileview;
 import static com.satrangolimitless.Utils.Base_Url.Updateprofile;
 
 public class MyprofileActivity_User extends AppCompatActivity {
+
     String userChoosenTask;
     private int REQUEST_CAMERA = 0, SELECT_FILE = 1;
     File destination;
     String filenew1;
-    String user_id, id, dob, image, phone, email, name,address;
+    String user_id, id, dob, image, phone, email, name, address;
     String sdob, smail, snumber, sname;
     Session session;
     EditText edt_name, edt_phone, edt_mail, edt_dob;
-    ImageView imgeditname,imgeditmob,imgmailedt;
-    TextView txt_adres,txtchangepass;
+    ImageView imgeditname, imgeditmob, imgmailedt;
+    TextView txt_adres, txtchangepass;
     Button btn_apply, btn_back;
     CircleImageView profilepic;
-    ImageView im_back,imgdel;
+    ImageView im_back, imgdel;
     TextView txt_back;
     private RequestQueue rQueue;
     DatePickerDialog datePickerDialog;
     LinearLayout ll_adres;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -110,7 +108,6 @@ public class MyprofileActivity_User extends AppCompatActivity {
         Getprofiledetails();
 
 
-
         edt_dob.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -128,7 +125,6 @@ public class MyprofileActivity_User extends AppCompatActivity {
                                                   int monthOfYear, int dayOfMonth) {
 
                                 edt_dob.setText(year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
-
 
 
                             }
@@ -178,32 +174,21 @@ public class MyprofileActivity_User extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                sname=edt_name.getText().toString();
-                snumber=edt_phone.getText().toString();
-                smail=edt_mail.getText().toString();
-                sdob=edt_dob.getText().toString();
+                sname = edt_name.getText().toString();
+                snumber = edt_phone.getText().toString();
+                smail = edt_mail.getText().toString();
+                sdob = edt_dob.getText().toString();
 
-                if(sname.isEmpty())
-                {
+                if (sname.isEmpty()) {
                     edt_name.setError("Please Enter Name.");
-                }
-                else if(snumber.isEmpty())
-                {
+                } else if (snumber.isEmpty()) {
                     edt_phone.setError("Please Enter Mobile Number.");
-                }
-                 else if(smail.isEmpty())
-                {
+                } else if (smail.isEmpty()) {
                     edt_mail.setError("Please Enter Email.");
-                }
-                 else if(sdob.isEmpty())
-                  {
-                     edt_dob.setError("Please Enter Date of birth.");
-                  }
-
-                else
-                {
+                } else if (sdob.isEmpty()) {
+                    edt_dob.setError("Please Enter Date of birth.");
+                } else {
                     Updateprofile();
-
                 }
 
 
@@ -286,19 +271,12 @@ public class MyprofileActivity_User extends AppCompatActivity {
                                 System.out.println("profile======    " + jsonObject1.toString());
 
                                 try {
-
-
                                     edt_name.setText(name);
                                     edt_mail.setText(email);
                                     edt_phone.setText(phone);
                                     edt_dob.setText(dob);
                                     txt_adres.setText(address);
-                                    Glide.with(getApplicationContext())
-                                            .load(Image_url + image)
-
-                                            .into(profilepic);
-
-
+                                    Glide.with(getApplicationContext()).load(Image_url + image).into(profilepic);
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }
@@ -306,9 +284,7 @@ public class MyprofileActivity_User extends AppCompatActivity {
 
                             } else {
                                 progressDialog.dismiss();
-
                                 Toast.makeText(MyprofileActivity_User.this, msg, Toast.LENGTH_SHORT).show();
-
                             }
 
                         } catch (JSONException e) {
@@ -338,22 +314,6 @@ public class MyprofileActivity_User extends AppCompatActivity {
     }
 
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 //    Update profile--------------------------------------------------------------------------------
 
 
@@ -361,15 +321,14 @@ public class MyprofileActivity_User extends AppCompatActivity {
         final ProgressDialog progressDialog = new ProgressDialog(MyprofileActivity_User.this);
         progressDialog.setMessage("Processing...");
         progressDialog.show();
-        System.out.println("updatesssss        "+user_id+"  "+""+sname+" "+snumber+" "+smail+"  "+destination);
+        System.out.println("updatesssss        " + user_id + "  " + "" + sname + " " + snumber + " " + smail + "  " + destination);
 
         AndroidNetworking.upload(BaseUrl + Updateprofile)
-                .addMultipartParameter("user_id",user_id )
-                .addMultipartParameter("name",sname)
-                .addMultipartParameter("mobile",snumber)
-                .addMultipartParameter("email",smail)
-                .addMultipartFile("image",destination)
-
+                .addMultipartParameter("user_id", user_id)
+                .addMultipartParameter("name", sname)
+                .addMultipartParameter("mobile", snumber)
+                .addMultipartParameter("email", smail)
+                .addMultipartFile("image", destination)
                 .setTag("update profile ")
                 .setPriority(Priority.LOW)
                 .build()
@@ -427,16 +386,8 @@ public class MyprofileActivity_User extends AppCompatActivity {
 
     }
 
-    
-    
-    
-    
-    
-    
+
 //    add picture
-
-
-
 
 
     private void checkRunTimePermission() {
@@ -456,14 +407,12 @@ public class MyprofileActivity_User extends AppCompatActivity {
     private void selectImage() {
         final CharSequence[] items = {"Take Photo", "Choose from Library",
                 "Cancel"};
-        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder( MyprofileActivity_User.this);
+        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(MyprofileActivity_User.this);
         builder.setTitle("Add Photo!");
         builder.setItems(items, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int item) {
-                boolean result = Utility.checkPermission( MyprofileActivity_User.this);
-
-
+                boolean result = Utility.checkPermission(MyprofileActivity_User.this);
                 if (items[item].equals("Take Photo")) {
                     userChoosenTask = "Take Photo";
                     if (result)
@@ -484,7 +433,6 @@ public class MyprofileActivity_User extends AppCompatActivity {
 
     private void galleryIntent() {
         Intent i = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        // Start new activity with the LOAD_IMAGE_RESULTS to handle back the results when image is picked from the Image Gallery.
         startActivityForResult(i, SELECT_FILE);
     }
 
@@ -516,7 +464,7 @@ public class MyprofileActivity_User extends AppCompatActivity {
 
         Log.e("", String.valueOf(destination));
 
-        System.out.println("onCaptureImageResult=====        "+ String.valueOf(destination));
+        System.out.println("onCaptureImageResult=====        " + String.valueOf(destination));
 
         FileOutputStream fo;
         try {
@@ -526,7 +474,7 @@ public class MyprofileActivity_User extends AppCompatActivity {
                 filenew1 = destination.getAbsolutePath();
                 // Toast.makeText(getActivity(), "path is"+destination.getAbsolutePath(), Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText( MyprofileActivity_User.this, "something wrong", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MyprofileActivity_User.this, "something wrong", Toast.LENGTH_SHORT).show();
             }
             fo.write(bytes.toByteArray());
             fo.close();
@@ -545,34 +493,32 @@ public class MyprofileActivity_User extends AppCompatActivity {
 
             Uri pickedImage = data.getData();
             String[] filePath = {MediaStore.Images.Media.DATA};
-            Cursor cursor =  MyprofileActivity_User.this.getContentResolver().query(pickedImage, filePath, null, null, null);
+            Cursor cursor = MyprofileActivity_User.this.getContentResolver().query(pickedImage, filePath, null, null, null);
             cursor.moveToFirst();
             destination = new File(cursor.getString(cursor.getColumnIndex(filePath[0])));
             cursor.close();
 
 
-
             if (destination != null) {
                 filenew1 = destination.getAbsolutePath();
 
-                System.out.println("onSelectFromGalleryResult=====        "+ destination.getAbsolutePath());
+                System.out.println("onSelectFromGalleryResult=====        " + destination.getAbsolutePath());
 
 
             } else {
-                Toast.makeText( MyprofileActivity_User.this, "something wrong", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MyprofileActivity_User.this, "something wrong", Toast.LENGTH_SHORT).show();
             }
 
             try {
-                bm = MediaStore.Images.Media.getBitmap( MyprofileActivity_User.this.getContentResolver(), data.getData());
+                bm = MediaStore.Images.Media.getBitmap(MyprofileActivity_User.this.getContentResolver(), data.getData());
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-        System.out.println("onSelectFromGalleryResult=====        "+bm.toString());
+        System.out.println("onSelectFromGalleryResult=====        " + bm.toString());
 
         profilepic.setImageBitmap(bm);
     }
-
 
 
     @RequiresApi(api = Build.VERSION_CODES.M)
@@ -590,33 +536,19 @@ public class MyprofileActivity_User extends AppCompatActivity {
                 isPermitted = grantResults[i] == PackageManager.PERMISSION_GRANTED;
 
                 if (grantResults[i] == PackageManager.PERMISSION_DENIED) {
-                    // user rejected the permission
                     boolean showRationale = shouldShowRequestPermissionRationale(permission);
                     if (!showRationale) {
-                        //execute when 'never Ask Again' tick and permission dialog not show
+
                     } else {
                         if (openDialogOnce) {
-                            Toast.makeText( MyprofileActivity_User.this, "Permission required", Toast.LENGTH_SHORT).show();
-                            // alertView();
+                            Toast.makeText(MyprofileActivity_User.this, "Permission required", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }
             }
-
-            try {
-
-
-            }catch (Exception e){
-
-            }
-
-            if (isPermitted){
+            if (isPermitted) {
                 selectImage();
-
-            }else {
-
             }
-
         }
     }
 

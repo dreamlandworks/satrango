@@ -1,6 +1,7 @@
 package com.satrangolimitless;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -38,7 +39,6 @@ import com.karumi.dexter.listener.DexterError;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.PermissionRequestErrorListener;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
-import com.satrangolimitless.Setting.TermsAnsConditinfragment;
 import com.satrangolimitless.Utils.Utils;
 import com.satrangolimitless.Utils.VolleySingleton;
 import com.satrangolimitless.gps.GPSTracker;
@@ -82,6 +82,7 @@ public class SignUpActivity extends AppCompatActivity {
     String FCM_ID;
     private int Year, Month, Day, mHour, mMinute;
     Fragment fragment;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -115,7 +116,6 @@ public class SignUpActivity extends AppCompatActivity {
 
             }
         });
-
 
 
         findViewById(R.id.sign_ln).setOnClickListener(new View.OnClickListener() {
@@ -180,6 +180,7 @@ public class SignUpActivity extends AppCompatActivity {
                 } else if (!edt_mail.getText().toString().trim().matches(emailPattern)) {
                     edt_mail.setError("Invalid email address");
                     edt_mail.requestFocus();
+                    return;
                 }
 
                 if (DOB.isEmpty()) {
@@ -192,9 +193,7 @@ public class SignUpActivity extends AppCompatActivity {
                 }
 
                 if (Utils.isInternetConnected(SignUpActivity.this)) {
-
                     CallSignUpApi();
-
                 } else {
                     Toast.makeText(SignUpActivity.this, getString(R.string.no_internet), Toast.LENGTH_SHORT).show();
                 }
@@ -220,6 +219,7 @@ public class SignUpActivity extends AppCompatActivity {
 
 
                         new DatePickerDialog.OnDateSetListener() {
+                            @SuppressLint("SetTextI18n")
                             @Override
                             public void onDateSet(DatePicker view, int year,
                                                   int monthOfYear, int dayOfMonth) {
@@ -303,7 +303,7 @@ public class SignUpActivity extends AppCompatActivity {
                             }
                         } catch (JSONException e) {
 
-                            Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "Hello" + e.toString(), Toast.LENGTH_LONG).show();
 
                             progressDialog.dismiss();
 
@@ -380,8 +380,6 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
 
-
-
     private void requestPermissions() {
 
         Dexter.withActivity(this)
@@ -389,7 +387,7 @@ public class SignUpActivity extends AppCompatActivity {
                 // permissions which are required in our app.
                 .withPermissions(
                         // below is the list of permissions
-                        Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.INTERNET)
+                        Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.INTERNET)
                 // after adding permissions we are
                 // calling an with listener method.
                 .withListener(new MultiplePermissionsListener() {
@@ -398,8 +396,6 @@ public class SignUpActivity extends AppCompatActivity {
                         // this method is called when all permissions are granted
                         if (multiplePermissionsReport.areAllPermissionsGranted()) {
                             // do you work now
-
-
 
 
                         }

@@ -1,152 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/myprofile"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/vendr_drwrimage"
     android:gravity="bottom"
     android:orientation="vertical"
-    android:background="@drawable/vendr_drwrimage"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    android:id="@+id/myprofile"
-    android:weightSum="2"
-    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+    android:theme="@style/ThemeOverlay.AppCompat.Dark"
+    android:weightSum="2">
 
 
     <LinearLayout
-        android:weightSum="2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:weightSum="2">
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_marginTop="@dimen/_20sdp"
-            android:layout_gravity="center"
-            android:layout_weight="1.5"
             android:id="@+id/imageprofiledrwer"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_70sdp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_weight="1.5"
+            android:src="@drawable/images"
             app:civ_border_color="@color/white"
-            app:civ_border_width="@dimen/_2sdp"
-            android:src="@drawable/images"/>
+            app:civ_border_width="@dimen/_2sdp" />
 
         <LinearLayout
-            android:layout_weight=".5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight=".5"
             android:orientation="vertical">
 
 
             <TextView
-                android:fontFamily="@font/neosans_pro_regular"
                 android:id="@+id/drtxtvname"
-                android:textColor="@color/yellow"
-                android:textStyle="bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/neosans_pro_regular"
                 android:paddingTop="@dimen/_10sdp"
-                android:text="Ojasvini"
+                android:text="@string/Apply"
                 android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="@color/white"
                 android:textSize="@dimen/_18sdp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+                android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
 
-       <LinearLayout
-        android:weightSum="2"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:weightSum="2">
 
 
         <LinearLayout
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:layout_marginTop="@dimen/_5sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_wallets"/>
+                android:src="@drawable/ic_wallets" />
 
             <TextView
-                android:layout_gravity="center"
-                android:layout_marginLeft="@dimen/_10sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_10sdp"
                 android:text="Rs.0.00"
-                android:textStyle="bold"
+                android:textColor="@color/green"
                 android:textSize="@dimen/_20sdp"
-                android:textColor="@color/green"/>
+                android:textStyle="bold" />
 
         </LinearLayout>
 
 
-
-
-
         <LinearLayout
-            android:layout_marginBottom="@dimen/_20sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
             android:gravity="center"
-            android:layout_marginLeft="@dimen/_5sdp">
+            android:orientation="horizontal">
 
             <RelativeLayout
                 android:id="@+id/rl_user"
                 android:layout_width="@dimen/_160sdp"
                 android:layout_height="@dimen/_40sdp"
                 android:layout_alignParentRight="true"
-                android:background="@drawable/userbtnshape"
-                android:layout_marginTop="@dimen/_1sdp">
+                android:layout_marginTop="@dimen/_1sdp"
+                android:background="@drawable/userbtnshape">
 
                 <RelativeLayout
-                    android:gravity="center"
                     android:layout_width="@dimen/_90sdp"
                     android:layout_height="@dimen/_40sdp"
-                    android:background="@drawable/userbtnshape"
                     android:layout_alignParentLeft="true"
-                    >
+                    android:background="@drawable/userbtnshape"
+                    android:gravity="center">
 
 
                     <TextView
-                        android:layout_marginLeft="@dimen/_5sdp"
-                        android:padding="@dimen/_10sdp"
-                        android:textSize="@dimen/_16sdp"
-                        android:textColor="@color/white"
-                        android:text="User"
-                        android:textStyle="bold"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        />
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:text="USER"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_16sdp"
+                        android:textStyle="bold" />
                 </RelativeLayout>
 
 
                 <RelativeLayout
-                    android:elevation="@dimen/_5sdp"
                     android:id="@+id/rl_provider"
-                    android:layout_width="@dimen/_90sdp"
+                    android:layout_width="@dimen/_100sdp"
                     android:layout_height="@dimen/_40sdp"
+                    android:layout_alignParentRight="true"
                     android:background="@drawable/providerbtnshape"
-                    android:layout_alignParentRight="true">
+                    android:elevation="@dimen/_5sdp">
 
 
                     <TextView
-                        android:textSize="@dimen/_16sdp"
-                        android:textStyle="bold"
-                        android:padding="@dimen/_10sdp"
-                        android:textColor="@color/blue"
-                        android:text="Provider"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        />
+                        android:text="PROVIDER"
+                        android:gravity="center"
+                        android:textColor="@color/green"
+                        android:textSize="@dimen/_16sdp"
+                        android:textStyle="bold" />
 
                 </RelativeLayout>
 
@@ -156,17 +149,7 @@
         </LinearLayout>
 
 
-
-
-
-
-
-
-
-
     </LinearLayout>
-
-
 
 
 </LinearLayout>

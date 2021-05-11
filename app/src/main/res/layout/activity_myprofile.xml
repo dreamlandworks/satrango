@@ -117,7 +117,7 @@
                                 android:orientation="horizontal">
 
                                 <RelativeLayout
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="@dimen/_100sdp"
                                     android:layout_height="@dimen/_100sdp"
                                     android:layout_gravity="bottom"
                                     android:gravity="bottom">
@@ -135,8 +135,9 @@
                                     <ImageView
                                         android:layout_width="wrap_content"
                                         android:layout_height="@dimen/_24sdp"
+                                        android:layout_alignParentEnd="true"
                                         android:layout_alignParentBottom="true"
-                                        android:layout_marginLeft="@dimen/_30sdp"
+                                        android:layout_marginBottom="@dimen/_10sdp"
                                         android:src="@drawable/ic_cameras" />
 
                                 </RelativeLayout>
@@ -240,46 +241,46 @@
                                 android:orientation="vertical"
                                 android:padding="@dimen/_15sdp">
 
-                                <RelativeLayout
+                                <LinearLayout
                                     android:layout_width="match_parent"
-                                    android:layout_height="wrap_content">
+                                    android:layout_height="wrap_content"
+                                    android:weightSum="5">
 
                                     <com.google.android.material.textfield.TextInputLayout
                                         android:id="@+id/signIn_email"
                                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                                        android:layout_width="@dimen/_300sdp"
+                                        android:layout_width="0dp"
                                         android:layout_height="wrap_content"
-                                        android:layout_weight="1">
+                                        android:layout_weight="4">
 
                                         <com.google.android.material.textfield.TextInputEditText
                                             android:id="@+id/edt_mail"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
-                                            android:drawableLeft="@drawable/ic_mail"
+                                            android:drawableStart="@drawable/ic_mail"
                                             android:drawablePadding="@dimen/_10sdp"
                                             android:hint="@string/email"
+                                            android:drawableEnd="@drawable/ic_pencil"
                                             android:inputType="textEmailAddress"
                                             android:maxLines="1"
-                                            android:enabled="false"
-
                                             android:theme="@style/AppTheme1" />
                                     </com.google.android.material.textfield.TextInputLayout>
 
                                     <ImageView
-
                                         android:id="@+id/imgmailedt"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"
+                                        android:layout_height="match_parent"
                                         android:layout_alignParentRight="true"
                                         android:layout_gravity="center"
-                                        android:layout_marginTop="@dimen/_20sdp"
-                                        android:layout_marginLeft="@dimen/_5sdp"
+                                        android:padding="@dimen/_20sdp"
+                                        android:visibility="gone"
                                         android:src="@drawable/ic_pencils">
 
                                     </ImageView>
 
 
-                                </RelativeLayout>
+                                </LinearLayout>
 
                                 <com.google.android.material.textfield.TextInputLayout
                                     android:id="@+id/DateOfBirth"
