@@ -212,7 +212,7 @@
                     android:layout_gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/complaints"
+                    android:text="Rise a complaint"
                     android:textSize="@dimen/_14sdp"
                     android:textColor="@color/black"/>
 

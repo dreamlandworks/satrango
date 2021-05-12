@@ -103,73 +103,45 @@ public class LandingActivity extends AppCompatActivity {
     };
     BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
+        @SuppressLint("NonConstantResourceId")
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             fragment = null;
-            //String Backstack=fragment.getClass().getName();
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-
-//                    transaction = getSupportFragmentManager().beginTransaction();
-//                    transaction.replace(R.id.frame, fragment1);
-//                    transaction.commit();
-
-
-                    fragment = null;
                     fragment = new HomeFragment_user();
                     getSupportFragmentManager()
                             .beginTransaction()
                             .add(R.id.frame, fragment)
                             .addToBackStack("csds").commit();
+                    fabSelected = false;
                     return true;
 
-                case R.id.navigation_search:
-//                    transaction = getSupportFragmentManager().beginTransaction();
-//                    transaction.replace(R.id.frame, fragment2);
-//                    transaction.commit();
-
-
-                    fragment = null;
+                case R.id.navigation_offers:
                     fragment = new OfferFragment();
                     getSupportFragmentManager()
                             .beginTransaction()
                             .add(R.id.frame, fragment)
                             .addToBackStack("csds").commit();
-
-
+                    fabSelected = false;
                     return true;
 
-                case R.id.navigation_trial:
-//                    transaction = getSupportFragmentManager().beginTransaction();
-//                    transaction.replace(R.id.frame, fragment3);
-//                    transaction.commit();
-
-
-                    fragment = null;
+                case R.id.navigation_alerts:
                     fragment = new User_Notifications();
                     getSupportFragmentManager()
                             .beginTransaction()
                             .add(R.id.frame, fragment)
                             .addToBackStack("csds").commit();
-
+                    fabSelected = false;
                     return true;
 
-
-                case R.id.navigation_profile:
-
-//                    transaction = getSupportFragmentManager().beginTransaction();
-//                    transaction.replace(R.id.frame, fragment4);
-//                    transaction.commit();
-
-
-                    fragment = null;
+                case R.id.navigation_chats:
                     fragment = new ChatFragment();
                     getSupportFragmentManager()
                             .beginTransaction()
                             .add(R.id.frame, fragment)
                             .addToBackStack("csds").commit();
-
-
+                    fabSelected = false;
                     return true;
 
             }
@@ -179,6 +151,7 @@ public class LandingActivity extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     private ActionBarDrawerToggle drawerToggle;
     private DrawerLayout drawerLayout;
+    private boolean fabSelected = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -189,7 +162,7 @@ public class LandingActivity extends AppCompatActivity {
         name = session.getUser_name();
         image = session.getProfileimage();
         Layout_hader = findViewById(R.id.Layout_hader);
-        navView = findViewById(R.id.customBottomBar);
+        navView = findViewById(R.id.bottom_navigation);
         img_profile = findViewById(R.id.img_profile);
         imageView = findViewById(R.id.imageView);
         l_provider = findViewById(R.id.l_provider);
@@ -207,12 +180,12 @@ public class LandingActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fragment = null;
                 fragment = new PostAjobFragment();
                 getSupportFragmentManager()
                         .beginTransaction()
                         .add(R.id.frame, fragment)
                         .addToBackStack("csds").commit();
+                fabSelected = true;
 
             }
         });
@@ -357,47 +330,39 @@ public class LandingActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         int seletedItemId = navView.getSelectedItemId();
-
-        System.out.println("seletedItemId=======     " + seletedItemId);
         if (R.id.navigation_home != seletedItemId) {
             setHomeItem(LandingActivity.this);
+            return;
         } else {
-
-            System.out.println(R.id.navigation_home);
-            System.out.println(seletedItemId);
-            new AlertDialog.Builder(LandingActivity.this)
-                    .setIcon(android.R.drawable.ic_dialog_alert)
-                    .setTitle("Closing Application")
-                    .setMessage("Are you sure you want to close this App?")
-                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            if (Build.VERSION.SDK_INT >= 16 && Build.VERSION.SDK_INT < 21) {
-                                // getActivity().finishAffinity();
-
-
-                                Intent i = new Intent(Intent.ACTION_MAIN);
-                                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                finish();
-
-
-                            } else if (Build.VERSION.SDK_INT >= 21) {
-
-
-                                Intent i = new Intent(Intent.ACTION_MAIN);
-                                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                finish();
-
-                                //  getActivity().finishAndRemoveTask();
+            if (fabSelected) {
+                fabSelected = false;
+                setHomeItem(LandingActivity.this);
+                return;
+            } else {
+                new AlertDialog.Builder(LandingActivity.this)
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .setTitle("Closing Application")
+                        .setMessage("Are you sure you want to close this App?")
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                if (Build.VERSION.SDK_INT >= 16 && Build.VERSION.SDK_INT < 21) {
+                                    Intent i = new Intent(Intent.ACTION_MAIN);
+                                    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                    i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                    finish();
+                                } else if (Build.VERSION.SDK_INT >= 21) {
+                                    Intent i = new Intent(Intent.ACTION_MAIN);
+                                    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                    i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                    finish();
+                                }
                             }
-                        }
 
-                    })
-                    .setNegativeButton("No", null)
-                    .show();
-
+                        })
+                        .setNegativeButton("No", null)
+                        .show();
+            }
         }
     }
 
@@ -511,6 +476,7 @@ public class LandingActivity extends AppCompatActivity {
             }
 
             viewHolder.draw_layout.setOnClickListener(new View.OnClickListener() {
+                @SuppressLint("WrongConstant")
                 @RequiresApi(api = Build.VERSION_CODES.GINGERBREAD)
                 @Override
                 public void onClick(View view) {
@@ -518,78 +484,67 @@ public class LandingActivity extends AppCompatActivity {
                     notifyDataSetChanged();
                     switch (pos) {
                         case 0:
-                            fragment = null;
                             fragment = new HomeFragment_user();
                             getSupportFragmentManager()
                                     .beginTransaction()
                                     .add(R.id.frame, fragment)
                                     .addToBackStack("csds").commit();
-
+                            fabSelected = true;
                             break;
                         case 1:
-                            fragment = null;
                             fragment = new PostAjobFragment();
                             getSupportFragmentManager()
                                     .beginTransaction()
                                     .add(R.id.frame, fragment)
                                     .addToBackStack("csds").commit();
+                            fabSelected = true;
                             break;
                         case 2:
-
                             Intent intent = new Intent(getApplicationContext(), PopularcategoriesActivity.class);
                             startActivity(intent);
-
-
                             break;
                         case 3:
-
-                            fragment = null;
                             fragment = new MyaccountFragment();
                             getSupportFragmentManager()
                                     .beginTransaction()
                                     .add(R.id.frame, fragment)
                                     .addToBackStack("csds").commit();
-
+                            fabSelected = true;
                             break;
                         case 4:
-
-                            fragment = null;
                             fragment = new MybookingFragment();
                             getSupportFragmentManager()
                                     .beginTransaction()
                                     .add(R.id.frame, fragment)
                                     .addToBackStack("csds").commit();
+                            fabSelected = true;
                             break;
                         case 5:
-
-                            fragment = null;
                             fragment = new MyJobPostsFragment();
                             getSupportFragmentManager()
                                     .beginTransaction()
                                     .add(R.id.frame, fragment)
                                     .addToBackStack("csds").commit();
+                            fabSelected = true;
                             break;
-
                         case 6:
                             Intent intent1 = new Intent(LandingActivity.this, MyprofileActivity_User.class);
                             startActivity(intent1);
-
                             break;
                         case 7:
-                            fragment = null;
                             fragment = new SettingsFragment();
                             getSupportFragmentManager()
                                     .beginTransaction()
                                     .add(R.id.frame, fragment)
                                     .addToBackStack("csds").commit();
+                            fabSelected = true;
                             break;
                         case 8:
                             Logout();
 
                             break;
                     }
-
-                    drawerLayout.closeDrawer(Gravity.LEFT);
+                    drawerLayout.closeDrawer(Gravity.START);
                 }
             });
 

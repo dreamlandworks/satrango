@@ -1,15 +1,17 @@
 package com.satrangolimitless;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
@@ -17,7 +19,6 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.satrangolimitless.Utils.Base_Url;
 import com.satrangolimitless.Utils.VolleySingleton;
 
 import org.json.JSONException;
@@ -30,43 +31,46 @@ import static com.satrangolimitless.Utils.Base_Url.BaseUrl;
 import static com.satrangolimitless.Utils.Base_Url.Forgotpassword_Api;
 
 public class ForgotPasswordActivity extends AppCompatActivity {
-Button btn_resetpass;
-EditText edt_phone;
-String phone;
+    Button btn_resetpass;
+    EditText edt_phone;
+    String phone;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot_password);
-        btn_resetpass= findViewById(R.id.btn_resetpass);
-        edt_phone= findViewById(R.id.edt_phone);
+        btn_resetpass = findViewById(R.id.btn_resetpass);
+        edt_phone = findViewById(R.id.edt_phone);
 
-btn_resetpass.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
-        phone=edt_phone.getText().toString();
+        btn_resetpass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                phone = edt_phone.getText().toString();
+                if (phone.length() < 10) {
+                    edt_phone.setError("Enter 10 digit Phone Number");
+                    edt_phone.requestFocus();
+                    return;
+                }
+                ForgotPasswordApi();
+            }
+        });
 
 
-        ForgotPasswordApi();
     }
-});
-         
-        
-        
-    }
 
 
-    private void ForgotPasswordApi( ) {
+    private void ForgotPasswordApi() {
         final ProgressDialog progressDialog = new ProgressDialog(ForgotPasswordActivity.this);
         progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
         progressDialog.show();
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, BaseUrl+Forgotpassword_Api,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, BaseUrl + Forgotpassword_Api,
                 new Response.Listener<String>() {
 
                     @Override
                     public void onResponse(String response) {
                         Log.v("<>Forgotpassword  ", response.toString());
-                        System.out.println("Forgotpassword response ===== "+response.toString());
+                        System.out.println("Forgotpassword response ===== " + response.toString());
                         try {
 
                             progressDialog.dismiss();
@@ -82,11 +86,10 @@ btn_resetpass.setOnClickListener(new View.OnClickListener() {
                                 Toast.makeText(getApplicationContext(), "Please check your mobile for OTP", Toast.LENGTH_LONG).show();
 
 
-
-                                    Intent intent = new Intent(ForgotPasswordActivity.this, ForgotpasswordotpActivity.class);
-                                    intent.putExtra("phone",phone);
-                                    startActivity(intent);
-                                    finish();
+                                Intent intent = new Intent(ForgotPasswordActivity.this, ForgotpasswordotpActivity.class);
+                                intent.putExtra("phone", phone);
+                                startActivity(intent);
+                                finish();
                             } else {
 
                                 Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
@@ -112,7 +115,7 @@ btn_resetpass.setOnClickListener(new View.OnClickListener() {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
                 params.put("phone", phone);
-System.out.println("params  forgot pass==    "+phone);
+                System.out.println("params  forgot pass==    " + phone);
                 return params;
             }
         };
@@ -122,10 +125,6 @@ System.out.println("params  forgot pass==    "+phone);
         VolleySingleton.getInstance(this).addToRequestQueue(stringRequest);
 
     }
-
-
-
-
 
 
 }

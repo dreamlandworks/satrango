@@ -54,6 +54,10 @@ import com.satrangolimitless.Utils.Utils;
 import com.satrangolimitless.session.Session;
 import com.satrangolimitless.session.Session_vendor;
 import com.satrangolimitless.session.Sessiontemp;
+import com.twitter.sdk.android.core.DefaultLogger;
+import com.twitter.sdk.android.core.Twitter;
+import com.twitter.sdk.android.core.TwitterAuthConfig;
+import com.twitter.sdk.android.core.TwitterConfig;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -118,6 +122,14 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         // Build a GoogleSignInClient with the options specified by gso.
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+
+//        TwitterConfig config = new TwitterConfig.Builder(this)
+//                .logger(new DefaultLogger(Log.DEBUG))
+//                .twitterAuthConfig(new TwitterAuthConfig(TWITTER_KEY,
+//                        TWITTER_SECRET))
+//                .debug(true)
+//                .build();
+//        Twitter.initialize(config);
 
         System.out.println("data session mobile  ---   " + sessiontemp.getMobile() + "" + sessiontemp.getPass());
         if (sessiontemp.getMobile() != null && !sessiontemp.getMobile().isEmpty() && !sessiontemp.getMobile().equals("null") && !sessiontemp.getMobile().equals("0")) {

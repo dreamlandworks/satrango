@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -62,6 +63,8 @@ public class OfferFragment extends Fragment {
     Adapter_Tailormade_offers adapter_tailormade_offers;
 
     ImageView ivbak;
+    private TextView latestOfferTV;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,6 +84,7 @@ public class OfferFragment extends Fragment {
         ivbak = root.findViewById(R.id.ivbak);
         imgprofile = root.findViewById(R.id.imgprofile);
         recv_latestoffers = root.findViewById(R.id.recv_latestoffers);
+        latestOfferTV = root.findViewById(R.id.Offersexpiringsoon);
         recv_offerexpiring = root.findViewById(R.id.recv_offerexpiring);
         recv_tailormade = root.findViewById(R.id.recv_tailormade);
         image = session.getProfileimage();
@@ -152,10 +156,8 @@ public class OfferFragment extends Fragment {
                                             dataObject.getString("id"));
                                     latest_offers_models.add(allCommunityModel);
                                 }
-
-
                             } else {
-
+                                latestOfferTV.setVisibility(View.GONE);
                             }
                             adapter_latest_offers = new Adapter_Latest_offers(latest_offers_models, getActivity());
                             RecyclerView.LayoutManager mLayoutManger = new LinearLayoutManager(getActivity());

@@ -297,6 +297,7 @@ public class HomeFragment_user extends Fragment {
     private void CategoryApi() {
         final ProgressDialog progressDialog = new ProgressDialog(getActivity());
         progressDialog.setTitle("Loading..");
+        progressDialog.setCancelable(false);
         progressDialog.show();
         String url = BaseUrl + Category_Api;
         featuredProductsModels.clear();

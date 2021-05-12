@@ -13,6 +13,7 @@ import android.provider.Settings;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -137,10 +138,7 @@ public class SignUpActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
                 edt_mail.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_greencheck, 0);
-
-
             }
 
             @Override
@@ -192,6 +190,11 @@ public class SignUpActivity extends AppCompatActivity {
                     return;
                 }
 
+                if (getAge(Integer.parseInt(DOB.split("-")[0]), Integer.parseInt(DOB.split("-")[1]), Integer.parseInt(DOB.split("-")[2])) < 13) {
+                    Toast.makeText(SignUpActivity.this, "Age must be greater than 13", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 if (Utils.isInternetConnected(SignUpActivity.this)) {
                     CallSignUpApi();
                 } else {
@@ -208,17 +211,12 @@ public class SignUpActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-
-
                 final java.util.Calendar c = java.util.Calendar.getInstance();
 
                 int mYear = c.get(java.util.Calendar.YEAR); // current year
                 int mMonth = c.get(java.util.Calendar.MONTH); // current month
                 int mDay = c.get(java.util.Calendar.DAY_OF_MONTH); // current day
-                datePickerDialog = new DatePickerDialog(SignUpActivity.this,
-
-
-                        new DatePickerDialog.OnDateSetListener() {
+                datePickerDialog = new DatePickerDialog(SignUpActivity.this, new DatePickerDialog.OnDateSetListener() {
                             @SuppressLint("SetTextI18n")
                             @Override
                             public void onDateSet(DatePicker view, int year,
@@ -245,7 +243,6 @@ public class SignUpActivity extends AppCompatActivity {
 
 //Signup Api call====================================================
 
-
     private void CallSignUpApi() {
         final ProgressDialog progressDialog = new ProgressDialog(SignUpActivity.this);
         progressDialog.setTitle("Loading...");
@@ -268,7 +265,7 @@ public class SignUpActivity extends AppCompatActivity {
                             if (result.equalsIgnoreCase("true")) {
 
                                 if (msg.equals("Email Already exists")) {
-
+                                    Toast.makeText(SignUpActivity.this, "User Already Existed!", Toast.LENGTH_SHORT).show();
                                 } else {
                                     JSONObject obj1 = obj.getJSONObject("data");
 
@@ -331,7 +328,7 @@ public class SignUpActivity extends AppCompatActivity {
                 params.put("lang", longi);
                 params.put("fcm_id", FCM_ID);
                 params.put("address", session.getAddress());
-                System.out.println("signup-      " + params);
+                System.out.println("signup-" + params);
                 return params;
             }
         };
@@ -361,7 +358,7 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
 
-    private String getAge(int year, int month, int day) {
+    private int getAge(int year, int month, int day) {
         Calendar dob = Calendar.getInstance();
         Calendar today = Calendar.getInstance();
 
@@ -373,10 +370,7 @@ public class SignUpActivity extends AppCompatActivity {
             age--;
         }
 
-        Integer ageInt = new Integer(age);
-        String ageS = ageInt.toString();
-
-        return ageS;
+        return age;
     }
 
 

@@ -12,7 +12,7 @@ public interface Base_Url {
 
 
     String Profileimage_url = "";
-    String mediimage_url = "http://logicaltest.in/satarango/assets/media/users/";
+    String mediimage_url = "https://satrango.com/assets/media/users/";
 
     String Signup_Api = "signup";
     String login_Api = "login";

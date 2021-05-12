@@ -68,57 +68,36 @@ Session session;
                 if (name.isEmpty()) {
                     edt_name.setError("Enter Name");
                     edt_name.requestFocus();
-
                     return;
                 }
                else if (accno.isEmpty()) {
                     edtaccno.setError("Enter Account no.");
                     edtaccno.requestFocus();
-
                     return;
                 }
-               else if (accno.length() <9) {
+               else if (accno.length() < 9) {
                     edtaccno.setError("Account no. must min. 9 digit");
                     edtaccno.requestFocus();
-
                     return;
-
-
                 }
                 else  if (cnfaccno.isEmpty()) {
                     edtcnfaccno.setError("Enter Confirm Account no.");
                     edtcnfaccno.requestFocus();
-
                     return;
-                }
-
-                else if (cnfaccno.length() <9) {
+                } else if (cnfaccno.length() < 9) {
                     edtaccno.setError("Account no. must min. 9 digit");
                     edtaccno.requestFocus();
-
                     return;
-
-
-                }
-
-
-                else  if (!accno.matches(cnfaccno)) {
+                } else  if (!accno.matches(cnfaccno)) {
                     edtcnfaccno.setError("Enter same account no. and confirm acc. no.");
                     edtcnfaccno.requestFocus();
-
                     return;
-                }
-
-
-                else  if (ifsc.isEmpty()) {
+                } else  if (ifsc.isEmpty()) {
                     edtifsc.setError("Enter IFSC no.");
                     edtifsc.requestFocus();
-
                     return;
-                }else {
-
+                } else {
                     AddBankaccount();
-
                 }
 
 
@@ -133,37 +112,25 @@ Session session;
         progressDialog.setTitle("Loading...");
         progressDialog.show();
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, BaseUrl + Add_Bank_account
-                ,
-                new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, BaseUrl + Add_Bank_account, new Response.Listener<String>() {
 
                     @Override
                     public void onResponse(String response) {
-                        Log.e("AddBankaccount data", response);
                         try {
                             progressDialog.dismiss();
-                            //converting response to json object
                             System.out.println("AddBankaccount data----  " + response);
                             JSONObject obj = new JSONObject(response);
                             String result = obj.getString("result");
                             String msg = obj.getString("msg");
-
-
                             if (result.equalsIgnoreCase("true")) {
-
                                 showreqsuccessdialogue();
                             } else {
                                 Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
-
                             }
                         } catch (JSONException e) {
-
                             Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
-
                             progressDialog.dismiss();
-
                             e.printStackTrace();
-
                         }
 
                     }

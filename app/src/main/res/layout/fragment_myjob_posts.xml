@@ -88,10 +88,6 @@
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="8dp" />
 
-
     </LinearLayout>
-
-
-
 
 </FrameLayout>

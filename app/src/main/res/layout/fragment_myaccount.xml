@@ -8,12 +8,49 @@
     android:orientation="vertical"
     tools:context=".User_UI.Myaccount.MyaccountFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <ImageView
-        android:layout_marginTop="-5dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_yellowline"/>
+    <RelativeLayout
+        android:id="@+id/relativelayout"
+        android:layout_height="?attr/actionBarSize"
+        android:paddingLeft="@dimen/_15sdp"
+        android:paddingBottom="@dimen/_10sdp"
+        android:paddingRight="@dimen/_10sdp"
+        android:paddingTop="@dimen/_15sdp"
+        android:background="@color/colorPrimaryDark"
+        android:layout_width="match_parent">
+
+
+        <ImageView
+            android:id="@+id/imgbackb"
+            android:layout_gravity="left"
+            android:src="@drawable/ic_backs"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_24sdp"/>
+
+        <TextView
+            android:id="@+id/txtbacks"
+            android:layout_marginLeft="@dimen/_30sdp"
+            android:fontFamily="@font/quicksand_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:text="Home" />
+
+        <TextView
+            android:layout_marginLeft="@dimen/_100sdp"
+            android:id="@+id/textView"
+            android:fontFamily="@font/quicksand_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:text="My Account" />
+
+    </RelativeLayout>
 
     <ScrollView
         android:layout_marginTop="-5dp"

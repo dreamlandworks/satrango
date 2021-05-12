@@ -46,6 +46,7 @@
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@drawable/lunchoriogo"
         android:supportsRtl="true"
+        android:hardwareAccelerated="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:replace="android:allowBackup">

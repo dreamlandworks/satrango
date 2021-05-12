@@ -149,7 +149,6 @@
                                     android:drawableLeft="@drawable/ic_users"
                                     android:drawableRight="@drawable/ic_pencil"
                                     android:drawablePadding="@dimen/_10sdp"
-
                                     android:hint="@string/entername"
                                     android:inputType="text"
                                     android:maxLines="1"

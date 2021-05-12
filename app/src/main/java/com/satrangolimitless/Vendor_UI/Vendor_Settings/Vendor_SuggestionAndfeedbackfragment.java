@@ -1,10 +1,12 @@
 package com.satrangolimitless.Vendor_UI.Vendor_Settings;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -172,11 +174,18 @@ ImageView img_back;
                             Log.e("<><><>namiikdnjcdshnj",jsonObject.toString());
 
                             if (result.equals(true)) {
-
-                                Toast.makeText(getActivity(), ""+msg, Toast.LENGTH_SHORT).show();
-
-                            } else {
-
+                                final Dialog dialog = new Dialog(requireContext());
+                                dialog.setContentView(R.layout.dialog_feedback_success);
+                                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                                Button closeBtn = dialog.findViewById(R.id.btn_yes);
+                                closeBtn.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        dialog.dismiss();
+                                    }
+                                });
+                                dialog.show();
+                                Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
                             }
 
                         } catch (JSONException e) {

@@ -204,4 +204,7 @@
     <string name="ex_web_app_development_data_entry_etc"><![CDATA[Ex: Web & App Development, Data Entry etc.,]]></string>
     <string name="scheduled_date_time"><![CDATA[Scheduled Date & Time]]></string>
     <string name="calenderdetails">calenderdetails</string>
+    <string name="gps_network_not_enabled">GPS Network not enabled</string>
+    <string name="open_location_settings">Open Location Settings</string>
+    <string name="Cancel">Cancel</string>
 </resources>

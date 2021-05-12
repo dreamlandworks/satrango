@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,6 +19,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
+import com.satrangolimitless.LandingActivity;
 import com.satrangolimitless.R;
 import com.satrangolimitless.session.Session;
 
@@ -29,23 +31,22 @@ import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-import static com.facebook.FacebookSdk.getApplicationContext;
 import static com.satrangolimitless.Utils.Base_Url.BaseUrl;
 import static com.satrangolimitless.Utils.Base_Url.Image_url;
 import static com.satrangolimitless.Utils.Base_Url.MyAccountdetails_user_side;
-import static com.satrangolimitless.Utils.Base_Url.privacy_policy;
 
 
 public class MyaccountFragment extends Fragment {
 
     TextView txt_bookings, txtbalance, txtacname,
             txtreferrals,
-            txtjobpost,txtmonth_earnings,txtprevious_month_earnings;
+            txtjobpost, txtmonth_earnings, txtprevious_month_earnings;
     Session session;
     String userid;
     CircleImageView imgproac;
     private RequestQueue rQueue;
-LinearLayout ll_addwithfunds,lltranshistry;
+    LinearLayout ll_addwithfunds, lltranshistry;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,23 +56,43 @@ LinearLayout ll_addwithfunds,lltranshistry;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root= inflater.inflate(R.layout.fragment_myaccount, container, false);
+        ((LandingActivity)getActivity()).Layout_hader.setVisibility(View.GONE);
+        View root = inflater.inflate(R.layout.fragment_myaccount, container, false);
 
-        session=new Session(getActivity());
+        session = new Session(getActivity());
 
-        imgproac=root.findViewById(R.id.imgproac);
-        txtjobpost=root.findViewById(R.id.txtjobpost);
-        txt_bookings=root.findViewById(R.id.txt_bookings);
-        txtbalance=root.findViewById(R.id.txtbalance);
-        txtacname=root.findViewById(R.id.txtacname);
-        txtreferrals=root.findViewById(R.id.txtreferrals);
-        txtmonth_earnings=root.findViewById(R.id.txtmonth_earnings);
-        txtprevious_month_earnings=root.findViewById(R.id.txtprevious_month_earnings);
-        ll_addwithfunds=root.findViewById(R.id.ll_addwithfunds);
-        lltranshistry=root.findViewById(R.id.lltranshistry);
+        imgproac = root.findViewById(R.id.imgproac);
+        txtjobpost = root.findViewById(R.id.txtjobpost);
+        txt_bookings = root.findViewById(R.id.txt_bookings);
+        txtbalance = root.findViewById(R.id.txtbalance);
+        txtacname = root.findViewById(R.id.txtacname);
+        txtreferrals = root.findViewById(R.id.txtreferrals);
+        txtmonth_earnings = root.findViewById(R.id.txtmonth_earnings);
+        txtprevious_month_earnings = root.findViewById(R.id.txtprevious_month_earnings);
+        ll_addwithfunds = root.findViewById(R.id.ll_addwithfunds);
+        lltranshistry = root.findViewById(R.id.lltranshistry);
 
-        userid=session.getUserId();
+        userid = session.getUserId();
         Myaccountdetails();
+        final ImageView imgbackb = root.findViewById(R.id.imgbackb);
+        imgbackb.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), LandingActivity.class);
+                startActivity(intent);
+                getActivity().finish();
+            }
+
+        });
+
+        final TextView txtbacks = root.findViewById(R.id.txtbacks);
+        txtbacks.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), LandingActivity.class);
+                startActivity(intent);
+                getActivity().finish();
+            }
+
+        });
 
         lltranshistry.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,11 +135,11 @@ LinearLayout ll_addwithfunds,lltranshistry;
                                 String total_earnings = userJson.getString("total_earnings");
                                 String month_earnings = userJson.getString("month_earnings");
                                 String previous_month_earnings = userJson.getString("previous_month_earnings");
-                                System.out.println("total_booking --   "+total_booking);
+                                System.out.println("total_booking --   " + total_booking);
                                 txtjobpost.setText(total_jobs);
                                 txt_bookings.setText(total_booking);
-                                txtbalance.setText("₹ "+total_earnings);
-                                        txtacname.setText(fname);
+                                txtbalance.setText("₹ " + total_earnings);
+                                txtacname.setText(fname);
                                 txtreferrals.setText("");
                                 txtprevious_month_earnings.setText("");
                                 txtmonth_earnings.setText("");
@@ -146,7 +167,7 @@ LinearLayout ll_addwithfunds,lltranshistry;
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("user_id",userid );
+                params.put("user_id", userid);
                 return params;
             }
         };

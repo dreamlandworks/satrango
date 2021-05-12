@@ -7,6 +7,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -63,6 +65,7 @@ public class Offersfragment_service_provider extends Fragment {
 
     ArrayList<Tailormadeoffers_model> tailormadeoffers_models = new ArrayList<>();
     Adapter_VendorTailormade_offers adapter_tailormade_offers;
+    private TextView latestOffersTV;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -82,20 +85,17 @@ public class Offersfragment_service_provider extends Fragment {
         recv_latestoffers = root.findViewById(R.id.recv_latestoffers);
         recv_offerexpiring = root.findViewById(R.id.recv_offerexpiring);
         recv_tailormade = root.findViewById(R.id.recv_tailormade);
+        latestOffersTV = root.findViewById(R.id.Offersexpiringsoon);
         image = session.getProfileimage();
         System.out.println("offerss---------      "+Image_url + image);
         try {
-            Glide.with(getActivity())
-                    .load(Image_url + image)
-                    .into(imoffrsv);
-
-
+            Glide.with(getActivity()).load(Image_url + image).into(imoffrsv);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-         get_expiry_soonapi();
         LatestoffersApi();
+        get_expiry_soonapi();
         get_Tailormadeoffersapi();
         return root;
     }
@@ -112,11 +112,11 @@ public class Offersfragment_service_provider extends Fragment {
         String url = BaseUrl + get_latest_offer;
         latest_offers_models.clear();
         AndroidNetworking.post(url)
-
                 .build()
                 .getAsJSONObject(new JSONObjectRequestListener() {
                     @Override
                     public void onResponse(JSONObject jsonObject) {
+//                        Log.v("LATEST OFFERS", jsonObject.toString());
                         progressDialog.dismiss();
                         try {
                             String result = jsonObject.getString("result");
@@ -124,10 +124,9 @@ public class Offersfragment_service_provider extends Fragment {
 
                             if (result.equalsIgnoreCase("true")) {
                                 JSONArray jsonArray = jsonObject.getJSONArray("data");
-                                System.out.println("Offersfragment_service_provider LatestoffersApi-------   " + jsonArray);
 
                                 for (int i = 0; i < jsonArray.length(); i++) {
-                                    Log.e("jsonarray", jsonArray.toString());
+                                    Log.e("jsonarray1", jsonArray.toString());
                                     JSONObject dataObject = jsonArray.getJSONObject(i);
                                     Latest_offers_model allCommunityModel = new Latest_offers_model(
                                             dataObject.getString("created_date"),
@@ -143,21 +142,21 @@ public class Offersfragment_service_provider extends Fragment {
                                             dataObject.getString("id"));
                                     latest_offers_models.add(allCommunityModel);
                                 }
-
-
-                            } else {
-
+                            }
+                            if (result.equalsIgnoreCase("false")) {
+                                latestOffersTV.setVisibility(View.GONE);
                             }
                             adapter_latest_offers = new Adapter_VendorLatest_offers(latest_offers_models, getActivity());
                             RecyclerView.LayoutManager mLayoutManger = new LinearLayoutManager(getActivity());
                             recv_latestoffers.setLayoutManager(mLayoutManger);
                             recv_latestoffers.setLayoutManager(new LinearLayoutManager(getActivity(), RecyclerView.HORIZONTAL, false));
-
                             recv_latestoffers.setItemAnimator(new DefaultItemAnimator());
                             recv_latestoffers.setAdapter(adapter_latest_offers);
+                            recv_latestoffers.setVisibility(View.VISIBLE);
                             adapter_latest_offers.notifyDataSetChanged();
                         } catch (JSONException e) {
                             e.printStackTrace();
+                            Toast.makeText(requireContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }
 
@@ -165,6 +164,8 @@ public class Offersfragment_service_provider extends Fragment {
                     public void onError(ANError anError) {
                         progressDialog.dismiss();
                         Log.e("error_my_join", anError.toString());
+                        Toast.makeText(requireContext(), anError.getMessage(), Toast.LENGTH_SHORT).show();
+
                     }
                 });
     }
@@ -177,7 +178,6 @@ public class Offersfragment_service_provider extends Fragment {
         String url = BaseUrl + get_expiry_soon;
         offers_expiringsoon_models.clear();
         AndroidNetworking.post(url)
-
                 .build()
                 .getAsJSONObject(new JSONObjectRequestListener() {
                     @Override
@@ -189,10 +189,10 @@ public class Offersfragment_service_provider extends Fragment {
 
                             if (result.equalsIgnoreCase("true")) {
                                 JSONArray jsonArray = jsonObject.getJSONArray("data");
-                                System.out.println("Offersfragment_service_provider LatestoffersApi-------   " + jsonArray);
+//                                System.out.println("Offersfragment_service_provider LatestoffersApi-------   " + jsonArray);
 
                                 for (int i = 0; i < jsonArray.length(); i++) {
-                                    Log.e("jsonarray", jsonArray.toString());
+//                                    Log.e("jsonarray", jsonArray.toString());
                                     JSONObject dataObject = jsonArray.getJSONObject(i);
                                     Offers_expiringsoon_model allCommunityModel = new Offers_expiringsoon_model(
                                             dataObject.getString("created_date"),
@@ -258,10 +258,10 @@ public class Offersfragment_service_provider extends Fragment {
 
                             if (result.equalsIgnoreCase("true")) {
                                 JSONArray jsonArray = jsonObject.getJSONArray("data");
-                                System.out.println("Offersfragment_service_provider LatestoffersApi-------   " + jsonArray);
+//                                System.out.println("Offersfragment_service_provider LatestoffersApi-------   " + jsonArray);
 
                                 for (int i = 0; i < jsonArray.length(); i++) {
-                                    Log.e("jsonarray", jsonArray.toString());
+//                                    Log.e("jsonarray", jsonArray.toString());
                                     JSONObject dataObject = jsonArray.getJSONObject(i);
                                     Tailormadeoffers_model allCommunityModel = new Tailormadeoffers_model(
                                             dataObject.getString("created_date"),

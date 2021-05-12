@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.drawerlayout.widget.DrawerLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout"
@@ -12,67 +11,130 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-    >
+        android:orientation="vertical">
 
 
-            <LinearLayout
+        <LinearLayout
+            android:id="@+id/Layout_hader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:id="@+id/Layout_hader"
-            >
+            android:orientation="vertical">
 
             <include
                 android:id="@+id/hader"
+                layout="@layout/header_main"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                layout="@layout/header_main" />
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
-        <FrameLayout
-            android:id="@+id/frame"
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" >
+            android:layout_height="match_parent"
+            android:clickable="false"
+            android:fitsSystemWindows="false"
+            android:focusable="false">
+
+            <FrameLayout
+                android:id="@+id/frame"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="?attr/actionBarSize" />
+
+            <com.google.android.material.bottomappbar.BottomAppBar
+                android:id="@+id/bottom_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:clickable="true"
+                android:backgroundTint="@color/colorPrimary"
+                android:focusable="true"
+                app:fabAlignmentMode="center"
+                app:fabCradleMargin="10dp"
+                app:fabCradleRoundedCornerRadius="20dp"
+                app:fabCradleVerticalOffset="10dp">
+
+
+                <com.google.android.material.bottomnavigation.BottomNavigationView
+                    android:id="@+id/bottom_navigation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    app:labelVisibilityMode="labeled"
+                    app:itemTextColor="@drawable/bottom_nav_icon_color_selector"
+                    app:itemIconTint="@drawable/bottom_nav_icon_color_selector"
+                    android:background="@android:color/transparent"
+                    app:menu="@menu/bottom_nav_menu" />
+
+            </com.google.android.material.bottomappbar.BottomAppBar>
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fab"
-                android:layout_marginBottom="@dimen/_50sdp"
-                android:outlineAmbientShadowColor="@color/yellow"
-                app:borderWidth="@dimen/_3sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom|center"
-                android:src="@drawable/calenders"
-                app:backgroundTint="@color/yellow"
-                app:rippleColor="@color/yellow"
                 android:backgroundTint="@color/colorPrimary"
-                >
-            </com.google.android.material.floatingactionbutton.FloatingActionButton>
+                android:src="@drawable/calenders"
+                android:translationZ="10dp"
+                app:backgroundTint="@color/yellow"
+                app:borderWidth="@dimen/_3sdp"
+                app:layout_anchor="@id/bottom_bar"
+                tools:ignore="ContentDescription" />
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-            <com.akshay.library.CurveBottomBar
-                android:id="@+id/customBottomBar"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_55sdp"
-                android:layout_gravity="bottom"
-                app:bottomBarColor="@color/colorPrimary"
-                app:curveRadius="25dp"
-                app:itemBackground="@drawable/background_navigation_user_item"
-                app:itemIconTint="@drawable/bottom_nav_icon_color_selector"
-                app:itemTextColor="@drawable/bottom_nav_icon_color_selector"
-                app:labelVisibilityMode="labeled"
-                app:menu="@menu/bottom_nav_menu"
-                tools:ignore="MissingClass" />
+        <!--            <com.google.android.material.bottomappbar.BottomAppBar-->
+        <!--                android:id="@+id/bottomAppBar"-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_gravity="bottom"-->
+        <!--                android:background="@android:color/transparent"-->
+        <!--                android:clickable="false"-->
+        <!--                app:contentInsetStart="0dp"-->
+        <!--                app:contentInsetStartWithNavigation="0dp"-->
+        <!--                app:fabAlignmentMode="center">-->
 
-        </FrameLayout>
+        <!--                <com.google.android.material.bottomnavigation.BottomNavigationView-->
+        <!--                    android:layout_width="match_parent"-->
+        <!--                    android:layout_height="?attr/actionBarSize"-->
+        <!--                    android:background="@color/colorPrimary"-->
+        <!--                    android:outlineAmbientShadowColor="@android:color/transparent"-->
+        <!--                    android:outlineSpotShadowColor="@android:color/transparent"-->
+        <!--                    app:itemIconTint="@color/white"-->
+        <!--                    app:itemTextColor="@color/white"-->
+        <!--                    app:menu="@menu/bottom_nav_menu" />-->
+        <!--            </com.google.android.material.bottomappbar.BottomAppBar>-->
+
+        <!--            <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+        <!--                android:id="@+id/fab"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:backgroundTint="@color/colorPrimary"-->
+        <!--                android:src="@drawable/calenders"-->
+        <!--                app:backgroundTint="@color/yellow"-->
+        <!--                app:borderWidth="@dimen/_3sdp"-->
+        <!--                app:layout_anchor="@id/bottomAppBar"-->
+        <!--                app:rippleColor="@color/yellow" />-->
+
+        <com.akshay.library.CurveBottomBar
+            android:id="@+id/customBottomBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_gravity="bottom"
+            android:visibility="gone"
+            app:bottomBarColor="@color/colorPrimary"
+            app:curveRadius="25dp"
+            app:itemBackground="@drawable/background_navigation_user_item"
+            app:itemIconTint="@drawable/bottom_nav_icon_color_selector"
+            app:itemTextColor="@drawable/bottom_nav_icon_color_selector"
+            app:labelVisibilityMode="labeled"
+            tools:ignore="MissingClass" />
+
+        <!--        </androidx.coordinatorlayout.widget.CoordinatorLayout>-->
 
     </LinearLayout>
 
     <RelativeLayout
         android:id="@+id/left_drawer"
-        android:layout_height="match_parent"
         android:layout_width="@dimen/_260sdp"
+        android:layout_height="match_parent"
         android:layout_gravity="start"
         android:background="@color/white">
 
@@ -80,39 +142,40 @@
             android:id="@+id/sliding_menu_logo_container"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_240sdp"
-            android:background="@color/white"
-            >
+            android:background="@color/white">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:background="@color/white"
-                >
-                <include android:id="@+id/news_title"
+                android:orientation="vertical">
+
+                <include
+                    android:id="@+id/news_title"
+                    layout="@layout/nav_header_main"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    layout="@layout/nav_header_main"/>
+                    android:layout_height="wrap_content" />
 
 
             </LinearLayout>
         </RelativeLayout>
+
         <ListView
-            android:layout_marginTop="@dimen/_20sdp"
             android:id="@+id/list"
-            android:layout_height="match_parent"
             android:layout_width="match_parent"
-            android:layout_alignParentBottom="true"
+            android:layout_height="match_parent"
             android:layout_below="@id/sliding_menu_logo_container"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="@dimen/_20sdp"
             android:clipToPadding="true"
             android:divider="@null"
             android:dividerHeight="0dp"
             android:drawSelectorOnTop="false"
             android:fastScrollEnabled="false"
-            app:itemIconTint="@color/black"
-            app:itemTextColor="@color/yellow"
+            android:scrollbarStyle="outsideOverlay"
             app:itemBackground="@color/green"
-            android:scrollbarStyle="outsideOverlay" />
-       </RelativeLayout>
+            app:itemIconTint="@color/black"
+            app:itemTextColor="@color/yellow" />
+    </RelativeLayout>
 
 </androidx.drawerlayout.widget.DrawerLayout>

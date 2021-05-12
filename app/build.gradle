@@ -67,7 +67,6 @@ dependencies {
     implementation 'com.nononsenseapps:filepicker:3.0.0'
 
 
-
     //fcm
     implementation 'com.google.firebase:firebase-messaging:21.1.0'
     implementation 'com.google.firebase:firebase-analytics:18.0.3'
@@ -80,14 +79,11 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:3.7.0'             // image loader
 
 
-
 //    android fast networking
 
     implementation 'com.amitshekhar.android:jackson-android-networking:1.0.2'
     implementation 'com.google.android:flexbox:1.0.0'
     implementation 'com.github.mahimrocky:TagView:1.0.3'
-
-
 
 
     /////////////////retrofit///////////////////////////
@@ -113,8 +109,9 @@ dependencies {
 
 //fb login
 
-     implementation 'com.facebook.android:facebook-android-sdk:[5,6)'
+    implementation 'com.facebook.android:facebook-android-sdk:[5,6)'
     implementation 'com.facebook.android:facebook-login:5.11.0'
+    implementation 'com.twitter.sdk.android:twitter:3.0.0'
 
 //razorpay
 
@@ -122,5 +119,5 @@ dependencies {
 
 //dexter permission
 
-    implementation  'com.karumi:dexter:6.2.2'
+    implementation 'com.karumi:dexter:6.2.2'
 }

@@ -1,12 +1,6 @@
 package com.satrangolimitless;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-
-import android.Manifest;
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -18,25 +12,19 @@ import android.os.Handler;
 import android.util.Base64;
 import android.util.Log;
 import android.widget.ImageView;
-import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnSuccessListener;
-
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
 import com.satrangolimitless.Utils.Config;
-import com.satrangolimitless.Utils.Utility;
-import com.satrangolimitless.Vendor_UI.Activity_vendor_accept_newbookingrequest;
-import com.satrangolimitless.Vendor_UI.vendor_profile.VendorProfilFourActivity;
 import com.satrangolimitless.gps.GPSTracker;
 import com.satrangolimitless.session.PrefrenceManager;
 import com.satrangolimitless.session.Session;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 public class SplashActivity extends AppCompatActivity {
@@ -50,6 +38,7 @@ public class SplashActivity extends AppCompatActivity {
     Context mContext;
     Session session1;
     public static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 101;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,17 +46,17 @@ public class SplashActivity extends AppCompatActivity {
         String languagename = Locale.getDefault().getDisplayLanguage();
         String country = Locale.getDefault().getCountry();
         mContext = SplashActivity.this;
-        session1=new Session(SplashActivity.this);
+        session1 = new Session(SplashActivity.this);
         printHashKey();
         FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(SplashActivity.this, new OnSuccessListener<InstanceIdResult>() {
             @Override
             public void onSuccess(InstanceIdResult instanceIdResult) {
                 String newToken = instanceIdResult.getToken();
-                prefrenceManager=new PrefrenceManager(SplashActivity.this);
-                prefrenceManager.setTokenId(mContext,newToken);
+                prefrenceManager = new PrefrenceManager(SplashActivity.this);
+                prefrenceManager.setTokenId(mContext, newToken);
                 putFirebaseRegId(newToken);
-                System.out.println("firebase token   ----     "+newToken);
-                setPreference(mContext,"regId",newToken);
+                System.out.println("firebase token   ----     " + newToken);
+                setPreference(mContext, "regId", newToken);
                 getPreference(mContext, "regId");
                 session1.setFirebase_token_id(newToken);
                 displayFirebaseRegId();
@@ -75,30 +64,20 @@ public class SplashActivity extends AppCompatActivity {
         });
 
 
-
-
-
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-
-
-                if (session1.isLoggedIn())
-                {
-                    Intent i=new Intent(SplashActivity.this, Activity_login_type.class);
-                    startActivity(i);
-                    finish();
-                }else {
+        if (session1.isLoggedIn()) {
+            Intent i = new Intent(SplashActivity.this, Activity_login_type.class);
+            startActivity(i);
+            finish();
+        } else {
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
                     Intent i = new Intent(SplashActivity.this, WelcomeSliderActivity.class);
                     startActivity(i);
                     finish();
                 }
-
-
-            }
-
-        }, SPLASH_SCREEN_TIME_OUT);
-
+            }, SPLASH_SCREEN_TIME_OUT);
+        }
 
     }
 
@@ -126,12 +105,11 @@ public class SplashActivity extends AppCompatActivity {
 
     public static String getPreference(Context context, String key) {
         SharedPreferences settings = context.getSharedPreferences(Config.SHARED_PREF, Context.MODE_PRIVATE);
-        String value=settings.getString(key,"default value");
-        Log.e("get fb key ++ ",value);
+        String value = settings.getString(key, "default value");
+        Log.e("get fb key ++ ", value);
 
         return settings.getString(key, "defaultValue");
     }
-
 
 
     private void printHashKey() {

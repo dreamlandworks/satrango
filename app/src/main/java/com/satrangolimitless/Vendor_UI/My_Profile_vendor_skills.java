@@ -30,7 +30,7 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
-import com.google.gson.JsonArray;
+import com.google.android.material.textfield.TextInputEditText;
 import com.hootsuite.nachos.NachoTextView;
 import com.hootsuite.nachos.chip.Chip;
 import com.satrangolimitless.Adapter.AutoCompletevendor_register_adapter;
@@ -38,7 +38,6 @@ import com.satrangolimitless.Adapter.SuggestionAdapter;
 import com.satrangolimitless.LandingActivity_Service_provider;
 import com.satrangolimitless.R;
 import com.satrangolimitless.Utils.VolleySingleton;
-import com.satrangolimitless.Vendor_UI.vendor_profile.VendorProfileoneActivity;
 import com.satrangolimitless.model.Search_suggestion_vendor_register;
 import com.satrangolimitless.session.Session;
 import com.satrangolimitless.session.Session_vendor;
@@ -53,8 +52,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static android.content.ContentValues.TAG;
-import static com.satrangolimitless.Utils.Base_Url.Add_vendor;
 import static com.satrangolimitless.Utils.Base_Url.BaseUrl;
 import static com.satrangolimitless.Utils.Base_Url.Service_list_Api;
 import static com.satrangolimitless.Utils.Base_Url.View_vendor_profile;
@@ -63,12 +60,12 @@ import static com.satrangolimitless.Utils.Base_Url.vendor_update_skills;
 public class My_Profile_vendor_skills extends Fragment {
     View root;
     Fragment fragment;
-    String about,qualification, language, skills,all_Skils;
+    String about, qualification, language, skills, all_Skils;
     String user_id;
-    String pr_days,pr_hours, extra_charge, min_charge;
+    String pr_days, pr_hours, extra_charge, min_charge;
     Session session;
-    EditText edt_qualification,edt_about;
-    NachoTextView et_tag,et_skills;
+    EditText edt_qualification, edt_about;
+    NachoTextView et_tag, et_skills;
     ArrayList<String> SuggestionList = new ArrayList<>();
     ArrayList<String> search_name = new ArrayList<>();
     List<Search_suggestion_vendor_register> getAllMedicineList = new ArrayList<>();
@@ -76,17 +73,18 @@ public class My_Profile_vendor_skills extends Fragment {
     RecyclerView medicine_recycler;
     AutoCompleteTextView searchview;
     List<String> Skills_list = new ArrayList<String>();
-    Button btn_next,btn_cancel;
+    Button btn_next, btn_cancel;
     Session_vendor session_vendor;
     String all_Languages;
     List<String> languag_list = new ArrayList<String>();
+    private String profession = "";
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        root= inflater.inflate(R.layout.activity_myprofile_vendor_skills, container, false);
+        root = inflater.inflate(R.layout.activity_myprofile_vendor_skills, container, false);
 
-        session=new Session(getActivity());
-        user_id=session.getUserId();
+        session = new Session(getActivity());
+        user_id = session.getUserId();
         et_tag = (NachoTextView) root.findViewById(R.id.et_tag);
         searchview = root.findViewById(R.id.searchview);
         edt_qualification = root.findViewById(R.id.edt_qualification);
@@ -98,8 +96,6 @@ public class My_Profile_vendor_skills extends Fragment {
         suggestion_list();
 
 
-
-
         searchview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.N)
             @SuppressLint("WrongConstant")
@@ -107,25 +103,22 @@ public class My_Profile_vendor_skills extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int itemIndex, long id) {
 
 
-                String listid= getAllMedicineList.get(itemIndex).getId();
+                String listid = getAllMedicineList.get(itemIndex).getId();
 
                 Skills_list.add(listid);
                 all_Skils = TextUtils.join(",", Skills_list);
-                System.out.println("all_Skils=======     "+all_Skils);
+                System.out.println("all_Skils=======     " + all_Skils);
                 String mstr = searchview.getText().toString();
-                System.out.println("autocomplete=======     "+mstr);
+                System.out.println("autocomplete=======     " + mstr);
                 SuggestionList.add(mstr);
                 suggestionAdapter = new SuggestionAdapter(getActivity(), SuggestionList);
                 RecyclerView.LayoutManager mLayoutManger = new LinearLayoutManager(getActivity());
                 medicine_recycler.setLayoutManager(new LinearLayoutManager(getActivity(), RecyclerView.HORIZONTAL, false));
                 medicine_recycler.setAdapter(suggestionAdapter);
                 suggestionAdapter.notifyDataSetChanged();
-
-
                 searchview.setText("");
             }
         });
-
 
 
         btn_cancel.setOnClickListener(new View.OnClickListener() {
@@ -137,23 +130,22 @@ public class My_Profile_vendor_skills extends Fragment {
             }
         });
 
-
+        final TextInputEditText professionTv = root.findViewById(R.id.etProfession);
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                for (Chip chip : et_tag.getAllChips()) {
-                    // Do something with the text of each chip
-                    CharSequence text = chip.getText();
-                    System.out.println("language----  "+text);
-                    languag_list.add(text.toString());
-                    all_Languages = TextUtils.join(",", languag_list);
-                    System.out.println("all_Languages  "+ all_Languages);
+//                for (Chip chip : et_tag.getAllChips()) {
+//                    CharSequence text = chip.getText();
+//                    System.out.println("language----  " + text);
+//                    languag_list.add(text.toString());
+//                    all_Languages = TextUtils.join(",", languag_list);
+//                    System.out.println("all_Languages  " + all_Languages);
+//                }
 
-
-                }
-
-                about=edt_about.getText().toString();
-                qualification=edt_qualification.getText().toString();
+                all_Languages = et_tag.getText().toString().trim();
+                about = edt_about.getText().toString();
+                qualification = edt_qualification.getText().toString();
+                profession = professionTv.getText().toString().trim();
                 Update_vendor();
             }
         });
@@ -168,10 +160,10 @@ public class My_Profile_vendor_skills extends Fragment {
         final ProgressDialog progressDialog = new ProgressDialog(getActivity());
         progressDialog.setTitle("Loading...");
         progressDialog.show();
-        String url = BaseUrl +View_vendor_profile ;
+        String url = BaseUrl + View_vendor_profile;
 
         AndroidNetworking.post(url)
-                .addBodyParameter("user_id",user_id)
+                .addBodyParameter("user_id", user_id)
 
                 .build()
                 .getAsJSONObject(new JSONObjectRequestListener() {
@@ -184,38 +176,35 @@ public class My_Profile_vendor_skills extends Fragment {
 
                             if (result.equalsIgnoreCase("true")) {
                                 JSONArray jsonArray = jsonObject.getJSONArray("data");
-                                System.out.println("View_vendor_profile-------   "+ jsonArray);
+                                System.out.println("View_vendor_profile-------   " + jsonArray);
 
                                 for (int i = 0; i < jsonArray.length(); i++) {
                                     Log.e("jsonarray", jsonArray.toString());
                                     JSONObject dataObject = jsonArray.getJSONObject(i);
-                                    String id=dataObject.getString("id");
-                                    skills=dataObject.getString("skills");
-                                    language=dataObject.getString("language");
-                                    qualification=dataObject.getString("qualification");
-                                    about=dataObject.getString("about");
-                                    min_charge=dataObject.getString("min_charge");
-                                    extra_charge=dataObject.getString("extra_charge");
-                                    pr_hours=dataObject.getString("pr_hours");
-                                    pr_days=dataObject.getString("pr_days");
+                                    String id = dataObject.getString("id");
+                                    skills = dataObject.getString("skills");
+                                    language = dataObject.getString("language");
+                                    qualification = dataObject.getString("qualification");
+                                    about = dataObject.getString("about");
+                                    min_charge = dataObject.getString("min_charge");
+                                    extra_charge = dataObject.getString("extra_charge");
+                                    pr_hours = dataObject.getString("pr_hours");
+                                    pr_days = dataObject.getString("pr_days");
                                     ArrayList<String> SuggestionList = new ArrayList<>();
-JSONArray skilaray=dataObject.getJSONArray("skills");
-for (int s =0;s<skilaray.length();s++){
-    JSONObject skildataObject = skilaray.getJSONObject(s);
-    String name=skildataObject.getString("name");
-    System.out.println("name  -----           "+name);
-    SuggestionList.add(name);
-}
-                                     String[] langelements = language.split(",");
+                                    JSONArray skilaray = dataObject.getJSONArray("skills");
+                                    for (int s = 0; s < skilaray.length(); s++) {
+                                        JSONObject skildataObject = skilaray.getJSONObject(s);
+                                        String name = skildataObject.getString("name");
+                                        System.out.println("name  -----           " + name);
+                                        SuggestionList.add(name);
+                                    }
+                                    String[] langelements = language.split(",");
                                     List<String> fixedLenghtList = Arrays.asList(langelements);
                                     List<String> items = new ArrayList<>(fixedLenghtList);
                                     System.out.println("list from comma separated String : " + items);
 
 //                                    String[] skillelements = skills.split(",");
 //                                    List<String> fixedLenghtskillList = Arrays.asList(skillelements);
-
-
-
 
 
                                     et_tag.setText(items);
@@ -230,14 +219,7 @@ for (int s =0;s<skilaray.length();s++){
                                     suggestionAdapter.notifyDataSetChanged();
 
 
-
-
-
                                 }
-
-
-
-
 
 
                             } else {
@@ -248,6 +230,7 @@ for (int s =0;s<skilaray.length();s++){
                             e.printStackTrace();
                         }
                     }
+
                     @Override
                     public void onError(ANError anError) {
                         progressDialog.dismiss();
@@ -260,16 +243,15 @@ for (int s =0;s<skilaray.length();s++){
 //    view services suggestion
 
 
-
     private void suggestion_list() {
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, BaseUrl+Service_list_Api,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, BaseUrl + Service_list_Api,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         try {
                             getAllMedicineList.clear();
                             JSONObject obj = new JSONObject(response);
-                            System.out.println("skills api-------       "+obj.toString());
+                            System.out.println("skills api-------       " + obj.toString());
                             String result = obj.getString("result");
                             if (result.equalsIgnoreCase("true")) {
                                 JSONArray heroArray = obj.getJSONArray("services");
@@ -309,7 +291,6 @@ for (int s =0;s<skilaray.length();s++){
                 Map<String, String> params = new HashMap<>();
 
 
-
                 return params;
             }
         };
@@ -323,12 +304,13 @@ for (int s =0;s<skilaray.length();s++){
         progressDialog.show();
 
 
-        AndroidNetworking.upload(BaseUrl+vendor_update_skills)
+        AndroidNetworking.upload(BaseUrl + vendor_update_skills)
                 .addMultipartParameter("user_id", user_id)
-                .addMultipartParameter("skills",all_Skils)
-                .addMultipartParameter("qualification",qualification)
-                .addMultipartParameter("language",all_Languages)
-                .addMultipartParameter("about",about)
+                .addMultipartParameter("skills", all_Skils)
+                .addMultipartParameter("qualification", qualification)
+                .addMultipartParameter("language", all_Languages)
+                .addMultipartParameter("about", about)
+                .addMultipartParameter("profession", profession)
                 .setPriority(Priority.LOW)
                 .build()
 
@@ -339,38 +321,15 @@ for (int s =0;s<skilaray.length();s++){
 
                         try {
                             progressDialog.dismiss();
-                            //Log.e(" post home", " " + jsonObject);
-                            Log.e("update_vendor  ",jsonObject.toString());
-
-                            System.out.println("update_vendor=====    "+jsonObject.toString());
+                            Log.e("update_vendor  ", jsonObject.toString());
+                            System.out.println("update_vendor=====    " + jsonObject.toString());
                             String result = jsonObject.getString("result");
                             String msg = jsonObject.getString("msg");
 
                             if (result.equalsIgnoreCase("true")) {
-
-
-
-/*
-  JSONArray jsonArray = jsonObject.getJSONArray("data");
-                                for(int i=0; i < jsonArray.length(); i++){
-                                    JSONObject obj = jsonArray.getJSONObject(i);
-                                    Log.e("Add vendor",obj.toString());
-                                    System.out.println("Add vendor -----       "+obj.toString());
-                                }
- */
-
-
-
-
-
-                                Toast.makeText( getActivity(),msg, Toast.LENGTH_LONG).show();
-
-
+                                Toast.makeText(getActivity(), msg, Toast.LENGTH_LONG).show();
                             } else {
-
-                                Toast.makeText( getActivity(),msg, Toast.LENGTH_LONG).show();
-
-
+                                Toast.makeText(getActivity(), msg, Toast.LENGTH_LONG).show();
                             }
 
                         } catch (JSONException e) {
@@ -388,8 +347,6 @@ for (int s =0;s<skilaray.length();s++){
 
 
     }
-
-
 
 
 }

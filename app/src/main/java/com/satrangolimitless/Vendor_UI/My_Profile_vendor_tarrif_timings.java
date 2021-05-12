@@ -35,7 +35,6 @@ import com.satrangolimitless.Dynamicview.Choose_From_Time;
 import com.satrangolimitless.Dynamicview.Choose_To_Time;
 import com.satrangolimitless.LandingActivity_Service_provider;
 import com.satrangolimitless.R;
-import com.satrangolimitless.SearchListActivity;
 import com.satrangolimitless.Utils.VolleySingleton;
 import com.satrangolimitless.session.Session;
 import com.satrangolimitless.session.Session_vendor;
@@ -49,7 +48,6 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 
 import static com.satrangolimitless.Utils.Base_Url.BaseUrl;
 import static com.satrangolimitless.Utils.Base_Url.View_vendor_profile;
@@ -69,11 +67,12 @@ public class My_Profile_vendor_tarrif_timings extends Fragment {
     Tarrif_adapter adapter;
     EditText edt_extra_charge, edt_min_charge, edt_per_day, edt_per_hr;
     Session_vendor session_vendor;
-    String pr_days="", pr_hours="", extra_charge="", min_charge="";
-    String per_day="",
-    per_hr="";
+    String pr_days = "", pr_hours = "", extra_charge = "", min_charge = "";
+    String per_day = "",
+            per_hr = "";
     LinearLayout lladd;
     Button Vcancel, btn_next;
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         root = inflater.inflate(R.layout.activity_myprofile_vendor_tarrif, container, false);
@@ -109,10 +108,10 @@ public class My_Profile_vendor_tarrif_timings extends Fragment {
             public void onClick(View v) {
 
 
-                  per_hr = edt_per_hr.getText().toString();
-                  extra_charge = edt_extra_charge.getText().toString();
-                  min_charge = edt_min_charge.getText().toString();
-                  per_day = edt_per_day.getText().toString();
+                per_hr = edt_per_hr.getText().toString();
+                extra_charge = edt_extra_charge.getText().toString();
+                min_charge = edt_min_charge.getText().toString();
+                per_day = edt_per_day.getText().toString();
 
                 if (per_hr.isEmpty()) {
 
@@ -127,20 +126,20 @@ public class My_Profile_vendor_tarrif_timings extends Fragment {
                     edt_per_day.requestFocus();
 
                     return;
-                }  if (min_charge.isEmpty()) {
+                }
+                if (min_charge.isEmpty()) {
                     edt_min_charge.setError("Please enter minimum charge");
                     edt_min_charge.requestFocus();
                     return;
-                }if (extra_charge.isEmpty()) {
+                }
+                if (extra_charge.isEmpty()) {
                     edt_extra_charge.setError("Please enter extra charge");
                     edt_extra_charge.requestFocus();
                     return;
-                }else{
+                } else {
 
                     Update_vendor();
                 }
-
-
 
 
             }
@@ -160,7 +159,7 @@ public class My_Profile_vendor_tarrif_timings extends Fragment {
     }
 
     private void tarrif_list() {
-            progressDialog = new ProgressDialog(getActivity());
+        progressDialog = new ProgressDialog(getActivity());
         progressDialog.setTitle("Loading...");
         progressDialog.show();
 
@@ -311,10 +310,6 @@ public class My_Profile_vendor_tarrif_timings extends Fragment {
                                 edt_per_day.setText(pr_days);
                                 edt_min_charge.setText(min_charge);
                                 edt_extra_charge.setText(extra_charge);
-
-
-                            } else {
-
                             }
 
                         } catch (JSONException e) {
@@ -331,22 +326,20 @@ public class My_Profile_vendor_tarrif_timings extends Fragment {
     }
 
 
-
-
     private void Update_vendor() {
         final ProgressDialog progressDialog = new ProgressDialog(getActivity());
         progressDialog.setMessage("Processing...");
         progressDialog.show();
 
 
-        AndroidNetworking.upload(BaseUrl+vendor_update_tariff)
+        AndroidNetworking.upload(BaseUrl + vendor_update_tariff)
                 .addMultipartParameter("user_id", session.getUserId())
-                .addMultipartParameter("pr_hours",per_hr)
-                .addMultipartParameter("pr_days",per_day)
-                .addMultipartParameter("min_charge",min_charge)
-                .addMultipartParameter("extra_charge",extra_charge)
+                .addMultipartParameter("pr_hours", per_hr)
+                .addMultipartParameter("pr_days", per_day)
+                .addMultipartParameter("min_charge", min_charge)
+                .addMultipartParameter("extra_charge", extra_charge)
 
-                 .setPriority(Priority.LOW)
+                .setPriority(Priority.LOW)
                 .build()
 
                 .getAsJSONObject(new JSONObjectRequestListener() {
@@ -357,20 +350,20 @@ public class My_Profile_vendor_tarrif_timings extends Fragment {
                         try {
                             progressDialog.dismiss();
                             //Log.e(" post home", " " + jsonObject);
-                            Log.e("update_vendor  ",jsonObject.toString());
-                            System.out.println("update_vendortarrif=====    "+jsonObject.toString());
+                            Log.e("update_vendor  ", jsonObject.toString());
+                            System.out.println("update_vendortarrif=====    " + jsonObject.toString());
                             String result = jsonObject.getString("result");
                             String msg = jsonObject.getString("msg");
 
                             if (result.equalsIgnoreCase("true")) {
 
 
-                                Toast.makeText( getActivity(),msg, Toast.LENGTH_LONG).show();
+                                Toast.makeText(getActivity(), msg, Toast.LENGTH_LONG).show();
 
 
                             } else {
 
-                                Toast.makeText( getActivity(),msg, Toast.LENGTH_LONG).show();
+                                Toast.makeText(getActivity(), msg, Toast.LENGTH_LONG).show();
 
 
                             }
@@ -390,8 +383,6 @@ public class My_Profile_vendor_tarrif_timings extends Fragment {
 
 
     }
-
-
 
 
 }
