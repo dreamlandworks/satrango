@@ -113,6 +113,7 @@
                                     android:id="@+id/et_tag"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
+                                    android:drawablePadding="@dimen/_10sdp"
                                     android:background="@android:color/transparent"
                                     android:drawableLeft="@drawable/ic_languagespeak"
                                     android:hint="Languages Known"
@@ -137,13 +138,13 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/_10sdp">
 
-
-                                <AutoCompleteTextView
-                                    android:id="@+id/searchview"
+                                <com.hootsuite.nachos.NachoTextView
+                                    android:id="@+id/addSkills"
                                     android:layout_width="match_parent"
                                     android:layout_height="@dimen/_50sdp"
                                     android:background="@drawable/searchbackground"
                                     android:hint="Add Skills"
+                                    android:paddingHorizontal="@dimen/_10sdp"
                                     android:paddingLeft="@dimen/_5sdp"
                                     android:tooltipText="Add skills" />
 

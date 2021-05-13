@@ -52,13 +52,10 @@ public class Activity_login_type extends AppCompatActivity {
             UserTypes.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
                     if (checkAndRequestPermissions()) {
-
                         Intent intent = new Intent(Activity_login_type.this, LandingActivity.class);
                         startActivity(intent);
                         finish();
-
                     }
                 }
             });
@@ -68,12 +65,10 @@ public class Activity_login_type extends AppCompatActivity {
         public void onClick(View v) {
 
             if (checkAndRequestPermissions()) {
-
                 session_vendor.setUserId(session.getUserId());
                 Intent intent = new Intent(Activity_login_type.this, LandingActivity_Service_provider.class);
                 startActivity(intent);
                 finish();
-
             }
 
         }

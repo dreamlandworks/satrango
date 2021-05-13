@@ -1,8 +1,5 @@
 package com.satrangolimitless.Vendor_UI.vendor_profile;
 
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -24,17 +21,18 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.satrangolimitless.R;
-import com.satrangolimitless.SignUpActivity;
 import com.satrangolimitless.Utils.Utility;
 import com.satrangolimitless.Utils.Utils;
 import com.satrangolimitless.session.Session_vendor;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -48,50 +46,48 @@ import static com.satrangolimitless.Utils.Base_Url.Add_vendor;
 import static com.satrangolimitless.Utils.Base_Url.BaseUrl;
 
 public class ProfileThreeActivity extends AppCompatActivity {
-TextView txtdocument;
-    String userChoosenTask;
+    TextView txtdocument;
+    String userChoosenTask = "";
     private int REQUEST_CAMERA = 0, SELECT_FILE = 1;
     File destination;
-    String filenew1;
-    Button btn_submit,VBack;
-LinearLayout ll_upload;
-Session_vendor session_vendor;
+    String filenew1 = "";
+    Button btn_submit, VBack;
+    LinearLayout ll_upload;
+    Session_vendor session_vendor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_three);
 
-        session_vendor=new Session_vendor(getApplicationContext());
-        btn_submit= findViewById(R.id.btn_submit);
-        VBack= findViewById(R.id.VBack);
-        ll_upload= findViewById(R.id.ll_upload);
-        txtdocument= findViewById(R.id.txtdocument);
+        session_vendor = new Session_vendor(getApplicationContext());
+        btn_submit = findViewById(R.id.btn_submit);
+        VBack = findViewById(R.id.VBack);
+        ll_upload = findViewById(R.id.ll_upload);
+        txtdocument = findViewById(R.id.txtdocument);
 
         btn_submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println("---- "+session_vendor.getUserId());
-                System.out.println("---- "+session_vendor.getadname());
-                System.out.println("---- "+session_vendor.getAddmob());
-                System.out.println("---- "+session_vendor.getAddprofession_id());
-                System.out.println("---- "+session_vendor.getAddlanguage());
-                System.out.println("---- "+session_vendor.getAddskills());
-                System.out.println("---- "+session_vendor.getAddqualification());
-                System.out.println("---- "+session_vendor.getAddabout());
-if (filenew1.isEmpty()){
+                System.out.println("---- " + session_vendor.getUserId());
+                System.out.println("---- " + session_vendor.getadname());
+                System.out.println("---- " + session_vendor.getAddmob());
+                System.out.println("---- " + session_vendor.getAddprofession_id());
+                System.out.println("---- " + session_vendor.getAddlanguage());
+                System.out.println("---- " + session_vendor.getAddskills());
+                System.out.println("---- " + session_vendor.getAddqualification());
+                System.out.println("---- " + session_vendor.getAddabout());
+                if (filenew1.isEmpty()) {
+                    Toast.makeText(ProfileThreeActivity.this, "Please add document", Toast.LENGTH_SHORT).show();
+                } else {
+                    if (Utils.isInternetConnected(ProfileThreeActivity.this)) {
 
-    Toast.makeText(ProfileThreeActivity.this, "Please add document", Toast.LENGTH_SHORT).show();
+                        Add_vendor();
+                    } else {
+                        Toast.makeText(ProfileThreeActivity.this, getString(R.string.no_internet), Toast.LENGTH_SHORT).show();
+                    }
 
-}else  {
-
-    if (Utils.isInternetConnected(ProfileThreeActivity.this)) {
-
-        Add_vendor();
-    } else {
-        Toast.makeText(ProfileThreeActivity.this,  getString(R.string.no_internet), Toast.LENGTH_SHORT).show();
-    }
-
-}
+                }
 
             }
         });
@@ -114,7 +110,6 @@ if (filenew1.isEmpty()){
     }
 
 
-
     private void checkRunTimePermission() {
 
 
@@ -130,16 +125,15 @@ if (filenew1.isEmpty()){
     }
 
 
-
     private void selectImage() {
         final CharSequence[] items = {"Take Photo", "Choose from Library",
                 "Cancel"};
-        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder( ProfileThreeActivity.this);
+        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(ProfileThreeActivity.this);
         builder.setTitle("Add Photo!");
         builder.setItems(items, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int item) {
-                boolean result = Utility.checkPermission( ProfileThreeActivity.this);
+                boolean result = Utility.checkPermission(ProfileThreeActivity.this);
 
 
                 if (items[item].equals("Take Photo")) {
@@ -194,7 +188,7 @@ if (filenew1.isEmpty()){
 
         Log.e("", String.valueOf(destination));
 
-        System.out.println("onCaptureImageResult=====        "+ String.valueOf(destination));
+        System.out.println("onCaptureImageResult=====        " + String.valueOf(destination));
 
         FileOutputStream fo;
         try {
@@ -202,10 +196,10 @@ if (filenew1.isEmpty()){
             fo = new FileOutputStream(destination);
             if (destination != null) {
                 filenew1 = destination.getAbsolutePath();
-                txtdocument.setText(destination.getAbsolutePath().toString()+".jpg");
+                txtdocument.setText(destination.getAbsolutePath().toString() + ".jpg");
                 // Toast.makeText(getActivity(), "path is"+destination.getAbsolutePath(), Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText( ProfileThreeActivity.this, "something wrong", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ProfileThreeActivity.this, "something wrong", Toast.LENGTH_SHORT).show();
             }
             fo.write(bytes.toByteArray());
             fo.close();
@@ -227,35 +221,33 @@ if (filenew1.isEmpty()){
 
             Uri pickedImage = data.getData();
             String[] filePath = {MediaStore.Images.Media.DATA};
-            Cursor cursor =  ProfileThreeActivity.this.getContentResolver().query(pickedImage, filePath, null, null, null);
+            Cursor cursor = ProfileThreeActivity.this.getContentResolver().query(pickedImage, filePath, null, null, null);
             cursor.moveToFirst();
             destination = new File(cursor.getString(cursor.getColumnIndex(filePath[0])));
             cursor.close();
 
 
-
             if (destination != null) {
                 filenew1 = destination.getAbsolutePath();
-                System.out.println("onSelectFromGalleryResult=====        "+ destination.getAbsolutePath());
-                txtdocument.setText(destination.getAbsolutePath().toString()+".jpg");
+                System.out.println("onSelectFromGalleryResult=====        " + destination.getAbsolutePath());
+                txtdocument.setText(destination.getAbsolutePath().toString() + ".jpg");
 
             } else {
-                Toast.makeText( ProfileThreeActivity.this, "something wrong", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ProfileThreeActivity.this, "something wrong", Toast.LENGTH_SHORT).show();
             }
 
             try {
-                bm = MediaStore.Images.Media.getBitmap( ProfileThreeActivity.this.getContentResolver(), data.getData());
+                bm = MediaStore.Images.Media.getBitmap(ProfileThreeActivity.this.getContentResolver(), data.getData());
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-        System.out.println("onSelectFromGalleryResult=====        "+bm.toString());
+        System.out.println("onSelectFromGalleryResult=====        " + bm.toString());
 
 
 //        profileimage.setImageBitmap(bm);
 
     }
-
 
 
     @RequiresApi(api = Build.VERSION_CODES.M)
@@ -279,7 +271,7 @@ if (filenew1.isEmpty()){
                         //execute when 'never Ask Again' tick and permission dialog not show
                     } else {
                         if (openDialogOnce) {
-                             // alertView();
+                            // alertView();
                         }
                     }
                 }
@@ -287,14 +279,14 @@ if (filenew1.isEmpty()){
 
             try {
                 //selectImage();
-            }catch (Exception e){
+            } catch (Exception e) {
 
             }
 
-            if (isPermitted){
+            if (isPermitted) {
                 selectImage();
 
-            }else {
+            } else {
 
             }
 
@@ -310,27 +302,27 @@ Add vendor api----------------------------------
         progressDialog.setMessage("Processing...");
         progressDialog.show();
 
-        System.out.println("Path=======        "+destination.getAbsolutePath());
+        System.out.println("Path=======        " + destination.getAbsolutePath());
 
-                AndroidNetworking.upload(BaseUrl+Add_vendor)
+        AndroidNetworking.upload(BaseUrl + Add_vendor)
                 .addMultipartParameter("id", session_vendor.getUserId())
-                .addMultipartParameter("name",session_vendor.getadname())
-                .addMultipartParameter("mobile",session_vendor.getAddmob())
-                .addMultipartParameter("profession_id",session_vendor.getAddprofession_id())
-                .addMultipartFile("id_proof",destination)
-                .addMultipartParameter("about",session_vendor.getAddabout())
-                .addMultipartParameter("language",session_vendor.getAddlanguage())
-                .addMultipartParameter("skills",session_vendor.getAddskills())
-                .addMultipartParameter("qualification",session_vendor.getAddqualification())
-                .addMultipartParameter("about",session_vendor.getAddabout())
-                .addMultipartParameter("dob",session_vendor.getAdddob())
-                .addMultipartParameter("gender",session_vendor.getAddgender())
-                .addMultipartParameter("address",session_vendor.getAddaddres())
+                .addMultipartParameter("name", session_vendor.getadname())
+                .addMultipartParameter("mobile", session_vendor.getAddmob())
+                .addMultipartParameter("profession_id", session_vendor.getAddprofession_id())
+                .addMultipartFile("id_proof", destination)
+                .addMultipartParameter("about", session_vendor.getAddabout())
+                .addMultipartParameter("language", session_vendor.getAddlanguage())
+                .addMultipartParameter("skills", session_vendor.getAddskills())
+                .addMultipartParameter("qualification", session_vendor.getAddqualification())
+                .addMultipartParameter("about", session_vendor.getAddabout())
+                .addMultipartParameter("dob", session_vendor.getAdddob())
+                .addMultipartParameter("gender", session_vendor.getAddgender())
+                .addMultipartParameter("address", session_vendor.getAddaddres())
 
-                .addMultipartParameter("pr_hours",session_vendor.getAddprhr())
-                .addMultipartParameter("pr_days",session_vendor.getAddprday())
-                .addMultipartParameter("min_charge",session_vendor.getAddmincharge())
-                .addMultipartParameter("extra_charge",session_vendor.getAddextracharge())
+                .addMultipartParameter("pr_hours", session_vendor.getAddprhr())
+                .addMultipartParameter("pr_days", session_vendor.getAddprday())
+                .addMultipartParameter("min_charge", session_vendor.getAddmincharge())
+                .addMultipartParameter("extra_charge", session_vendor.getAddextracharge())
 
                 .setTag("Addvendor")
                 .setPriority(Priority.LOW)
@@ -344,39 +336,24 @@ Add vendor api----------------------------------
                         try {
                             progressDialog.dismiss();
                             //Log.e(" post home", " " + jsonObject);
-                            Log.e("Add_vendor",jsonObject.toString());
-                            System.out.println("Add_vendor=====    "+jsonObject.toString());
+                            Log.e("Add_vendor", jsonObject.toString());
+                            System.out.println("Add_vendor=====    " + jsonObject.toString());
                             String result = jsonObject.getString("result");
                             String msg = jsonObject.getString("msg");
 
                             if (result.equalsIgnoreCase("true")) {
-
-
-
-/*
-  JSONArray jsonArray = jsonObject.getJSONArray("data");
-                                for(int i=0; i < jsonArray.length(); i++){
-                                    JSONObject obj = jsonArray.getJSONObject(i);
-                                    Log.e("Add vendor",obj.toString());
-                                    System.out.println("Add vendor -----       "+obj.toString());
-                                }
- */
-
-
-
 
                                 Intent intent = new Intent(ProfileThreeActivity.this, VendorProfilFourActivity.class);
                                 startActivity(intent);
                                 finish();
 
 
-
-                                Toast.makeText( ProfileThreeActivity.this,msg, Toast.LENGTH_LONG).show();
+                                Toast.makeText(ProfileThreeActivity.this, msg, Toast.LENGTH_LONG).show();
 
 
                             } else {
 
-                                Toast.makeText( ProfileThreeActivity.this,msg, Toast.LENGTH_LONG).show();
+                                Toast.makeText(ProfileThreeActivity.this, msg, Toast.LENGTH_LONG).show();
 
 
                             }

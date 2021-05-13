@@ -33,7 +33,6 @@
                     android:background="@color/white"
                     android:orientation="vertical">
 
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -188,7 +187,6 @@
                                                 android:layout_alignParentLeft="true"
                                                 android:background="@drawable/userbtnshape"
                                                 android:gravity="center">
-
 
                                                 <TextView
                                                     android:id="@+id/tv_user"

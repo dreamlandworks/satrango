@@ -1,8 +1,5 @@
 package com.satrangolimitless.Vendor_UI.vendor_profile;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -21,8 +18,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.satrangolimitless.R;
-import com.satrangolimitless.Utils.Customprogress;
 import com.satrangolimitless.Utils.MultipartUtility;
 import com.satrangolimitless.Utils.Utils;
 import com.satrangolimitless.session.Session_vendor;
@@ -40,9 +39,9 @@ import java.util.Locale;
 import static com.satrangolimitless.Utils.Base_Url.BaseUrl;
 import static com.satrangolimitless.Utils.Base_Url.Upload_video;
 
-public class VendorProfilFiveActivity extends AppCompatActivity implements SurfaceHolder.Callback{
+public class VendorProfilFiveActivity extends AppCompatActivity implements SurfaceHolder.Callback {
     ProgressDialog progressDialog;
-    Button CAMERANEXT,btnstart;
+    Button CAMERANEXT, btnstart;
     public static SurfaceView mSurfaceView;
     public static SurfaceHolder mSurfaceHolder;
     ImageView img_start;
@@ -52,16 +51,17 @@ public class VendorProfilFiveActivity extends AppCompatActivity implements Surfa
     private MediaRecorder mMediaRecorder;
     File mOutputFile;
     File uploadFileI;
-    String img_path="",Result,msg;
-    TextView txtname,txttimer;
+    String img_path = "", Result, msg;
+    TextView txtname, txttimer;
     public int counter;
     Session_vendor session_vendor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vendor_profil_five);
 
-        session_vendor=new Session_vendor(getApplicationContext());
+        session_vendor = new Session_vendor(getApplicationContext());
         mSurfaceView = (SurfaceView) findViewById(R.id.surfaceView1);
         mSurfaceHolder = mSurfaceView.getHolder();
         mSurfaceHolder.addCallback(this);
@@ -69,8 +69,8 @@ public class VendorProfilFiveActivity extends AppCompatActivity implements Surfa
 
         img_start = findViewById(R.id.img_start);
         btnstart = findViewById(R.id.btnstart);
-        txttimer= findViewById(R.id.txttimer);
-        CAMERANEXT= findViewById(R.id.CAMERANEXT);
+        txttimer = findViewById(R.id.txttimer);
+        CAMERANEXT = findViewById(R.id.CAMERANEXT);
 
 
         findViewById(R.id.CAMERANEXT).setOnClickListener(new View.OnClickListener() {
@@ -78,10 +78,10 @@ public class VendorProfilFiveActivity extends AppCompatActivity implements Surfa
             public void onClick(View view) {
                 stopRecording();
                 if (Utils.isInternetConnected(VendorProfilFiveActivity.this)) {
-                    new  VideoUploadTask().execute();
+                    new VideoUploadTask().execute();
 
                 } else {
-                    Toast.makeText(VendorProfilFiveActivity.this,  getString(R.string.no_internet), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(VendorProfilFiveActivity.this, getString(R.string.no_internet), Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -113,14 +113,9 @@ public class VendorProfilFiveActivity extends AppCompatActivity implements Surfa
     }
 
 
-
-
-
-
-
     //    -------------------start recording---------------------------------------------------------
     @SuppressLint("LongLogTag")
-    public boolean startRecording(){
+    public boolean startRecording() {
         try {
             Toast.makeText(getBaseContext(), "Recording Started", Toast.LENGTH_SHORT).show();
 
@@ -145,8 +140,7 @@ public class VendorProfilFiveActivity extends AppCompatActivity implements Surfa
             try {
                 mServiceCamera.setPreviewDisplay(mSurfaceHolder);
                 mServiceCamera.startPreview();
-            }
-            catch (IOException e) {
+            } catch (IOException e) {
                 Log.e(TAG, e.getMessage());
                 e.printStackTrace();
             }
@@ -156,7 +150,7 @@ public class VendorProfilFiveActivity extends AppCompatActivity implements Surfa
             mMediaRecorder = new MediaRecorder();
             mMediaRecorder.setCamera(mServiceCamera);
             mMediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-            mMediaRecorder.setVideoSource(MediaRecorder.VideoSource.CAMERA );
+            mMediaRecorder.setVideoSource(MediaRecorder.VideoSource.CAMERA);
             mMediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
             mMediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
             mMediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.H264);
@@ -165,17 +159,15 @@ public class VendorProfilFiveActivity extends AppCompatActivity implements Surfa
             mMediaRecorder.setOutputFile(mOutputFile.getAbsolutePath());
             mMediaRecorder.setPreviewDisplay(mSurfaceHolder.getSurface());
 
-            System.out.println("Video PAth>>>>>>  "+mOutputFile.getAbsolutePath());
-            img_path=mOutputFile.getAbsolutePath();
+            System.out.println("Video PAth>>>>>>  " + mOutputFile.getAbsolutePath());
+            img_path = mOutputFile.getAbsolutePath();
 
             mMediaRecorder.prepare();
-            try{
+            try {
                 mMediaRecorder.start();
-            }catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
-
-
 
 
             return true;
@@ -207,33 +199,32 @@ public class VendorProfilFiveActivity extends AppCompatActivity implements Surfa
 
 
     }
+
     public void stopRecording() {
 //        Toast.makeText(getBaseContext(), "Recording Stopped", Toast.LENGTH_SHORT).show();
         try {
-            mServiceCamera.reconnect();
-
+            if (mServiceCamera != null) {
+                mServiceCamera.reconnect();
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        try{
+        try {
             mMediaRecorder.stop();
-        }catch (Exception e){
+            mMediaRecorder.reset();
+
+            mServiceCamera.stopPreview();
+            mMediaRecorder.release();
+
+            mServiceCamera.release();
+            mServiceCamera = null;
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
-        mMediaRecorder.reset();
-
-        mServiceCamera.stopPreview();
-        mMediaRecorder.release();
-
-        mServiceCamera.release();
-        mServiceCamera = null;
-
 
     }
-
-
 
 
     @Override
@@ -252,14 +243,15 @@ public class VendorProfilFiveActivity extends AppCompatActivity implements Surfa
     }
 
 
-    public void timer(){
-        new CountDownTimer(31000,1000) {
+    public void timer() {
+        new CountDownTimer(31000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
 
-                txttimer.setText("REC 00:00:"+String.valueOf(counter));
+                txttimer.setText("REC 00:00:" + String.valueOf(counter));
                 counter++;
             }
+
             @Override
             public void onFinish() {
 
@@ -287,44 +279,36 @@ public class VendorProfilFiveActivity extends AppCompatActivity implements Surfa
             try {
 
 
-
-
-                uploadFileI=new File(img_path);
+                uploadFileI = new File(img_path);
 
 
                 String charset = "UTF-8";
-                MultipartUtility multipart = new MultipartUtility(BaseUrl +Upload_video, charset);
+                MultipartUtility multipart = new MultipartUtility(BaseUrl + Upload_video, charset);
                 String sid = null;
 
 
+                multipart.addFormField("user_id", session_vendor.getUserId());
 
+                multipart.addFormField("type", "2");
+                multipart.addFilePart("video", uploadFileI);
 
-
-
-                multipart.addFormField("user_id",session_vendor.getUserId());
-
-                multipart.addFormField("type","2");
-                multipart.addFilePart("video",uploadFileI);
-
-                System.out.println(" my service video   uploadFileI>>>>>>>>>>>>> ** "+uploadFileI+" ");
+                System.out.println(" my service video   uploadFileI>>>>>>>>>>>>> ** " + uploadFileI + " ");
 
 
                 List<String> response = multipart.finish();
 
 
-
                 for (String line : response) {
                     System.out.println("ye hai   " + line);
-                    String responseupdate=line;
-                    System.out.println(TAG+"Upload Response>>>>>>>>>>>>> ** "+responseupdate);
+                    String responseupdate = line;
+                    System.out.println(TAG + "Upload Response>>>>>>>>>>>>> ** " + responseupdate);
 
                     JSONObject json = new JSONObject(responseupdate);    // create JSON obj from string
                     Result = json.getString("result");    // this will return correct
                     msg = json.getString("msg");    // this will return correct
-                    System.out.println(TAG+"Result-------------       "+Result);
+                    System.out.println(TAG + "Result-------------       " + Result);
 
                 }
-
 
 
             } catch (IOException | JSONException ex) {
@@ -336,7 +320,7 @@ public class VendorProfilFiveActivity extends AppCompatActivity implements Surfa
         protected void onPostExecute(String result) {
             progressDialog.dismiss();
 
-            if (Result != null && Result.equalsIgnoreCase("true")){
+            if (Result != null && Result.equalsIgnoreCase("true")) {
 
                 Intent intent = new Intent(VendorProfilFiveActivity.this, VendorProfilSixActivity.class);
                 startActivity(intent);

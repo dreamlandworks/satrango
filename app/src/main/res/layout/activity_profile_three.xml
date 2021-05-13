@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/vendorprofilebackground"
-    tools:context=".VENDOR.PROFILES.PrifileActivityTwo">
+    tools:context=".Vendor_UI.vendor_profile.PrifileActivityTwo">
 
 
     <ScrollView

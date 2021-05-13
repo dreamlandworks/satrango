@@ -76,7 +76,7 @@
     <string name="submit">Submit</string>
     <string name="des">Please enter your registerd Mobile no and we will send you OTP to reset your password</string>
     <string name="otpdesc">Please type the verification code , send to Email Id for the verification process</string>
-    <string name="privecypolicy">Privecy Policy</string>
+    <string name="privecypolicy">Privacy Policy</string>
     <string name="changepassword">Change Password</string>
     <string name="Share">Invite With Friends</string>
     <string name="services">Car Mechine</string>

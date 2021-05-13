@@ -23,10 +23,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.satrangolimitless.LandingActivity;
 import com.satrangolimitless.LandingActivity_Service_provider;
 import com.satrangolimitless.R;
-import com.satrangolimitless.Setting.SuggestionAndfeedbackfragment;
 import com.satrangolimitless.session.Session;
 
 import org.json.JSONException;
@@ -38,7 +36,7 @@ import java.util.Map;
 import static com.satrangolimitless.Utils.Base_Url.BaseUrl;
 import static com.satrangolimitless.Utils.Base_Url.app_feedback;
 
-public class Vendor_SuggestionAndfeedbackfragment  extends Fragment {
+public class Vendor_SuggestionAndfeedbackfragment extends Fragment {
 
 
     // TODO: Rename and change types of parameters
@@ -48,12 +46,12 @@ public class Vendor_SuggestionAndfeedbackfragment  extends Fragment {
     Session session;
     private RequestQueue rQueue;
     EditText et_suggestionmsg;
-    RatingBar ratingBar,pro_rating,services_rating,app_interface_rating,customer_support_rating;
+    RatingBar ratingBar, pro_rating, services_rating, app_interface_rating, customer_support_rating;
     TextView txtrating;
     Button btnsubmit;
-    float getrating,pro_getrating,services_getrating,appinterface_rating,customersupport_rating;
+    float getrating, pro_getrating, services_getrating, appinterface_rating, customersupport_rating;
 
-ImageView img_back;
+    ImageView img_back;
     Fragment fragment;
 
     @Override
@@ -65,7 +63,7 @@ ImageView img_back;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View  root= inflater.inflate(R.layout.fragment_vendor_suggestion_andfeedbackfragment, container, false);
+        View root = inflater.inflate(R.layout.fragment_vendor_suggestion_andfeedbackfragment, container, false);
 
         ratingBar = (RatingBar) root.findViewById(R.id.rating);
         pro_rating = (RatingBar) root.findViewById(R.id.pro_rating);
@@ -77,107 +75,124 @@ ImageView img_back;
         et_suggestionmsg = root.findViewById(R.id.et_suggestionmsg);
         txtrating = root.findViewById(R.id.txtrating);
         btnsubmit = root.findViewById(R.id.btnsubmit);
-        session=new Session(getActivity());
+        session = new Session(getActivity());
         LandingActivity_Service_provider.Layout_hader.setVisibility(View.GONE);
-        System.out.println("<><><><==== "+session.getUserId());
+        System.out.println("<><><><==== " + session.getUserId());
 
-        final String rating=String.valueOf(ratingBar.getRating());
-        final String profession_rating=String.valueOf(pro_rating.getRating());
-        final String Services_rating=String.valueOf(services_rating.getRating());
-        final String App_interface_rating=String.valueOf(app_interface_rating.getRating());
-        final String Customer_support_rating=String.valueOf(customer_support_rating.getRating());
+        final String rating = String.valueOf(ratingBar.getRating());
+        final String profession_rating = String.valueOf(pro_rating.getRating());
+        final String Services_rating = String.valueOf(services_rating.getRating());
+        final String App_interface_rating = String.valueOf(app_interface_rating.getRating());
+        final String Customer_support_rating = String.valueOf(customer_support_rating.getRating());
 
 
         img_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fragment = null;
-                fragment = new Vendor_SettingsFragment();
-                getActivity().getSupportFragmentManager()
-                        .beginTransaction()
-                        .add(R.id.frame, fragment)
-                        .addToBackStack("csds").commit();
+                performBackAction();
+            }
+        });
+
+        root.findViewById(R.id.txt_back).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                performBackAction();
             }
         });
 
 
-        ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener(){
+        ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
                 int noofstars = ratingBar.getNumStars();
                 getrating = ratingBar.getRating();
-                String s=String.valueOf(getrating);
-                txtrating.setText("Rating: "+getrating+"/"+noofstars);
+                String s = String.valueOf(getrating);
+                txtrating.setText("Rating: " + getrating + "/" + noofstars);
 
             }
         });
 
 
-        pro_rating.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener(){
+        pro_rating.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
                 int noofstars = ratingBar.getNumStars();
                 pro_getrating = ratingBar.getRating();
-                txtrating.setText("Rating: "+pro_getrating+"/"+noofstars);
+                txtrating.setText("Rating: " + pro_getrating + "/" + noofstars);
 
             }
         });
-        services_rating.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener(){
+        services_rating.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
                 int noofstars = ratingBar.getNumStars();
                 services_getrating = ratingBar.getRating();
-                txtrating.setText("Rating: "+services_getrating+"/"+noofstars);
+                txtrating.setText("Rating: " + services_getrating + "/" + noofstars);
             }
         });
 
-        app_interface_rating.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener(){
+        app_interface_rating.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
                 int noofstars = ratingBar.getNumStars();
                 appinterface_rating = ratingBar.getRating();
-                txtrating.setText("Rating: "+appinterface_rating+"/"+noofstars);
+                txtrating.setText("Rating: " + appinterface_rating + "/" + noofstars);
             }
         });
 
-        customer_support_rating.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener(){
+        customer_support_rating.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
                 int noofstars = ratingBar.getNumStars();
                 customersupport_rating = ratingBar.getRating();
-                txtrating.setText("Rating: "+customersupport_rating+"/"+noofstars);
+                txtrating.setText("Rating: " + customersupport_rating + "/" + noofstars);
             }
         });
         btnsubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Toast.makeText(getActivity(), "ffff", Toast.LENGTH_SHORT).show();
-
-                CallSuggestionfeedbackApi(rating,profession_rating,Services_rating,App_interface_rating,Customer_support_rating);
+                CallSuggestionfeedbackApi();
             }
         });
 
         return root;
     }
 
-    private void CallSuggestionfeedbackApi(final String rating, final String profession_rating, final String services_rating, final String app_interface_rating, final String customer_support_rating) {
+    private void performBackAction() {
+        fragment = new Vendor_SettingsFragment();
+        getActivity().getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.frame, fragment)
+                .addToBackStack("csds").commit();
+    }
+
+    private void CallSuggestionfeedbackApi() {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, BaseUrl + app_feedback,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         rQueue.getCache().clear();
                         try {
-                            JSONObject jsonObject= new JSONObject(response);
-                            String result=jsonObject.getString("result");
-                            String msg=jsonObject.getString("msg");
-                            Log.e("<><><>namiikdnjcdshnj",jsonObject.toString());
+                            JSONObject jsonObject = new JSONObject(response);
+                            String result = jsonObject.getString("result");
+                            String msg = jsonObject.getString("msg");
+                            Log.e("<><><>namiikdnjcdshnj", jsonObject.toString());
 
-                            if (result.equals(true)) {
+                            if (result.equals("true")) {
                                 final Dialog dialog = new Dialog(requireContext());
-                                dialog.setContentView(R.layout.dialog_feedback_success);
                                 dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                                dialog.setContentView(R.layout.dialog_feedback_success);
+                                Window window = dialog.getWindow();
+                                window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                                 Button closeBtn = dialog.findViewById(R.id.btn_yes);
+                                ImageView closeBtnIV = dialog.findViewById(R.id.closeBtn);
+
+                                closeBtnIV.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        dialog.dismiss();
+                                    }
+                                });
                                 closeBtn.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
@@ -197,7 +212,7 @@ ImageView img_back;
                     @Override
                     public void onErrorResponse(VolleyError error) {
 
-                        System.out.println("gkgkgkgkgk"+error);
+                        System.out.println("gkgkgkgkgk" + error);
 
                         Toast.makeText(getActivity(), error.toString(), Toast.LENGTH_LONG).show();
                     }
@@ -205,14 +220,14 @@ ImageView img_back;
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("user_id",session.getUserId());
-                params.put("message",et_suggestionmsg.getText().toString());
-                params.put("over_all_rating",String.valueOf(getrating));
-                params.put("profession_rating",String.valueOf(pro_getrating));
-                params.put("services_rating",String.valueOf(services_getrating));
-                params.put("app_interface_rating",String.valueOf(appinterface_rating));
-                params.put("customer_support_rating",String.valueOf(customersupport_rating));
-                params.put("type","vendor");
+                params.put("user_id", session.getUserId());
+                params.put("message", et_suggestionmsg.getText().toString());
+                params.put("over_all_rating", String.valueOf(getrating));
+                params.put("profession_rating", String.valueOf(pro_getrating));
+                params.put("services_rating", String.valueOf(services_getrating));
+                params.put("app_interface_rating", String.valueOf(appinterface_rating));
+                params.put("customer_support_rating", String.valueOf(customersupport_rating));
+                params.put("type", "vendor");
                 return params;
             }
         };
@@ -221,7 +236,6 @@ ImageView img_back;
         rQueue.add(stringRequest);
 
     }
-
 
 
 }

@@ -83,6 +83,21 @@ EditText edt_depamount,edtwithdrwmoney;
         edtwithdrwmoney=findViewById(R.id.edtwithdrwmoney);
         btnadfund=findViewById(R.id.btnadfund);
         btnwithdfunds=findViewById(R.id.btnwithdfunds);
+
+        findViewById(R.id.imgback).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+        findViewById(R.id.txtback).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
+
         UserBank_account();
         txtadacount.setOnClickListener(new View.OnClickListener() {
             @Override

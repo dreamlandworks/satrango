@@ -1,16 +1,11 @@
 package com.satrangolimitless.Vendor_UI.vendor_profile;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.hardware.Camera;
 import android.media.MediaRecorder;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Environment;
@@ -23,10 +18,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.satrangolimitless.R;
-
-
-import com.satrangolimitless.Utils.Customprogress;
 import com.satrangolimitless.Utils.MultipartUtility;
 import com.satrangolimitless.Utils.Utils;
 import com.satrangolimitless.session.Session_vendor;
@@ -44,8 +39,8 @@ import java.util.Locale;
 import static com.satrangolimitless.Utils.Base_Url.BaseUrl;
 import static com.satrangolimitless.Utils.Base_Url.Upload_video;
 
-public class VendorProfilFourActivity extends AppCompatActivity implements SurfaceHolder.Callback{
-Button CAMERANEXT,btnstart;
+public class VendorProfilFourActivity extends AppCompatActivity implements SurfaceHolder.Callback {
+    Button CAMERANEXT, btnstart;
     ProgressDialog progressDialog;
     public static SurfaceView mSurfaceView;
     public static SurfaceHolder mSurfaceHolder;
@@ -55,17 +50,18 @@ Button CAMERANEXT,btnstart;
 
     private MediaRecorder mMediaRecorder;
     File mOutputFile;
-     File uploadFileI;
-    String img_path="",Result,msg;
-    TextView txtname,txttimer;
+    File uploadFileI;
+    String img_path = "", Result, msg;
+    TextView txtname, txttimer;
     public int counter;
     Session_vendor session_vendor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vendor_profil_four);
 
-        session_vendor=new Session_vendor(getApplicationContext());
+        session_vendor = new Session_vendor(getApplicationContext());
         img_start = findViewById(R.id.img_start);
         btnstart = findViewById(R.id.btnstart);
         txtname = findViewById(R.id.txtname);
@@ -88,19 +84,19 @@ Button CAMERANEXT,btnstart;
                 btnstart.setClickable(false);
             }
         });
-         CAMERANEXT= findViewById(R.id.CAMERANEXT);
+        CAMERANEXT = findViewById(R.id.CAMERANEXT);
 
-            btnstart.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    img_start.setImageResource(R.drawable.ic_baseline_stop_circle_24);
-                    timer();
-                    startRecording();
-                    img_start.setClickable(false);
-                    btnstart.setClickable(false);
+        btnstart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                img_start.setImageResource(R.drawable.ic_baseline_stop_circle_24);
+                timer();
+                startRecording();
+                img_start.setClickable(false);
+                btnstart.setClickable(false);
 
-                }
-            });
+            }
+        });
 
 
         findViewById(R.id.CAMERANEXT).setOnClickListener(new View.OnClickListener() {
@@ -113,7 +109,7 @@ Button CAMERANEXT,btnstart;
                     new VideoUploadTask().execute();
 
                 } else {
-                    Toast.makeText(VendorProfilFourActivity.this,  getString(R.string.no_internet), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(VendorProfilFourActivity.this, getString(R.string.no_internet), Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -122,80 +118,77 @@ Button CAMERANEXT,btnstart;
     }
 
 
-//    -------------------start recording---------------------------------------------------------
+    //    -------------------start recording---------------------------------------------------------
     @SuppressLint("LongLogTag")
-    public boolean startRecording(){
-    try {
-        Toast.makeText(getBaseContext(), "Recording Started", Toast.LENGTH_SHORT).show();
-
-        mServiceCamera = Camera.open(Camera.CameraInfo.CAMERA_FACING_FRONT);
-        mServiceCamera.setDisplayOrientation(90);
-
-        Camera.Parameters params = mServiceCamera.getParameters();
-        mServiceCamera.setParameters(params);
-        Camera.Parameters p = mServiceCamera.getParameters();
-
-        final List<Camera.Size> listPreviewSize = p.getSupportedPreviewSizes();
-        for (Camera.Size size : listPreviewSize) {
-            Log.i(TAG, String.format("Supported Preview Size (%d, %d)", size.width, size.height));
-        }
-
-        Camera.Size previewSize = listPreviewSize.get(0);
-
-        p.setPreviewSize(previewSize.width, previewSize.height);
-
-        mServiceCamera.setParameters(p);
-
+    public boolean startRecording() {
         try {
-            mServiceCamera.setPreviewDisplay(mSurfaceHolder);
-            mServiceCamera.startPreview();
-        }
-        catch (IOException e) {
-            Log.e(TAG, e.getMessage());
+            Toast.makeText(getBaseContext(), "Recording Started", Toast.LENGTH_SHORT).show();
+
+            mServiceCamera = Camera.open(Camera.CameraInfo.CAMERA_FACING_FRONT);
+            mServiceCamera.setDisplayOrientation(90);
+
+            Camera.Parameters params = mServiceCamera.getParameters();
+            mServiceCamera.setParameters(params);
+            Camera.Parameters p = mServiceCamera.getParameters();
+
+            final List<Camera.Size> listPreviewSize = p.getSupportedPreviewSizes();
+            for (Camera.Size size : listPreviewSize) {
+                Log.i(TAG, String.format("Supported Preview Size (%d, %d)", size.width, size.height));
+            }
+
+            Camera.Size previewSize = listPreviewSize.get(0);
+
+            p.setPreviewSize(previewSize.width, previewSize.height);
+
+            mServiceCamera.setParameters(p);
+
+            try {
+                mServiceCamera.setPreviewDisplay(mSurfaceHolder);
+                mServiceCamera.startPreview();
+            } catch (IOException e) {
+                Log.e(TAG, e.getMessage());
+                e.printStackTrace();
+            }
+
+            mServiceCamera.unlock();
+
+            mMediaRecorder = new MediaRecorder();
+            mMediaRecorder.setCamera(mServiceCamera);
+            mMediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+            mMediaRecorder.setVideoSource(MediaRecorder.VideoSource.CAMERA);
+            mMediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+            mMediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+            mMediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.H264);
+            mOutputFile = getOutputFile();
+            mOutputFile.getParentFile().mkdirs();
+            mMediaRecorder.setOutputFile(mOutputFile.getAbsolutePath());
+            mMediaRecorder.setPreviewDisplay(mSurfaceHolder.getSurface());
+
+            System.out.println("Video PAth>>>>>>  " + mOutputFile.getAbsolutePath());
+            img_path = mOutputFile.getAbsolutePath();
+
+            mMediaRecorder.prepare();
+            try {
+                mMediaRecorder.start();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+
+            return true;
+
+        } catch (IllegalStateException e) {
+            Log.d(TAG, e.getMessage());
             e.printStackTrace();
-        }
+            return false;
 
-        mServiceCamera.unlock();
-
-        mMediaRecorder = new MediaRecorder();
-        mMediaRecorder.setCamera(mServiceCamera);
-        mMediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-        mMediaRecorder.setVideoSource(MediaRecorder.VideoSource.CAMERA );
-        mMediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
-        mMediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
-        mMediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.H264);
-        mOutputFile = getOutputFile();
-        mOutputFile.getParentFile().mkdirs();
-        mMediaRecorder.setOutputFile(mOutputFile.getAbsolutePath());
-        mMediaRecorder.setPreviewDisplay(mSurfaceHolder.getSurface());
-
-        System.out.println("Video PAth>>>>>>  "+mOutputFile.getAbsolutePath());
-        img_path=mOutputFile.getAbsolutePath();
-
-        mMediaRecorder.prepare();
-        try{
-            mMediaRecorder.start();
-        }catch (Exception e){
+        } catch (IOException e) {
+            Log.d(TAG, e.getMessage());
             e.printStackTrace();
+            return false;
         }
 
-
-
-
-        return true;
-
-    } catch (IllegalStateException e) {
-        Log.d(TAG, e.getMessage());
-        e.printStackTrace();
-        return false;
-
-    } catch (IOException e) {
-        Log.d(TAG, e.getMessage());
-        e.printStackTrace();
-        return false;
     }
-
-}
 
     /* Stop recording--------------------------------------------------------------- */
 
@@ -211,33 +204,31 @@ Button CAMERANEXT,btnstart;
 
 
     }
-    public void stopRecording() {
-//        Toast.makeText(getBaseContext(), "Recording Stopped", Toast.LENGTH_SHORT).show();
-        try {
-            mServiceCamera.reconnect();
 
+    public void stopRecording() {
+        try {
+            if (mServiceCamera != null) {
+                mServiceCamera.reconnect();
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        try{
+        try {
             mMediaRecorder.stop();
-        }catch (Exception e){
+            mMediaRecorder.reset();
+
+            mServiceCamera.stopPreview();
+            mMediaRecorder.release();
+
+            mServiceCamera.release();
+            mServiceCamera = null;
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
-        mMediaRecorder.reset();
-
-        mServiceCamera.stopPreview();
-        mMediaRecorder.release();
-
-        mServiceCamera.release();
-        mServiceCamera = null;
-
 
     }
-
-
 
 
     @Override
@@ -256,27 +247,28 @@ Button CAMERANEXT,btnstart;
     }
 
 
-        public void timer(){
-            new CountDownTimer(31000,1000) {
-                @Override
-                public void onTick(long millisUntilFinished) {
+    public void timer() {
+        new CountDownTimer(31000, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
 
-                    txttimer.setText("REC 00:00:"+String.valueOf(counter));
-                    counter++;
-                }
-                @Override
-                public void onFinish() {
+                txttimer.setText("REC 00:00:" + String.valueOf(counter));
+                counter++;
+            }
 
-                    Toast.makeText(getApplicationContext(), "Press Next button to continue", Toast.LENGTH_SHORT).show();
-                    img_start.setImageResource(R.drawable.ic_play_svg);
+            @Override
+            public void onFinish() {
 
-                    stopRecording();
-                    img_start.setClickable(true);
-                    btnstart.setClickable(true);
-                }
-            }.start();
+                Toast.makeText(getApplicationContext(), "Press Next button to continue", Toast.LENGTH_SHORT).show();
+                img_start.setImageResource(R.drawable.ic_play_svg);
 
-        }
+                stopRecording();
+                img_start.setClickable(true);
+                btnstart.setClickable(true);
+            }
+        }.start();
+
+    }
 
 
     class VideoUploadTask extends AsyncTask<Void, Void, String> {
@@ -293,37 +285,34 @@ Button CAMERANEXT,btnstart;
             try {
 
 
-
-
-                uploadFileI=new File(img_path);
+                uploadFileI = new File(img_path);
 
 
                 String charset = "UTF-8";
-                MultipartUtility multipart = new MultipartUtility(BaseUrl +Upload_video, charset);
+                MultipartUtility multipart = new MultipartUtility(BaseUrl + Upload_video, charset);
                 String sid = null;
 
 
-                multipart.addFormField("user_id",session_vendor.getUserId());
+                multipart.addFormField("user_id", session_vendor.getUserId());
 
-                multipart.addFormField("type","1");
-                multipart.addFilePart("video",uploadFileI);
+                multipart.addFormField("type", "1");
+                multipart.addFilePart("video", uploadFileI);
 
-                System.out.println(" my service video   uploadFileI>>>>>>>>>>>>> ** "+uploadFileI+" ");
+                System.out.println(" my service video   uploadFileI>>>>>>>>>>>>> ** " + uploadFileI + " ");
 
 
                 List<String> response = multipart.finish();
 
 
-
                 for (String line : response) {
                     System.out.println("ye hai   " + line);
-                    String responseupdate=line;
-                    System.out.println("Upload Response>>>>>>>>>>>>> ** "+responseupdate);
+                    String responseupdate = line;
+                    System.out.println("Upload Response>>>>>>>>>>>>> ** " + responseupdate);
 
                     JSONObject json = new JSONObject(responseupdate);    // create JSON obj from string
-                      Result = json.getString("result");    // this will return correct
+                    Result = json.getString("result");    // this will return correct
                     msg = json.getString("msg");    // this will return correct
-                    System.out.println("result-------------       "+Result);
+                    System.out.println("result-------------       " + Result);
 
                 }
 
@@ -337,15 +326,14 @@ Button CAMERANEXT,btnstart;
         protected void onPostExecute(String result) {
             progressDialog.dismiss();
 
-            if (Result != null && Result.equalsIgnoreCase("true")){
+            if (Result != null && Result.equalsIgnoreCase("true")) {
 
-    Intent intent = new Intent(VendorProfilFourActivity.this, VendorProfilFiveActivity.class);
-    startActivity(intent);
-}
+                Intent intent = new Intent(VendorProfilFourActivity.this, VendorProfilFiveActivity.class);
+                startActivity(intent);
+            }
 
         }
     }
 
 
-
- }
+}

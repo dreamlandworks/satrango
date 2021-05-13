@@ -71,17 +71,27 @@ public class Vendor_TermsAndConditionfragment extends Fragment {
         iv_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fragment = null;
-                fragment = new Vendor_SettingsFragment();
-                getActivity().getSupportFragmentManager()
-                        .beginTransaction()
-                        .add(R.id.frame, fragment)
-                        .addToBackStack("csds").commit();
+                performBackAction();
+            }
+        });
+        root.findViewById(R.id.txt_back).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                performBackAction();
             }
         });
 
         return root;
 
+    }
+
+    private void performBackAction() {
+        fragment = null;
+        fragment = new Vendor_SettingsFragment();
+        getActivity().getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.frame, fragment)
+                .addToBackStack("csds").commit();
     }
 
     private void CallTermsApi() {

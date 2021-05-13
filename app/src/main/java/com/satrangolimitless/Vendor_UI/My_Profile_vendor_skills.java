@@ -130,22 +130,19 @@ public class My_Profile_vendor_skills extends Fragment {
             }
         });
 
-        final TextInputEditText professionTv = root.findViewById(R.id.etProfession);
+        final NachoTextView professionTv = root.findViewById(R.id.etProfession);
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                for (Chip chip : et_tag.getAllChips()) {
-//                    CharSequence text = chip.getText();
-//                    System.out.println("language----  " + text);
-//                    languag_list.add(text.toString());
-//                    all_Languages = TextUtils.join(",", languag_list);
-//                    System.out.println("all_Languages  " + all_Languages);
-//                }
+                for (Chip chip : et_tag.getAllChips()) {
+                    CharSequence text = chip.getText();
+                    languag_list.add(text.toString());
+                    all_Languages = TextUtils.join(",", languag_list);
+                }
 
-                all_Languages = et_tag.getText().toString().trim();
                 about = edt_about.getText().toString();
                 qualification = edt_qualification.getText().toString();
-                profession = professionTv.getText().toString().trim();
+//                profession = professionTv.getText().toString().trim();
                 Update_vendor();
             }
         });

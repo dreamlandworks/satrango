@@ -2,6 +2,7 @@ package com.satrangolimitless.Vendor_UI;
 
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.view.View;
@@ -18,6 +19,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 
 import com.bumptech.glide.Glide;
+import com.satrangolimitless.ForgotPasswordActivity;
 import com.satrangolimitless.R;
 import com.satrangolimitless.session.Session;
 import com.satrangolimitless.session.Session_vendor;
@@ -53,6 +55,13 @@ public class My_profile_vendor extends AppCompatActivity {
         txt_back = findViewById(R.id.txt_back);
         txtname.setText(session.getUser_name());
         txt_mob_no.setText(session.getMobile());
+
+        findViewById(R.id.txtchange_pass).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(My_profile_vendor.this, ForgotPasswordActivity.class));
+            }
+        });
 
         Glide.with(getApplicationContext())
                 .load(Image_url + session.getProfileimage())

@@ -1,12 +1,15 @@
 package com.satrangolimitless.Vendor_UI.Vendor_Settings;
 
+import android.app.Dialog;
+import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -18,8 +21,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.satrangolimitless.R;
-import com.satrangolimitless.Setting.ComplaintFragment;
-import com.satrangolimitless.session.Session;
 import com.satrangolimitless.session.Session_vendor;
 
 import org.json.JSONException;
@@ -42,10 +43,10 @@ public class Vendor_Complaintfragment extends Fragment {
     private String mParam1;
     private String mParam2;
     private RequestQueue rQueue;
-     Session_vendor session;
-String message="",reason="";
-Button btnsbmit,btnbk;
-ImageView img_back;
+    Session_vendor session;
+    String message = "", reason = "";
+    Button btnsbmit, btnbk;
+    ImageView img_back;
     Fragment fragment;
 
 
@@ -59,14 +60,98 @@ ImageView img_back;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View  root=inflater.inflate(R.layout.fragment_vendor_complaint, container, false);
-        session=new Session_vendor(getActivity());
-        btnsbmit=root.findViewById(R.id.btnsbmit);
-        btnbk=root.findViewById(R.id.btnbk);
-        img_back=root.findViewById(R.id.img_back);
+        final View root = inflater.inflate(R.layout.fragment_vendor_complaint, container, false);
+        session = new Session_vendor(getActivity());
+        btnsbmit = root.findViewById(R.id.btnsbmit);
+        btnbk = root.findViewById(R.id.btnbk);
+        img_back = root.findViewById(R.id.img_back);
 
-//        CallComplaintsApi();
+        final Button bookingBtn = root.findViewById(R.id.bookingBtn);
+        final Button fundsTransferBtn = root.findViewById(R.id.fundTransferBtn);
+        final Button bugsBtn = root.findViewById(R.id.bugsBtn);
+        final Button userBtn = root.findViewById(R.id.userBtn);
+        final Button othersBtn = root.findViewById(R.id.othersBtn);
 
+        bookingBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                reason = bookingBtn.getText().toString().trim();
+                bookingBtn.setBackgroundResource(R.drawable.acceptbackground);
+                bookingBtn.setTextColor(Color.parseColor("#ffffff"));
+                fundsTransferBtn.setTextColor(Color.parseColor("#55b537"));
+                fundsTransferBtn.setBackgroundResource(R.drawable.greenborderbutton);
+                bugsBtn.setTextColor(Color.parseColor("#55b537"));
+                bugsBtn.setBackgroundResource(R.drawable.greenborderbutton);
+                userBtn.setTextColor(Color.parseColor("#55b537"));
+                userBtn.setBackgroundResource(R.drawable.greenborderbutton);
+                othersBtn.setTextColor(Color.parseColor("#55b537"));
+                othersBtn.setBackgroundResource(R.drawable.greenborderbutton);
+            }
+        });
+        fundsTransferBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                reason = fundsTransferBtn.getText().toString().trim();
+                fundsTransferBtn.setBackgroundResource(R.drawable.acceptbackground);
+                fundsTransferBtn.setTextColor(Color.parseColor("#ffffff"));
+                bookingBtn.setTextColor(Color.parseColor("#55b537"));
+                bookingBtn.setBackgroundResource(R.drawable.greenborderbutton);
+                bugsBtn.setTextColor(Color.parseColor("#55b537"));
+                bugsBtn.setBackgroundResource(R.drawable.greenborderbutton);
+                userBtn.setTextColor(Color.parseColor("#55b537"));
+                userBtn.setBackgroundResource(R.drawable.greenborderbutton);
+                othersBtn.setTextColor(Color.parseColor("#55b537"));
+                othersBtn.setBackgroundResource(R.drawable.greenborderbutton);
+            }
+        });
+        bugsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                reason = bugsBtn.getText().toString().trim();
+                bugsBtn.setBackgroundResource(R.drawable.acceptbackground);
+                bugsBtn.setTextColor(Color.parseColor("#ffffff"));
+                fundsTransferBtn.setTextColor(Color.parseColor("#55b537"));
+                fundsTransferBtn.setBackgroundResource(R.drawable.greenborderbutton);
+                bookingBtn.setTextColor(Color.parseColor("#55b537"));
+                bookingBtn.setBackgroundResource(R.drawable.greenborderbutton);
+                userBtn.setTextColor(Color.parseColor("#55b537"));
+                userBtn.setBackgroundResource(R.drawable.greenborderbutton);
+                othersBtn.setTextColor(Color.parseColor("#55b537"));
+                othersBtn.setBackgroundResource(R.drawable.greenborderbutton);
+            }
+        });
+        userBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                reason = userBtn.getText().toString().trim();
+                userBtn.setBackgroundResource(R.drawable.acceptbackground);
+                userBtn.setTextColor(Color.parseColor("#ffffff"));
+                fundsTransferBtn.setTextColor(Color.parseColor("#55b537"));
+                fundsTransferBtn.setBackgroundResource(R.drawable.greenborderbutton);
+                bugsBtn.setTextColor(Color.parseColor("#55b537"));
+                bugsBtn.setBackgroundResource(R.drawable.greenborderbutton);
+                bookingBtn.setTextColor(Color.parseColor("#55b537"));
+                bookingBtn.setBackgroundResource(R.drawable.greenborderbutton);
+                othersBtn.setTextColor(Color.parseColor("#55b537"));
+                othersBtn.setBackgroundResource(R.drawable.greenborderbutton);
+            }
+        });
+        othersBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                reason = othersBtn.getText().toString().trim();
+                othersBtn.setBackgroundResource(R.drawable.acceptbackground);
+                othersBtn.setTextColor(Color.parseColor("#ffffff"));
+                fundsTransferBtn.setTextColor(Color.parseColor("#55b537"));
+                fundsTransferBtn.setBackgroundResource(R.drawable.greenborderbutton);
+                bugsBtn.setTextColor(Color.parseColor("#55b537"));
+                bugsBtn.setBackgroundResource(R.drawable.greenborderbutton);
+                userBtn.setTextColor(Color.parseColor("#55b537"));
+                userBtn.setBackgroundResource(R.drawable.greenborderbutton);
+                bookingBtn.setTextColor(Color.parseColor("#55b537"));
+                bookingBtn.setBackgroundResource(R.drawable.greenborderbutton);
+            }
+        });
         img_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,6 +179,8 @@ ImageView img_back;
         btnsbmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                TextView messageTV = root.findViewById(R.id.et_suggestionmsg);
+                message = messageTV.getText().toString().trim();
                 CallComplaintsApi();
             }
         });
@@ -109,16 +196,30 @@ ImageView img_back;
                     public void onResponse(String response) {
                         rQueue.getCache().clear();
                         try {
-                            JSONObject jsonObject= new JSONObject(response);
-                            String result=jsonObject.getString("result");
-                            String msg=jsonObject.getString("msg");
-                            Log.e("<><><>namiikdnjcdshnj",jsonObject.toString());
-                            if (result.equals(true)) {
-
-                                Toast.makeText(getActivity(), ""+msg, Toast.LENGTH_SHORT).show();
-
-                            } else {
-
+                            JSONObject jsonObject = new JSONObject(response);
+                            String result = jsonObject.getString("result");
+                            String msg = jsonObject.getString("msg");
+                            if (result.equals("true")) {
+                                final Dialog dialog = new Dialog(requireContext());
+                                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                                dialog.setContentView(R.layout.dialog_complaint_success);
+                                Window window = dialog.getWindow();
+                                window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                                ImageView closeIvBtn = dialog.findViewById(R.id.closeBtn);
+                                Button closeBtn = dialog.findViewById(R.id.btn_no);
+                                closeBtn.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        dialog.dismiss();
+                                    }
+                                });
+                                closeIvBtn.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        dialog.dismiss();
+                                    }
+                                });
+                                dialog.show();
                             }
 
                         } catch (JSONException e) {
@@ -135,10 +236,10 @@ ImageView img_back;
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("user_id",session.getUserId());
-                params.put("reason",reason);
-                params.put("message",message);
-                params.put("type","vendor");
+                params.put("user_id", session.getUserId());
+                params.put("reason", reason);
+                params.put("message", message);
+                params.put("type", "vendor");
                 return params;
             }
         };

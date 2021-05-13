@@ -152,7 +152,6 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center"
-                                        android:gravity="center"
                                         android:orientation="horizontal">
 
                                         <EditText
@@ -163,24 +162,12 @@
                                             android:layout_marginTop="@dimen/_5sdp"
                                             android:background="@color/transparent"
                                             android:drawablePadding="@dimen/_10sdp"
-                                            android:enabled="false"
+                                            android:drawableRight="@drawable/ic_pencils"
                                             android:fontFamily="@font/quicksand_bold"
                                             android:text="@string/name"
                                             android:textColor="@color/black"
                                             android:textSize="@dimen/_16sdp"
                                             android:textStyle="bold" />
-
-                                        <ImageView
-                                            android:id="@+id/imgeditname"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_gravity="center"
-                                            android:layout_marginTop="@dimen/_5sdp"
-                                            android:src="@drawable/ic_pencils"
-
-                                            >
-
-                                        </ImageView>
                                     </LinearLayout>
 
                                     <LinearLayout
@@ -196,25 +183,14 @@
                                             android:layout_marginTop="@dimen/_5sdp"
                                             android:background="@color/transparent"
                                             android:digits="0123456789"
+                                            android:drawableRight="@drawable/ic_pencils"
                                             android:drawablePadding="@dimen/_10sdp"
-                                            android:enabled="false"
                                             android:fontFamily="@font/quicksand_bold"
                                             android:inputType="number"
                                             android:text="@string/mobileno"
                                             android:textColor="@color/black"
                                             android:textSize="@dimen/_14sdp"
                                             android:textStyle="bold" />
-
-                                        <ImageView
-                                            android:id="@+id/imgeditmob"
-
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_gravity="center"
-                                            android:layout_marginTop="@dimen/_5sdp"
-                                            android:src="@drawable/ic_pencils">
-
-                                        </ImageView>
 
                                     </LinearLayout>
 
@@ -265,21 +241,6 @@
                                             android:maxLines="1"
                                             android:theme="@style/AppTheme1" />
                                     </com.google.android.material.textfield.TextInputLayout>
-
-                                    <ImageView
-                                        android:id="@+id/imgmailedt"
-                                        android:layout_width="0dp"
-                                        android:layout_weight="1"
-                                        android:layout_height="match_parent"
-                                        android:layout_alignParentRight="true"
-                                        android:layout_gravity="center"
-                                        android:padding="@dimen/_20sdp"
-                                        android:visibility="gone"
-                                        android:src="@drawable/ic_pencils">
-
-                                    </ImageView>
-
-
                                 </LinearLayout>
 
                                 <com.google.android.material.textfield.TextInputLayout

@@ -1,30 +1,25 @@
 package com.satrangolimitless.Vendor_UI.vendor_profile;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-
 import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
-
-
 import android.content.Intent;
 import android.os.Bundle;
-
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
@@ -42,12 +37,9 @@ import com.satrangolimitless.Dynamicview.Days_Model;
 import com.satrangolimitless.Dynamicview.EditValues;
 import com.satrangolimitless.Dynamicview.Size_Click;
 import com.satrangolimitless.Dynamicview.StaticDaysAdapter;
-
-
 import com.satrangolimitless.R;
 import com.satrangolimitless.Utils.VolleySingleton;
 import com.satrangolimitless.session.Session_vendor;
-
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -55,19 +47,18 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import static com.satrangolimitless.Utils.Base_Url.Addtarriff_Api;
 import static com.satrangolimitless.Utils.Base_Url.BaseUrl;
 
-public class PrifileActivityTwo extends AppCompatActivity  implements  Size_Click{
+public class PrifileActivityTwo extends AppCompatActivity implements Size_Click {
     private int mHour, mMinute;
-    Button btn_next,btncancel;
+    Button btn_next, btncancel;
     Session_vendor session_vendor;
-    LinearLayout layout_list,lladd;
-EditText edt_per_hr,edt_extra_charge,edt_min_charge,edt_per_day;
-    String FROM_TIME,TO_TIME,DAY_TYPE,DAY_NAME;
+    LinearLayout layout_list, lladd;
+    EditText edt_per_hr, edt_extra_charge, edt_min_charge, edt_per_day;
+    String FROM_TIME, TO_TIME, DAY_TYPE, DAY_NAME;
     String format;
     private int CalendarHour, CalendarMinute;
     Calendar calendar;
@@ -87,36 +78,35 @@ EditText edt_per_hr,edt_extra_charge,edt_min_charge,edt_per_day;
 
 
     StaticDaysAdapter staticSizeAdapter;
-    ArrayList<Days_Model> size_modelArrayList=new ArrayList<>();
+    ArrayList<Days_Model> size_modelArrayList = new ArrayList<>();
     Size_Click size_click;
-    ArrayList<String>get_size=new ArrayList<>();
+    ArrayList<String> get_size = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prifile_two);
 
-        session_vendor=new Session_vendor(getApplicationContext());
+        session_vendor = new Session_vendor(getApplicationContext());
 
 
-        edt_per_hr= findViewById(R.id.edt_per_hr);
-        edt_extra_charge= findViewById(R.id.edt_extra_charge);
-        edt_min_charge= findViewById(R.id.edt_min_charge);
-        edt_per_day= findViewById(R.id.edt_per_day);
+        edt_per_hr = findViewById(R.id.edt_per_hr);
+        edt_extra_charge = findViewById(R.id.edt_extra_charge);
+        edt_min_charge = findViewById(R.id.edt_min_charge);
+        edt_per_day = findViewById(R.id.edt_per_day);
 
 
-        btn_next= findViewById(R.id.btn_next);
-        btncancel= findViewById(R.id.btncancel);
+        btn_next = findViewById(R.id.btn_next);
+        btncancel = findViewById(R.id.btncancel);
 
-        lladd= findViewById(R.id.lladd);
-        layout_list= findViewById(R.id.layout_list);
-
+        lladd = findViewById(R.id.lladd);
+        layout_list = findViewById(R.id.layout_list);
 
 
         btncancel.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-             onBackPressed();
+                onBackPressed();
             }
         });
         btn_next.setOnClickListener(new View.OnClickListener() {
@@ -137,11 +127,13 @@ EditText edt_per_hr,edt_extra_charge,edt_min_charge,edt_per_day;
                     edt_per_day.setError("Please enter per day charge");
                     edt_per_day.requestFocus();
                     return;
-                }  if (min_charge.isEmpty()) {
+                }
+                if (min_charge.isEmpty()) {
                     edt_min_charge.setError("Please enter minimum charge");
                     edt_min_charge.requestFocus();
                     return;
-                }if (extra_charge.isEmpty()) {
+                }
+                if (extra_charge.isEmpty()) {
                     edt_extra_charge.setError("Please enter extra charge");
                     edt_extra_charge.requestFocus();
                     return;
@@ -162,16 +154,9 @@ EditText edt_per_hr,edt_extra_charge,edt_min_charge,edt_per_day;
             @Override
             public void onClick(View v) {
 
-                 addView();
+                addView();
             }
         });
-
-
-
-
-
-
-
 
 
     }
@@ -184,17 +169,17 @@ EditText edt_per_hr,edt_extra_charge,edt_min_charge,edt_per_day;
         final Button btn_everyday = (Button) cricketerView.findViewById(R.id.btn_everyday);
         final Button btn_weekday = (Button) cricketerView.findViewById(R.id.btn_weekday);
         final Button btn_wekend = (Button) cricketerView.findViewById(R.id.btn_wekend);
-        final RecyclerView recydays= (RecyclerView) cricketerView.findViewById(R.id.recydays);
+        final RecyclerView recydays = (RecyclerView) cricketerView.findViewById(R.id.recydays);
         final EditText edtvalue = (EditText) cricketerView.findViewById(R.id.edtvalue);
 
         ImageView imageClose = (ImageView) cricketerView.findViewById(R.id.image_remove);
 
-            imageClose.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    removeView(cricketerView);
-                }
-            });
+        imageClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                removeView(cricketerView);
+            }
+        });
 
         btn_everyday.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -215,34 +200,33 @@ EditText edt_per_hr,edt_extra_charge,edt_min_charge,edt_per_day;
             }
         });
         btn_weekday.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
+            @Override
+            public void onClick(View v) {
 
-                    btn_weekday.setBackgroundResource(R.drawable.greenbutton);
-                    btn_weekday.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.white));
-                    btn_everyday.setBackgroundResource(R.drawable.greenborderbutton);
-                    btn_everyday.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.vendorprimerycolor));
-                    btn_wekend.setBackgroundResource(R.drawable.greenborderbutton);
-                    btn_wekend.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.vendorprimerycolor));
-                    edtvalue.setText("Weekday");
+                btn_weekday.setBackgroundResource(R.drawable.greenbutton);
+                btn_weekday.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.white));
+                btn_everyday.setBackgroundResource(R.drawable.greenborderbutton);
+                btn_everyday.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.vendorprimerycolor));
+                btn_wekend.setBackgroundResource(R.drawable.greenborderbutton);
+                btn_wekend.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.vendorprimerycolor));
+                edtvalue.setText("Weekday");
 
-                }
+            }
         });
 
         btn_wekend.setOnClickListener(new View.OnClickListener() {
-              @Override
-              public void onClick(View v) {
-                  btn_wekend.setBackgroundResource(R.drawable.greenbutton);
-                  btn_wekend.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.white));
-                  btn_weekday.setBackgroundResource(R.drawable.greenborderbutton);
-                  btn_weekday.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.vendorprimerycolor));
-                  btn_everyday.setBackgroundResource(R.drawable.greenborderbutton);
-                  btn_everyday.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.vendorprimerycolor));
-                  edtvalue.setText("Weekend");
+            @Override
+            public void onClick(View v) {
+                btn_wekend.setBackgroundResource(R.drawable.greenbutton);
+                btn_wekend.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.white));
+                btn_weekday.setBackgroundResource(R.drawable.greenborderbutton);
+                btn_weekday.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.vendorprimerycolor));
+                btn_everyday.setBackgroundResource(R.drawable.greenborderbutton);
+                btn_everyday.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.vendorprimerycolor));
+                edtvalue.setText("Weekend");
 
-                }
+            }
         });
-
 
 
         txt_from.setOnClickListener(new View.OnClickListener() {
@@ -280,15 +264,10 @@ EditText edt_per_hr,edt_extra_charge,edt_min_charge,edt_per_day;
                 timepickerdialog.show();
 
 
-
-
-
-
-
             }
         });
 
-            txt_to.setOnClickListener(new View.OnClickListener() {
+        txt_to.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -323,36 +302,31 @@ EditText edt_per_hr,edt_extra_charge,edt_min_charge,edt_per_day;
                 timepickerdialog.show();
 
 
-
-
             }
         });
 
         size_modelArrayList.clear();
-        Days_Model size_model=new Days_Model("1","S","S");
+        Days_Model size_model = new Days_Model("1", "S", "S");
         size_modelArrayList.add(size_model);
-        Days_Model size_model2=new Days_Model("2","M","M");
+        Days_Model size_model2 = new Days_Model("2", "M", "M");
         size_modelArrayList.add(size_model2);
-        Days_Model size_model3=new Days_Model("3","T","T");
+        Days_Model size_model3 = new Days_Model("3", "T", "T");
         size_modelArrayList.add(size_model3);
-        Days_Model size_model4=new Days_Model("4","W","W");
+        Days_Model size_model4 = new Days_Model("4", "W", "W");
         size_modelArrayList.add(size_model4);
-        Days_Model size_mode5l=new Days_Model("5","Th","Th");
+        Days_Model size_mode5l = new Days_Model("5", "Th", "Th");
         size_modelArrayList.add(size_mode5l);
-        Days_Model size_mode6l=new Days_Model("6","F","F");
+        Days_Model size_mode6l = new Days_Model("6", "F", "F");
         size_modelArrayList.add(size_mode6l);
-        Days_Model size_mode7l=new Days_Model("7","Sa","Sa");
+        Days_Model size_mode7l = new Days_Model("7", "Sa", "Sa");
         size_modelArrayList.add(size_mode7l);
 
 
-        staticSizeAdapter = new StaticDaysAdapter(size_modelArrayList,PrifileActivityTwo.this,size_click);
+        staticSizeAdapter = new StaticDaysAdapter(size_modelArrayList, PrifileActivityTwo.this, size_click);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         recydays.setLayoutManager(layoutManager);
         recydays.setItemAnimator(new DefaultItemAnimator());
         recydays.setAdapter(staticSizeAdapter);
-
-
-
 
 
         layout_list.addView(cricketerView);
@@ -361,11 +335,6 @@ EditText edt_per_hr,edt_extra_charge,edt_min_charge,edt_per_day;
     private void removeView(View view) {
         layout_list.removeView(view);
     }
-
-
-
-
-
 
 
     private boolean checkIfValidAndRead() {
@@ -378,7 +347,7 @@ EditText edt_per_hr,edt_extra_charge,edt_min_charge,edt_per_day;
 
 
         boolean result = true;
-        for (int i = 0; i <  layout_list.getChildCount(); i++) {
+        for (int i = 0; i < layout_list.getChildCount(); i++) {
             View cricketerView = layout_list.getChildAt(i);
             TextView txt_from = (TextView) cricketerView.findViewById(R.id.txt_from);
             TextView txt_to = (TextView) cricketerView.findViewById(R.id.txt_to);
@@ -389,22 +358,23 @@ EditText edt_per_hr,edt_extra_charge,edt_min_charge,edt_per_day;
             Choose_Day_Type choose_day_type = new Choose_Day_Type();
             Choose_Day_Name choose_day_name = new Choose_Day_Name();
 
-                all_days = get_size.toString().replaceAll("(^\\[|\\]$)", "");
-                all_days=all_days.toString().replace(" ","");
+            all_days = get_size.toString().replaceAll("(^\\[|\\]$)", "");
+            all_days = all_days.toString().replace(" ", "");
 
-            System.out.println("all_days --------       "+all_days);
+            System.out.println("all_days --------       " + all_days);
             if (!txt_from.getText().toString().equals("")) {
 
                 choose_from_time.setFromTime(txt_from.getText().toString());
-                System.out.println("from time---        "+txt_from.getText().toString());
+                System.out.println("from time---        " + txt_from.getText().toString());
 
             } else {
                 result = false;
                 break;
-            } if (!txt_to.getText().toString().equals("")) {
+            }
+            if (!txt_to.getText().toString().equals("")) {
 
                 choose_to_time.setToTime(txt_to.getText().toString());
-                System.out.println("to time---        "+txt_to.getText().toString());
+                System.out.println("to time---        " + txt_to.getText().toString());
 
             } else {
                 result = false;
@@ -413,7 +383,7 @@ EditText edt_per_hr,edt_extra_charge,edt_min_charge,edt_per_day;
             if (!edtvalue.getText().toString().equals("")) {
 
                 choose_day_type.setDay_Type(edtvalue.getText().toString());
-                System.out.println("DAY---        "+edtvalue.getText().toString());
+                System.out.println("DAY---        " + edtvalue.getText().toString());
 
             } else {
                 result = false;
@@ -432,24 +402,22 @@ EditText edt_per_hr,edt_extra_charge,edt_min_charge,edt_per_day;
             jsonElementsdaytype = (JsonArray) new Gson().toJsonTree(choose_day_types);
             jsonElementsdayname = (JsonArray) new Gson().toJsonTree(choose_day_names);
 
-            System.out.println("fromtime--  "+jsonElementsfrom.toString());
-            System.out.println("totime-- "+jsonElementsto.toString());
-            System.out.println("daytype-- "+jsonElementsdaytype.toString());
-            System.out.println("dayname-- "+jsonElementsdayname.toString());
+            System.out.println("fromtime--  " + jsonElementsfrom.toString());
+            System.out.println("totime-- " + jsonElementsto.toString());
+            System.out.println("daytype-- " + jsonElementsdaytype.toString());
+            System.out.println("dayname-- " + jsonElementsdayname.toString());
 
-            FROM_TIME=jsonElementsfrom.toString();
-            TO_TIME=jsonElementsto.toString();
-            DAY_TYPE=jsonElementsdaytype.toString();
-            DAY_NAME=jsonElementsdayname.toString();
-
+            FROM_TIME = jsonElementsfrom.toString();
+            TO_TIME = jsonElementsto.toString();
+            DAY_TYPE = jsonElementsdaytype.toString();
+            DAY_NAME = jsonElementsdayname.toString();
 
 
         }
 
         if (!result) {
             Toast.makeText(this, "Enter All Details Correctly!", Toast.LENGTH_SHORT).show();
-        }else
-        {
+        } else {
             AddtarriffApi();
 
         }
@@ -462,9 +430,9 @@ EditText edt_per_hr,edt_extra_charge,edt_min_charge,edt_per_day;
 
     @Override
     public void onsizeClick(ArrayList<String> value) {
-             System.out.println(" <><><DAYS><>> "+value.toString());
+        System.out.println(" <><><DAYS><>> " + value.toString());
 
-        get_size=value;
+        get_size = value;
     }
 
     @Override
@@ -492,27 +460,24 @@ EditText edt_per_hr,edt_extra_charge,edt_min_charge,edt_per_day;
         progressDialog.setTitle("Please wait...");
         progressDialog.show();
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, BaseUrl+Addtarriff_Api,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, BaseUrl + Addtarriff_Api,
                 new Response.Listener<String>() {
 
                     @Override
                     public void onResponse(String response) {
-                        Log.v("<>AddtarriffApi  ", response.toString());
-                        System.out.println("AddtarriffApi response ===== "+response.toString());
+                        Log.v("<>AddtarriffApi  ", response);
+                        System.out.println("AddtarriffApi response ===== " + response.toString());
                         try {
 
                             progressDialog.dismiss();
-                             JSONObject obj = new JSONObject(response);
+                            JSONObject obj = new JSONObject(response);
                             String result = obj.getString("result");
                             String msg = obj.getString("msg");
                             if (result.equalsIgnoreCase("true")) {
-
                                 Intent intent = new Intent(PrifileActivityTwo.this, ProfileThreeActivity.class);
                                 startActivity(intent);
                             } else {
-
                                 Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
-
                             }
 
 
@@ -533,11 +498,11 @@ EditText edt_per_hr,edt_extra_charge,edt_min_charge,edt_per_day;
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put("from_time",FROM_TIME );
-                params.put("to_time",TO_TIME );
-                params.put("day_type",DAY_TYPE );
-                params.put("day_name",DAY_NAME );
-                params.put("user_id",session_vendor.getUserId() );
+                params.put("from_time", FROM_TIME);
+                params.put("to_time", TO_TIME);
+                params.put("day_type", DAY_TYPE);
+                params.put("day_name", DAY_NAME);
+                params.put("user_id", session_vendor.getUserId());
 
                 return params;
             }
@@ -548,12 +513,6 @@ EditText edt_per_hr,edt_extra_charge,edt_min_charge,edt_per_day;
         VolleySingleton.getInstance(this).addToRequestQueue(stringRequest);
 
     }
-
-
-
-
-
-
 
 
 }

@@ -13,6 +13,7 @@
         android:padding="16dp">
 
         <ImageView
+            android:id="@+id/closeBtn"
             android:layout_width="@dimen/_24sdp"
             android:layout_height="@dimen/_24sdp"
             android:layout_centerInParent="true"

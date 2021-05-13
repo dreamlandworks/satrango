@@ -38,9 +38,11 @@ import androidx.navigation.ui.AppBarConfiguration;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
@@ -68,6 +70,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 import static com.satrangolimitless.Utils.Base_Url.BaseUrl;
 import static com.satrangolimitless.Utils.Base_Url.Image_url;
+import static com.satrangolimitless.Utils.Base_Url.Profileview;
 import static com.satrangolimitless.Utils.Base_Url.logout;
 
 public class LandingActivity extends AppCompatActivity {
@@ -161,6 +164,7 @@ public class LandingActivity extends AppCompatActivity {
         session = new Session(getApplicationContext());
         name = session.getUser_name();
         image = session.getProfileimage();
+
         Layout_hader = findViewById(R.id.Layout_hader);
         navView = findViewById(R.id.bottom_navigation);
         img_profile = findViewById(R.id.img_profile);
@@ -196,52 +200,21 @@ public class LandingActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-        try {
-            Glide.with(getApplicationContext())
-                    .load(Image_url + image)
-                    .apply(new RequestOptions()
-                            .diskCacheStrategy(DiskCacheStrategy.ALL)
-                            .dontAnimate()
-                            .centerCrop()
-                            .dontTransform())
-                    .skipMemoryCache(true)
-                    .into(img_profile);
-            Glide.with(getApplicationContext())
-                    .load(Image_url + image)
-                    .apply(new RequestOptions()
-                            .diskCacheStrategy(DiskCacheStrategy.ALL)
-                            .dontAnimate()
-                            .centerCrop()
-                            .dontTransform())
-                    .skipMemoryCache(true)
-                    .into(imageView);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-
         img_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 Intent intent = new Intent(LandingActivity.this, MyprofileActivity_User.class);
                 startActivity(intent);
-
             }
         });
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent intent = new Intent(LandingActivity.this, MyprofileActivity_User.class);
                 startActivity(intent);
-
             }
         });
     }
-
 
     private Bitmap textAsBitmap(String Post, int i, int white) {
         Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -255,11 +228,9 @@ public class LandingActivity extends AppCompatActivity {
         Canvas canvas = new Canvas(image);
         canvas.drawText(Post, 0, baseline, paint);
         return image;
-
     }
 
-
-    public void setHomeItem(Activity activity) {
+    public void setHomeItem() {
         navView.setSelectedItemId(R.id.navigation_home);
     }
 
@@ -331,12 +302,12 @@ public class LandingActivity extends AppCompatActivity {
     public void onBackPressed() {
         int seletedItemId = navView.getSelectedItemId();
         if (R.id.navigation_home != seletedItemId) {
-            setHomeItem(LandingActivity.this);
+            setHomeItem();
             return;
         } else {
             if (fabSelected) {
                 fabSelected = false;
-                setHomeItem(LandingActivity.this);
+                setHomeItem();
                 return;
             } else {
                 new AlertDialog.Builder(LandingActivity.this)
@@ -564,5 +535,72 @@ public class LandingActivity extends AppCompatActivity {
         }
     }
 
+    private void getProfileDetails() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, BaseUrl + Profileview,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            String msg = jsonObject.getString("msg");
+                            if (jsonObject.optString("result").equals("true")) {
+                                JSONObject jsonObject1 = jsonObject.getJSONObject("data");
 
+//                                String id = jsonObject1.getString("id");
+//                                String name = jsonObject1.getString("fname");
+//                                String email = jsonObject1.getString("email");
+//                                String phone = jsonObject1.getString("phone");
+                                String image = jsonObject1.getString("image");
+                                session.setProfileimage(image);
+                                Glide.with(getApplicationContext())
+                                        .load(Image_url + image)
+                                        .apply(new RequestOptions()
+                                                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                                                .dontAnimate()
+                                                .centerCrop()
+                                                .dontTransform())
+                                        .skipMemoryCache(true)
+                                        .into(img_profile);
+                                Glide.with(getApplicationContext())
+                                        .load(Image_url + image)
+                                        .apply(new RequestOptions()
+                                                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                                                .dontAnimate()
+                                                .centerCrop()
+                                                .dontTransform())
+                                        .skipMemoryCache(true)
+                                        .into(imageView);
+
+                            } else {
+                                Toast.makeText(LandingActivity.this, msg, Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(LandingActivity.this, error.toString(), Toast.LENGTH_LONG).show();
+                    }
+                }) {
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("user_id", session.getUserId());
+                return params;
+            }
+        };
+        RequestQueue rQueue = Volley.newRequestQueue(LandingActivity.this);
+        rQueue.add(stringRequest);
+
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getProfileDetails();
+    }
 }

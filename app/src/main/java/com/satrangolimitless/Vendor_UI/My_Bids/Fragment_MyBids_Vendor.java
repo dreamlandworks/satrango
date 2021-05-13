@@ -49,8 +49,8 @@ public class Fragment_MyBids_Vendor extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        root = inflater.inflate(R.layout.fragment_vendor_my_bids, container, false);
         LandingActivity_Service_provider.Layout_hader.setVisibility(View.GONE);
+        root = inflater.inflate(R.layout.fragment_vendor_my_bids, container, false);
 
         txtback = root.findViewById(R.id.txtback);
         imgarbak = root.findViewById(R.id.imgarbak);

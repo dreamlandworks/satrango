@@ -111,10 +111,8 @@ public class SignUpActivity extends AppCompatActivity {
         txttermsandcond.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent intent = new Intent(getApplicationContext(), Termsandcond.class);
                 startActivity(intent);
-
             }
         });
 
@@ -138,7 +136,9 @@ public class SignUpActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                edt_mail.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_greencheck, 0);
+                if (s.toString().contains("@") || s.toString().contains(".co")) {
+                    edt_mail.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_greencheck, 0);
+                }
             }
 
             @Override

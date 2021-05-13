@@ -1,287 +1,286 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:background="@color/white"
+    android:orientation="vertical"
     tools:context=".Setting.ComplaintFragment">
-
-
 
 
     <RelativeLayout
         android:id="@+id/relativelayout"
+        android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:paddingLeft="@dimen/_15sdp"
-        android:paddingBottom="@dimen/_10sdp"
-        android:paddingRight="@dimen/_10sdp"
-        android:paddingTop="@dimen/_15sdp"
         android:background="@color/white"
-        android:layout_width="match_parent">
+        android:paddingLeft="@dimen/_15sdp"
+        android:paddingTop="@dimen/_15sdp"
+        android:paddingRight="@dimen/_10sdp"
+        android:paddingBottom="@dimen/_10sdp">
 
 
         <ImageView
             android:id="@+id/img_back"
-            android:layout_gravity="left"
-            android:src="@drawable/ic_orangebacks"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/_24sdp"/>
+            android:layout_height="@dimen/_24sdp"
+            android:layout_gravity="left"
+            android:src="@drawable/ic_orangebacks" />
 
         <TextView
             android:id="@+id/txt_back"
-            android:layout_marginLeft="@dimen/_30sdp"
-            android:fontFamily="@font/quicksand_bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_30sdp"
+            android:fontFamily="@font/quicksand_bold"
+            android:text="Settings"
             android:textAllCaps="false"
-            android:textSize="14sp"
             android:textColor="@color/vendororange"
-            android:text="Settings" />
+            android:textSize="14sp" />
 
         <TextView
-            android:layout_marginLeft="@dimen/_100sdp"
             android:id="@+id/textView"
-            android:fontFamily="@font/quicksand_bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
+            android:layout_marginLeft="@dimen/_100sdp"
+            android:fontFamily="@font/quicksand_bold"
+            android:text="Complaints"
             android:textAllCaps="false"
-            android:textSize="18sp"
             android:textColor="@color/vendorprimerycolor"
-            android:text="Complaints" />
+            android:textSize="18sp" />
 
 
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:layout_alignParentEnd="true"
-                    android:layout_weight="1.1"
-                    android:layout_gravity="right"
-                    android:src="@drawable/questionmark"
-                    app:civ_border_color="@color/vendororange"
-                    android:layout_width="@dimen/_60sdp"
-                    app:civ_border_width="@dimen/_2sdp"
-                    android:layout_height="wrap_content"/>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="right"
+            android:layout_weight="1.1"
+            android:src="@drawable/questionmark"
+            app:civ_border_color="@color/vendororange"
+            app:civ_border_width="@dimen/_2sdp" />
 
     </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
 
         <View
-            android:layout_marginLeft="@dimen/_100sdp"
-            android:layout_marginRight="@dimen/_100sdp"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_1sdp"
-            android:background="@color/black"/>
+            android:layout_marginLeft="@dimen/_100sdp"
+            android:layout_marginRight="@dimen/_100sdp"
+            android:background="@color/black" />
     </LinearLayout>
 
     <LinearLayout
-        android:background="@color/white"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
         <TextView
-            android:fontFamily="@font/quicksand_bold"
-            android:layout_margin="@dimen/_20sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_20sdp"
+            android:fontFamily="@font/quicksand_bold"
+            android:text="Complaints"
             android:textColor="@color/vendorprimerycolor"
-            android:textStyle="bold"
             android:textSize="@dimen/_18sdp"
-            android:text="Complaints"/>
+            android:textStyle="bold" />
     </LinearLayout>
 
 
-
-
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <TextView
-            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/_20sdp"
             android:text="We are sorry and feel regretted for the inconvenience occured. Please let us help you finding a suitable solution"
-             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:textColor="@color/black">
 
         </TextView>
+
         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/_20sdp"
             android:text="My problem is related to"
-             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/red"
-            >
+            android:textColor="@color/red">
 
         </TextView>
 
         <LinearLayout
-            android:layout_marginRight="@dimen/_20sdp"
-            android:layout_marginLeft="@dimen/_20sdp"
-            android:weightSum="1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:weightSum="1">
 
             <Button
-
-                android:textAllCaps="false"
+                android:id="@+id/bookingBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_margin="@dimen/_10sdp"
+                android:layout_weight=".5"
+                android:background="@drawable/greenborderbutton"
                 android:text="Booking/Bidding"
+                android:textAllCaps="false"
+                android:textColor="@color/vendorprimerycolor" />
+
+            <Button
+                android:id="@+id/fundTransferBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
                 android:layout_margin="@dimen/_10sdp"
                 android:layout_weight=".5"
                 android:background="@drawable/greenborderbutton"
-                android:textColor="@color/vendorprimerycolor"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-            <Button
-                android:background="@drawable/greenborderbutton"
-                android:textColor="@color/vendorprimerycolor"
-                android:textAllCaps="false"
                 android:text="Fund Transfers"
-                android:layout_margin="@dimen/_10sdp"
-                 android:layout_weight=".5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
+                android:textAllCaps="false"
+                android:textColor="@color/vendorprimerycolor" />
 
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_marginRight="@dimen/_20sdp"
-            android:layout_marginLeft="@dimen/_20sdp"
-            android:weightSum="1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:weightSum="1">
 
             <Button
-                android:textAllCaps="false"
+                android:id="@+id/bugsBtn"
+                android:layout_width="match_parent"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:layout_weight=".5"
+                android:background="@drawable/greenborderbutton"
                 android:text="Bugs in Application"
-                android:layout_margin="@dimen/_10sdp"
-                android:background="@drawable/greenborderbutton"
-                android:textColor="@color/vendorprimerycolor"                android:layout_weight=".5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:textAllCaps="false"
+                android:textColor="@color/vendorprimerycolor" />
 
             <Button
-                android:background="@drawable/greenborderbutton"
-                android:textColor="@color/vendorprimerycolor"
-                android:textAllCaps="false"
-                android:text="User"
-                android:layout_margin="@dimen/_10sdp"
-                 android:layout_weight=".5"
+                android:id="@+id/userBtn"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:layout_weight=".5"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="@drawable/greenborderbutton"
+                android:text="User"
+                android:textAllCaps="false"
+                android:textColor="@color/vendorprimerycolor" />
 
 
         </LinearLayout>
 
 
         <LinearLayout
-            android:layout_marginRight="@dimen/_20sdp"
-            android:layout_marginLeft="@dimen/_20sdp"
-            android:weightSum="1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:weightSum="1">
 
 
             <Button
-                android:textAllCaps="false"
-                android:text="Others"
-                android:layout_margin="@dimen/_10sdp"
-                android:background="@drawable/greenborderbutton"
-                android:textColor="@color/vendorprimerycolor"                android:layout_weight=".5"
+                android:id="@+id/othersBtn"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:layout_weight=".5"
+                android:background="@drawable/greenborderbutton"
+                android:text="Others"
+                android:textAllCaps="false"
+                android:textColor="@color/vendorprimerycolor" />
 
             <Button
-                android:visibility="gone"
-                android:textAllCaps="false"
-                android:text="Fund Transfers"
-                android:layout_margin="@dimen/_10sdp"
-                android:background="@color/white"
-                android:layout_weight=".5"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:layout_weight=".5"
+                android:background="@color/white"
+                android:text="Fund Transfers"
+                android:textAllCaps="false"
+                android:visibility="gone" />
 
 
         </LinearLayout>
-
 
 
     </LinearLayout>
 
 
-
-
     <LinearLayout
-        android:background="@drawable/suggestionbox"
-        android:orientation="vertical"
-        android:layout_margin="@dimen/_20sdp"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_150sdp">
+        android:layout_height="@dimen/_150sdp"
+        android:layout_margin="@dimen/_20sdp"
+        android:background="@drawable/suggestionbox"
+        android:orientation="vertical">
 
         <EditText
-            android:background="@color/transparent"
             android:id="@+id/et_suggestionmsg"
-            android:inputType="textMultiLine"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        </EditText>
+            android:layout_height="match_parent"
+            android:hint="Write Something..."
+            android:gravity="start"
+            android:padding="@dimen/_10sdp"
+            android:background="@color/transparent"
+            android:lines="5"
+            android:inputType="textMultiLine"/>
     </LinearLayout>
 
 
-
     <LinearLayout
-        android:layout_marginRight="@dimen/_20sdp"
-        android:layout_marginLeft="@dimen/_20sdp"
-        android:weightSum="1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:weightSum="1">
 
 
         <Button
             android:id="@+id/btnbk"
-            android:textAllCaps="false"
-            android:text="Back"
-            android:layout_margin="@dimen/_10sdp"
-            android:background="@drawable/greenborderbutton"
-            android:textColor="@color/vendorprimerycolor"
-            android:layout_weight=".5"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            android:layout_weight=".5"
+            android:background="@drawable/greenborderbutton"
+            android:text="Back"
+            android:textAllCaps="false"
+            android:textColor="@color/vendorprimerycolor" />
 
         <Button
             android:id="@+id/btnsbmit"
-            android:textAllCaps="false"
-            android:text="Submit"
-            android:layout_margin="@dimen/_10sdp"
-            android:background="@drawable/greenbutton"
-            android:textColor="@color/white"
-            android:layout_weight=".5"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            android:layout_weight=".5"
+            android:background="@drawable/greenbutton"
+            android:text="Submit"
+            android:textAllCaps="false"
+            android:textColor="@color/white" />
 
 
     </LinearLayout>
-
-
-
 
 
 </LinearLayout>

@@ -45,7 +45,6 @@ public class Session extends Object {
     private static final String xtrachrg = "xtracghrg";
 
 
-
     private static final String Bookingcategory = "bkc";
 
     private static final String Pendongjob_id = "penid";
@@ -55,7 +54,7 @@ public class Session extends Object {
     private static final String mljobposttime = "mtime";
 
 
-//    booking session variable----------------------------------------------------------
+    //    booking session variable----------------------------------------------------------
     private static final String bookvid = "bkvid";
     private static final String bookvname = "bkvn";
     private static final String bookminam = "bkmnam";
@@ -69,10 +68,9 @@ public class Session extends Object {
     private static final String bookservicecat = "svcat";
 
 
-
     private Context _context;
     private SharedPreferences Rapidine_pref;
-    private SharedPreferences.Editor  editor;
+    private SharedPreferences.Editor editor;
 
     public Session(Context context) {
         this._context = context;
@@ -82,9 +80,7 @@ public class Session extends Object {
     }
 
 
-
-
-    public void setMobile(String mobile ) {
+    public void setMobile(String mobile) {
         editor.putString(Mobile, mobile);
 
         editor.apply();
@@ -97,107 +93,96 @@ public class Session extends Object {
     }
 
 
-
-
-
-
-    public void setStart_locationsinglemovebooking(String mobile ) {
+    public void setStart_locationsinglemovebooking(String mobile) {
         editor.putString(start_locationSingleMoveBooking, mobile);
 
         editor.apply();
         editor.commit();
     }
 
-        public String getStart_locationsinglemovebooking() {
+    public String getStart_locationsinglemovebooking() {
         return Rapidine_pref.getString(start_locationSingleMoveBooking, "");
 
     }
 
 
-  public void setStart_locationmultimovebookingstart(String mobile ) {
+    public void setStart_locationmultimovebookingstart(String mobile) {
         editor.putString(start_locationMultiMoveBooking, mobile);
-
         editor.apply();
         editor.commit();
     }
 
-        public String getStart_locationmultimovebookingstart() {
+    public String getStart_locationmultimovebookingstart() {
         return Rapidine_pref.getString(start_locationMultiMoveBooking, "");
 
     }
 
 
- public void setStart_locationmultimovebookingend(String mobile ) {
+    public void setStart_locationmultimovebookingend(String mobile) {
         editor.putString(end_locationMultiMoveBooking, mobile);
 
         editor.apply();
         editor.commit();
     }
 
-        public String getStart_locationmultimovebookingend() {
+    public String getStart_locationmultimovebookingend() {
         return Rapidine_pref.getString(end_locationMultiMoveBooking, "");
 
     }
 
 
-    public void setStart_locationSinglejobpost(String mobile ) {
+    public void setStart_locationSinglejobpost(String mobile) {
         editor.putString(start_locationSinglejobpost, mobile);
 
         editor.apply();
         editor.commit();
     }
 
-        public String getStart_locationSinglejobpost() {
+    public String getStart_locationSinglejobpost() {
         return Rapidine_pref.getString(start_locationSinglejobpost, "");
 
     }
 
 
-
-
-
- public void setFrom_time_singlejobpost(String mobile ) {
+    public void setFrom_time_singlejobpost(String mobile) {
         editor.putString(from_time_singlejobpost, mobile);
 
         editor.apply();
         editor.commit();
     }
 
-        public String getFrom_time_singlejobpost() {
+    public String getFrom_time_singlejobpost() {
         return Rapidine_pref.getString(from_time_singlejobpost, "");
 
     }
 
 
- public void setDate_singlejobpost(String mobile ) {
+    public void setDate_singlejobpost(String mobile) {
         editor.putString(date_singlejobpost, mobile);
 
         editor.apply();
         editor.commit();
     }
 
-        public String getDate_singlejobpost() {
+    public String getDate_singlejobpost() {
         return Rapidine_pref.getString(date_singlejobpost, "");
 
     }
 
- public void setDate_bluecolrjobpost(String mobile ) {
+    public void setDate_bluecolrjobpost(String mobile) {
         editor.putString(date_bluecolrjobpost, mobile);
 
         editor.apply();
         editor.commit();
     }
 
-        public String getDate_bluecolrjobpost() {
+    public String getDate_bluecolrjobpost() {
         return Rapidine_pref.getString(date_bluecolrjobpost, "");
 
     }
 
 
-
-
-
-    public void setFrom_time_bluecolrjobpost(String mobile ) {
+    public void setFrom_time_bluecolrjobpost(String mobile) {
         editor.putString(from_time_bluecolrjobpost, mobile);
 
         editor.apply();
@@ -210,35 +195,32 @@ public class Session extends Object {
     }
 
 
-
-    public void setStart_locationMultiMovejobpost(String mobile ) {
+    public void setStart_locationMultiMovejobpost(String mobile) {
         editor.putString(start_locationMultijobpost, mobile);
 
         editor.apply();
         editor.commit();
     }
 
-        public String getStart_locationMultiMovejobpost() {
+    public String getStart_locationMultiMovejobpost() {
         return Rapidine_pref.getString(start_locationMultijobpost, "");
 
     }
 
-   public void setTimer(String mobile ) {
+    public void setTimer(String mobile) {
         editor.putString(timer, mobile);
 
         editor.apply();
         editor.commit();
     }
 
-        public String getTimer() {
+    public String getTimer() {
         return Rapidine_pref.getString(timer, "");
 
     }
 
 
-
-
-    public void setBookingid(String mobile ) {
+    public void setBookingid(String mobile) {
         editor.putString(bookingid, mobile);
 
         editor.apply();
@@ -250,7 +232,7 @@ public class Session extends Object {
 
     }
 
-public void setXtrachrg(String mobile ) {
+    public void setXtrachrg(String mobile) {
         editor.putString(xtrachrg, mobile);
 
         editor.apply();
@@ -263,13 +245,7 @@ public void setXtrachrg(String mobile ) {
     }
 
 
-
-
-
-
-
-
-    public void setBookingcategory(String mobile ) {
+    public void setBookingcategory(String mobile) {
         editor.putString(Bookingcategory, mobile);
 
         editor.apply();
@@ -282,7 +258,7 @@ public void setXtrachrg(String mobile ) {
     }
 
 
-    public void setPendongjob_id(String mobile ) {
+    public void setPendongjob_id(String mobile) {
         editor.putString(Pendongjob_id, mobile);
 
         editor.apply();
@@ -294,7 +270,7 @@ public void setXtrachrg(String mobile ) {
 
     }
 
-    public void setAwardedsecjob_id_bids(String mobile ) {
+    public void setAwardedsecjob_id_bids(String mobile) {
         editor.putString(Awardedsecjob_id_bids, mobile);
 
         editor.apply();
@@ -307,15 +283,11 @@ public void setXtrachrg(String mobile ) {
     }
 
 
-
-
-
-
-
     public String getUser_name() {
         return Rapidine_pref.getString(User_name, "");
 
     }
+
     public void setUserId(String userId) {
         editor.putString(UserId, userId);
         this.editor.apply();
@@ -327,13 +299,9 @@ public void setXtrachrg(String mobile ) {
         editor.commit();
     }
 
-    public String get_role()
-    {
+    public String get_role() {
         return Rapidine_pref.getString(role_, "");
     }
-
-
-
 
 
     public void set_lang(String lang) {
@@ -342,12 +310,9 @@ public void setXtrachrg(String mobile ) {
         editor.commit();
     }
 
-    public String get_lang()
-    {
+    public String get_lang() {
         return Rapidine_pref.getString(role_, "");
     }
-
-
 
 
     public void setService_providr_status(String lang) {
@@ -356,12 +321,9 @@ public void setXtrachrg(String mobile ) {
         editor.commit();
     }
 
-    public String getService_providr_status()
-    {
+    public String getService_providr_status() {
         return Rapidine_pref.getString(service_providr_status, "");
     }
-
-
 
 
     public void setKeyword(String lang) {
@@ -370,21 +332,14 @@ public void setXtrachrg(String mobile ) {
         editor.commit();
     }
 
-    public String getKeyword()
-    {
+    public String getKeyword() {
         return Rapidine_pref.getString(keyword, "");
     }
-
-
-
-
 
 
     public String getUserId() {
         return Rapidine_pref.getString(UserId, "");
     }
-
-
 
 
     public void setUser_name(String user_name) {
@@ -402,15 +357,13 @@ public void setXtrachrg(String mobile ) {
     }
 
 
-
     public void setLattitude(String lang) {
         editor.putString(lattitude, lang);
         editor.apply();
         editor.commit();
     }
 
-    public String getLattitude()
-    {
+    public String getLattitude() {
         return Rapidine_pref.getString(lattitude, "");
     }
 
@@ -421,11 +374,9 @@ public void setXtrachrg(String mobile ) {
         editor.commit();
     }
 
-    public String getLongitude()
-    {
+    public String getLongitude() {
         return Rapidine_pref.getString(longitude, "");
     }
-
 
 
     public void setAddress(String lang) {
@@ -434,14 +385,9 @@ public void setXtrachrg(String mobile ) {
         editor.commit();
     }
 
-    public String getAddress()
-    {
+    public String getAddress() {
         return Rapidine_pref.getString(address, "");
     }
-
-
-
-
 
 
     public void logout() {
@@ -454,8 +400,6 @@ public void setXtrachrg(String mobile ) {
     }
 
 
-
-
     public void setLogin(boolean isLoggedIn) {
         editor.putBoolean(IS_LOGGEDIN, isLoggedIn);
         editor.commit();
@@ -466,11 +410,9 @@ public void setXtrachrg(String mobile ) {
     }
 
 
-
-
 //booking session
 
-    public void setBookvid(String bookvname ) {
+    public void setBookvid(String bookvname) {
         editor.putString(bookvid, bookvname);
 
         editor.apply();
@@ -482,7 +424,7 @@ public void setXtrachrg(String mobile ) {
 
     }
 
-    public void setBookvname(String tees ) {
+    public void setBookvname(String tees) {
         editor.putString(bookvname, tees);
 
         editor.apply();
@@ -494,7 +436,7 @@ public void setXtrachrg(String mobile ) {
 
     }
 
-    public void setBookminam(String bookvname ) {
+    public void setBookminam(String bookvname) {
         editor.putString(bookminam, bookvname);
 
         editor.apply();
@@ -507,7 +449,7 @@ public void setXtrachrg(String mobile ) {
     }
 
 
-    public void setBookmaxam(String bookvname ) {
+    public void setBookmaxam(String bookvname) {
         editor.putString(bookmaxam, bookvname);
 
         editor.apply();
@@ -520,8 +462,7 @@ public void setXtrachrg(String mobile ) {
     }
 
 
-
-    public void setBookcat(String bookvname ) {
+    public void setBookcat(String bookvname) {
         editor.putString(bookservicecat, bookvname);
 
         editor.apply();
@@ -534,12 +475,7 @@ public void setXtrachrg(String mobile ) {
     }
 
 
-
-
-
-
-
-    public void setBookdateSinglemoveBoking(String bookvname ) {
+    public void setBookdateSinglemoveBoking(String bookvname) {
         editor.putString(bookdate, bookvname);
 
         editor.apply();
@@ -552,7 +488,7 @@ public void setXtrachrg(String mobile ) {
     }
 
 
-    public void setBookdateBlueCollarBoking(String bookvname ) {
+    public void setBookdateBlueCollarBoking(String bookvname) {
         editor.putString(bookdatebluecollar, bookvname);
 
         editor.apply();
@@ -564,7 +500,7 @@ public void setXtrachrg(String mobile ) {
 
     }
 
-    public void setBookdateMultimoveBoking(String bookvname ) {
+    public void setBookdateMultimoveBoking(String bookvname) {
         editor.putString(bookdatemultimove, bookvname);
 
         editor.apply();
@@ -577,13 +513,7 @@ public void setXtrachrg(String mobile ) {
     }
 
 
-
-
-
-
-
-
-    public void setBookrating(String bookvname ) {
+    public void setBookrating(String bookvname) {
         editor.putString(bookrating, bookvname);
 
         editor.apply();
@@ -596,9 +526,7 @@ public void setXtrachrg(String mobile ) {
     }
 
 
-
-
-    public void setMljobpostdate(String mobile ) {
+    public void setMljobpostdate(String mobile) {
         editor.putString(mljobpostdate, mobile);
 
         editor.apply();
@@ -610,7 +538,7 @@ public void setXtrachrg(String mobile ) {
 
     }
 
-  public void setMljobposttime(String mobile ) {
+    public void setMljobposttime(String mobile) {
         editor.putString(mljobposttime, mobile);
 
         editor.apply();
@@ -623,7 +551,7 @@ public void setXtrachrg(String mobile ) {
     }
 
 
-    public void setUserhome_location(String mobile ) {
+    public void setUserhome_location(String mobile) {
         editor.putString(userhome_location, mobile);
 
         editor.apply();
@@ -635,7 +563,7 @@ public void setXtrachrg(String mobile ) {
 
     }
 
-    public void setUserhome_lat(String mobile ) {
+    public void setUserhome_lat(String mobile) {
         editor.putString(userhome_lat, mobile);
 
         editor.apply();
@@ -648,8 +576,7 @@ public void setXtrachrg(String mobile ) {
     }
 
 
-
-    public void setUserhome_long(String mobile ) {
+    public void setUserhome_long(String mobile) {
         editor.putString(userhome_long, mobile);
 
         editor.apply();
@@ -662,10 +589,7 @@ public void setXtrachrg(String mobile ) {
     }
 
 
-
-
-
-    public void setBookservice(String bookvname ) {
+    public void setBookservice(String bookvname) {
         editor.putString(bookservice, bookvname);
 
         editor.apply();
@@ -678,7 +602,7 @@ public void setXtrachrg(String mobile ) {
     }
 
 
-    public void setBookdis(String bookvname ) {
+    public void setBookdis(String bookvname) {
         editor.putString(bookdis, bookvname);
 
         editor.apply();
@@ -691,18 +615,17 @@ public void setXtrachrg(String mobile ) {
     }
 
 
-    public void setProfileimage(String bookvname ) {
+    public void setProfileimage(String bookvname) {
         editor.putString(Profileimage, bookvname);
 
         editor.apply();
         editor.commit();
     }
 
-    public String getProfileimage () {
+    public String getProfileimage() {
         return Rapidine_pref.getString(Profileimage, "");
 
     }
-
 
 
     public void setFirebase_token_id(String lang) {
@@ -711,8 +634,7 @@ public void setXtrachrg(String mobile ) {
         editor.commit();
     }
 
-    public String getFirebase_token_id()
-    {
+    public String getFirebase_token_id() {
         return Rapidine_pref.getString(firebase_token_id, "");
     }
 

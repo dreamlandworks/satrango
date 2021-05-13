@@ -3,37 +3,36 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-
-        app:showAsAction="withText"
         android:id="@+id/navigationhomes"
         android:icon="@drawable/ic_home"
-        android:title="@string/navigationhome" />
+        android:title="@string/navigationhome"
+        app:showAsAction="withText" />
 
     <item
-        app:showAsAction="withText"
         android:id="@+id/navigationoffers"
         android:icon="@drawable/offer"
-        android:title="@string/navigationoffer" />
+        android:title="@string/navigationoffer"
+        app:showAsAction="withText" />
+
+    <item
+        android:id="@+id/ntg"
+        android:checkable="false"
+        android:enabled="false"
+        android:title="" />
 
 
     <item
-        app:showAsAction="withText"
         android:id="@+id/navigation_alerts"
         android:icon="@drawable/ic_notification"
-        android:title="@string/navigationalerts" />
+        android:title="@string/navigationalerts"
+        app:showAsAction="withText" />
 
 
     <item
-        app:showAsAction="withText"
         android:id="@+id/navigation_chats"
         android:icon="@drawable/ic_chat"
-        android:title="@string/navigationchat" />
-
-
-
-
-
-
+        android:title="@string/navigationchat"
+        app:showAsAction="withText" />
 
 
 </menu>

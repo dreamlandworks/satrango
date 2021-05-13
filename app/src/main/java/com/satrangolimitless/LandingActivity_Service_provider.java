@@ -1,6 +1,5 @@
 package com.satrangolimitless;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
@@ -43,12 +42,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.bumptech.glide.request.RequestOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.satrangolimitless.User_UI.Myaccount.MyaccountFragment;
-import com.satrangolimitless.User_UI.POSTAJOB.PostAjobFragment;
 import com.satrangolimitless.Utils.VolleySingleton;
 import com.satrangolimitless.Vendor_UI.Activity_VendorCalender;
 import com.satrangolimitless.Vendor_UI.Alertfragment_service_provider;
@@ -143,7 +138,6 @@ public class LandingActivity_Service_provider extends AppCompatActivity {
             return false;
         }
     };
-    private AppBarConfiguration mAppBarConfiguration;
     private ActionBarDrawerToggle drawerToggle;
     private DrawerLayout drawerLayout;
     CircleImageView imageprofiledrwer;
@@ -162,7 +156,7 @@ public class LandingActivity_Service_provider extends AppCompatActivity {
 
         fab = findViewById(R.id.fab);
         fab.setSize(FloatingActionButton.SIZE_NORMAL);
-        navView = findViewById(R.id.customBottomBars);
+        navView = findViewById(R.id.bottom_navigation);
         Layout_hader = findViewById(R.id.Layout_hader);
         Layout_hader.setVisibility(View.VISIBLE);
         drtxtvname = findViewById(R.id.drtxtvname);
@@ -227,7 +221,7 @@ public class LandingActivity_Service_provider extends AppCompatActivity {
     }
 
 
-    public void setHomeItem(Activity activity) {
+    public void setHomeItem() {
         navView.setSelectedItemId(R.id.navigationhomes);
     }
 
@@ -318,7 +312,7 @@ public class LandingActivity_Service_provider extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
-                Intent in=new Intent(LandingActivity_Service_provider.this,Activity_login_type.class);
+                Intent in = new Intent(LandingActivity_Service_provider.this, Activity_login_type.class);
                 startActivity(in);
                 finish();
             }
@@ -328,7 +322,7 @@ public class LandingActivity_Service_provider extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
-                Intent in=new Intent(LandingActivity_Service_provider.this,Activity_login_type.class);
+                Intent in = new Intent(LandingActivity_Service_provider.this, Activity_login_type.class);
                 startActivity(in);
                 finish();
             }
@@ -341,45 +335,44 @@ public class LandingActivity_Service_provider extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         int seletedItemId = navView.getSelectedItemId();
-
-        System.out.println("seletedItemId=======     " + seletedItemId);
         if (R.id.navigationhomes != seletedItemId) {
-            setHomeItem(LandingActivity_Service_provider.this);
+            setHomeItem();
+
         } else {
+            super.onBackPressed();
 
-
-            new androidx.appcompat.app.AlertDialog.Builder(LandingActivity_Service_provider.this)
-                    .setIcon(android.R.drawable.ic_dialog_alert)
-                    .setTitle("Closing Application")
-                    .setMessage("Are you sure you want to close this App?")
-                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            if (Build.VERSION.SDK_INT >= 16 && Build.VERSION.SDK_INT < 21) {
-                                // getActivity().finishAffinity();
-
-                                Intent i = new Intent(Intent.ACTION_MAIN);
-                                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                finish();
-
-
-                            } else if (Build.VERSION.SDK_INT >= 21) {
-
-
-                                Intent i = new Intent(Intent.ACTION_MAIN);
-                                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                finish();
-
-                                //  getActivity().finishAndRemoveTask();
-                            }
-                        }
-
-                    })
-                    .setNegativeButton("No", null)
-                    .show();
-
+//            new androidx.appcompat.app.AlertDialog.Builder(LandingActivity_Service_provider.this)
+//                    .setIcon(android.R.drawable.ic_dialog_alert)
+//                    .setTitle("Closing Application")
+//                    .setMessage("Are you sure you want to close this App?")
+//                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialog, int which) {
+//                            if (Build.VERSION.SDK_INT >= 16 && Build.VERSION.SDK_INT < 21) {
+//                                // getActivity().finishAffinity();
+//
+//                                Intent i = new Intent(Intent.ACTION_MAIN);
+//                                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                                finish();
+//
+//
+//                            } else if (Build.VERSION.SDK_INT >= 21) {
+//
+//
+//                                Intent i = new Intent(Intent.ACTION_MAIN);
+//                                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                                finish();
+//
+//                                //  getActivity().finishAndRemoveTask();
+//                            }
+//                        }
+//
+//                    })
+//                    .setNegativeButton("No", null)
+//                    .show();
+//
         }
     }
 
@@ -516,9 +509,6 @@ public class LandingActivity_Service_provider extends AppCompatActivity {
             LinearLayout draw_layout;
         }
     }
-
-
-
 
 
     private void Logout() {

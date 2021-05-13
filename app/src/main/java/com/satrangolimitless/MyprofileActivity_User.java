@@ -4,7 +4,9 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -18,6 +20,8 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.Window;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -74,7 +78,6 @@ public class MyprofileActivity_User extends AppCompatActivity {
     String sdob, smail, snumber, sname;
     Session session;
     EditText edt_name, edt_phone, edt_mail, edt_dob;
-    ImageView imgeditname, imgeditmob, imgmailedt;
     TextView txt_adres, txtchangepass;
     Button btn_apply, btn_back;
     CircleImageView profilepic;
@@ -100,13 +103,9 @@ public class MyprofileActivity_User extends AppCompatActivity {
         im_back = findViewById(R.id.im_back);
         btn_apply = findViewById(R.id.btn_apply);
         btn_back = findViewById(R.id.btn_back);
-        imgeditmob = findViewById(R.id.imgeditmob);
-        imgeditname = findViewById(R.id.imgeditname);
-        imgmailedt = findViewById(R.id.imgmailedt);
         imgdel = findViewById(R.id.imgdel);
         ll_adres = findViewById(R.id.ll_adres);
         Getprofiledetails();
-
 
         edt_dob.setOnClickListener(new OnClickListener() {
             @Override
@@ -117,16 +116,11 @@ public class MyprofileActivity_User extends AppCompatActivity {
                 int mMonth = c.get(java.util.Calendar.MONTH); // current month
                 int mDay = c.get(java.util.Calendar.DAY_OF_MONTH); // current day
                 datePickerDialog = new DatePickerDialog(MyprofileActivity_User.this,
-
-
                         new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker view, int year,
                                                   int monthOfYear, int dayOfMonth) {
-
                                 edt_dob.setText(year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
-
-
                             }
 
                         }, mYear, mMonth, mDay);
@@ -146,34 +140,9 @@ public class MyprofileActivity_User extends AppCompatActivity {
             }
         });
 
-        imgeditname.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                edt_name.setEnabled(true);
-
-
-            }
-        });
-        imgeditmob.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                edt_phone.setEnabled(true);
-
-
-            }
-        });
-
-        imgmailedt.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                edt_mail.setEnabled(true);
-            }
-        });
-
         btn_apply.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 sname = edt_name.getText().toString();
                 snumber = edt_phone.getText().toString();
                 smail = edt_mail.getText().toString();
@@ -245,6 +214,7 @@ public class MyprofileActivity_User extends AppCompatActivity {
         progressDialog.setTitle("Loading...");
         progressDialog.show();
 
+
         StringRequest stringRequest = new StringRequest(Request.Method.POST, BaseUrl + Profileview,
                 new Response.Listener<String>() {
                     @Override
@@ -264,6 +234,7 @@ public class MyprofileActivity_User extends AppCompatActivity {
                                 email = jsonObject1.getString("email");
                                 phone = jsonObject1.getString("phone");
                                 image = jsonObject1.getString("image");
+                                session.setProfileimage(image);
                                 dob = jsonObject1.getString("dob");
                                 address = jsonObject1.getString("address");
 
@@ -300,10 +271,9 @@ public class MyprofileActivity_User extends AppCompatActivity {
                 }) {
             @Override
             protected Map<String, String> getParams() {
-
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("user_id", user_id);
-                System.out.println("user_id=======       " + user_id);
+                System.out.println("user_id=>" + user_id);
                 return params;
             }
         };
@@ -336,38 +306,32 @@ public class MyprofileActivity_User extends AppCompatActivity {
                     @SuppressLint("WrongConstant")
                     @Override
                     public void onResponse(JSONObject jsonObject) {
-
                         try {
                             progressDialog.dismiss();
-                            //Log.e(" post home", " " + jsonObject);
-                            Log.e("update profile", jsonObject.toString());
-                            System.out.println("update profile=====    " + jsonObject.toString());
                             String result = jsonObject.getString("result");
                             String msg = jsonObject.getString("msg");
 
                             if (result.equalsIgnoreCase("true")) {
-
-
-                                JSONArray jsonArray = jsonObject.getJSONArray("data");
-
-                                for (int i = 0; i < jsonArray.length(); i++) {
-                                    JSONObject obj = jsonArray.getJSONObject(i);
-                                    Log.e("update profile", obj.toString());
-
-                                    System.out.println("Profile update -----       " + obj.toString());
-
-
-                                }
-
-
-                                Toast.makeText(MyprofileActivity_User.this, msg, Toast.LENGTH_LONG).show();
-
-
-                            } else {
-
-                                Toast.makeText(MyprofileActivity_User.this, msg, Toast.LENGTH_LONG).show();
-
-
+                                final Dialog dialog = new Dialog(MyprofileActivity_User.this);
+                                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                                dialog.setContentView(R.layout.profile_update_success_dialog);
+                                Window window = dialog.getWindow();
+                                window.setLayout(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                                ImageView closeIvBtn = dialog.findViewById(R.id.closeBtn);
+                                Button closeBtn = dialog.findViewById(R.id.SC_Login);
+                                closeBtn.setOnClickListener(new OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        dialog.dismiss();
+                                    }
+                                });
+                                closeIvBtn.setOnClickListener(new OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        dialog.dismiss();
+                                    }
+                                });
+                                dialog.show();
                             }
 
                         } catch (JSONException e) {

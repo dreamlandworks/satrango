@@ -1,8 +1,5 @@
 package com.satrangolimitless.Vendor_UI.vendor_profile;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -26,10 +23,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.satrangolimitless.LandingActivity_Service_provider;
 import com.satrangolimitless.R;
-import com.satrangolimitless.Utils.Customprogress;
 import com.satrangolimitless.Utils.MultipartUtility;
 import com.satrangolimitless.Utils.Utils;
 import com.satrangolimitless.session.Session;
@@ -48,9 +46,9 @@ import java.util.Locale;
 import static com.satrangolimitless.Utils.Base_Url.BaseUrl;
 import static com.satrangolimitless.Utils.Base_Url.Upload_video;
 
-public class VendorProfilSixActivity extends AppCompatActivity implements SurfaceHolder.Callback{
+public class VendorProfilSixActivity extends AppCompatActivity implements SurfaceHolder.Callback {
     ProgressDialog progressDialog;
-    Button CAMERANEXT,btnstart;
+    Button CAMERANEXT, btnstart;
     public static SurfaceView mSurfaceView;
     public static SurfaceHolder mSurfaceHolder;
     ImageView img_start;
@@ -60,17 +58,18 @@ public class VendorProfilSixActivity extends AppCompatActivity implements Surfac
     private MediaRecorder mMediaRecorder;
     File mOutputFile;
     File uploadFileI;
-    String img_path="",Result,msg;
-    TextView txtname,txttimer;
+    String img_path = "", Result, msg;
+    TextView txtname, txttimer;
     public int counter;
     Session_vendor session_vendor;
     Session session;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vendor_profil_six);
-        session_vendor=new Session_vendor(getApplicationContext());
-        session=new Session(getApplicationContext());
+        session_vendor = new Session_vendor(getApplicationContext());
+        session = new Session(getApplicationContext());
 
         mSurfaceView = (SurfaceView) findViewById(R.id.surfaceView1);
         mSurfaceHolder = mSurfaceView.getHolder();
@@ -78,10 +77,10 @@ public class VendorProfilSixActivity extends AppCompatActivity implements Surfac
         mSurfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
 
 
-        CAMERANEXT= findViewById(R.id.CAMERANEXT);
+        CAMERANEXT = findViewById(R.id.CAMERANEXT);
         img_start = findViewById(R.id.img_start);
         btnstart = findViewById(R.id.btnstart);
-        txttimer= findViewById(R.id.txttimer);
+        txttimer = findViewById(R.id.txttimer);
 
 
         findViewById(R.id.CAMERANEXT).setOnClickListener(new View.OnClickListener() {
@@ -89,10 +88,10 @@ public class VendorProfilSixActivity extends AppCompatActivity implements Surfac
             public void onClick(View view) {
                 stopRecording();
                 if (Utils.isInternetConnected(VendorProfilSixActivity.this)) {
-                    new  VideoUploadTask().execute();
+                    new VideoUploadTask().execute();
 
                 } else {
-                    Toast.makeText(VendorProfilSixActivity.this,  getString(R.string.no_internet), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(VendorProfilSixActivity.this, getString(R.string.no_internet), Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -121,12 +120,9 @@ public class VendorProfilSixActivity extends AppCompatActivity implements Surfac
     }
 
 
-
-
-
     //    -------------------start recording---------------------------------------------------------
     @SuppressLint("LongLogTag")
-    public boolean startRecording(){
+    public boolean startRecording() {
 
         try {
             Toast.makeText(getBaseContext(), "Recording Started", Toast.LENGTH_SHORT).show();
@@ -152,8 +148,7 @@ public class VendorProfilSixActivity extends AppCompatActivity implements Surfac
             try {
                 mServiceCamera.setPreviewDisplay(mSurfaceHolder);
                 mServiceCamera.startPreview();
-            }
-            catch (IOException e) {
+            } catch (IOException e) {
                 Log.e(TAG, e.getMessage());
                 e.printStackTrace();
             }
@@ -163,7 +158,7 @@ public class VendorProfilSixActivity extends AppCompatActivity implements Surfac
             mMediaRecorder = new MediaRecorder();
             mMediaRecorder.setCamera(mServiceCamera);
             mMediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-            mMediaRecorder.setVideoSource(MediaRecorder.VideoSource.CAMERA );
+            mMediaRecorder.setVideoSource(MediaRecorder.VideoSource.CAMERA);
             mMediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
             mMediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
             mMediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.H264);
@@ -172,17 +167,15 @@ public class VendorProfilSixActivity extends AppCompatActivity implements Surfac
             mMediaRecorder.setOutputFile(mOutputFile.getAbsolutePath());
             mMediaRecorder.setPreviewDisplay(mSurfaceHolder.getSurface());
 
-            System.out.println("Video PAth>>>>>>  "+mOutputFile.getAbsolutePath());
-            img_path=mOutputFile.getAbsolutePath();
+            System.out.println("Video PAth>>>>>>  " + mOutputFile.getAbsolutePath());
+            img_path = mOutputFile.getAbsolutePath();
 
             mMediaRecorder.prepare();
-            try{
+            try {
                 mMediaRecorder.start();
-            }catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
-
-
 
 
             return true;
@@ -214,34 +207,33 @@ public class VendorProfilSixActivity extends AppCompatActivity implements Surfac
 
 
     }
+
     public void stopRecording() {
 //        Toast.makeText(getBaseContext(), "Recording Stopped", Toast.LENGTH_SHORT).show();
 
         try {
-            mServiceCamera.reconnect();
-
+            if (mServiceCamera != null) {
+                mServiceCamera.reconnect();
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        try{
+        try {
             mMediaRecorder.stop();
-        }catch (Exception e){
+            mMediaRecorder.reset();
+
+            mServiceCamera.stopPreview();
+            mMediaRecorder.release();
+
+            mServiceCamera.release();
+            mServiceCamera = null;
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
-        mMediaRecorder.reset();
-
-        mServiceCamera.stopPreview();
-        mMediaRecorder.release();
-
-        mServiceCamera.release();
-        mServiceCamera = null;
-
-
     }
-
-
 
 
     @Override
@@ -260,14 +252,15 @@ public class VendorProfilSixActivity extends AppCompatActivity implements Surfac
     }
 
 
-    public void timer(){
-        new CountDownTimer(31000,1000) {
+    public void timer() {
+        new CountDownTimer(31000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
 
-                txttimer.setText("REC 00:00:"+String.valueOf(counter));
+                txttimer.setText("REC 00:00:" + String.valueOf(counter));
                 counter++;
             }
+
             @Override
             public void onFinish() {
 
@@ -290,50 +283,42 @@ public class VendorProfilSixActivity extends AppCompatActivity implements Surfac
             progressDialog.show();
 
 
-
         }
 
         protected String doInBackground(Void... params) {
             try {
 
 
-
-                uploadFileI=new File(img_path);
+                uploadFileI = new File(img_path);
 
 
                 String charset = "UTF-8";
-                MultipartUtility multipart = new MultipartUtility(BaseUrl +Upload_video, charset);
+                MultipartUtility multipart = new MultipartUtility(BaseUrl + Upload_video, charset);
                 String sid = null;
 
 
+                multipart.addFormField("user_id", session_vendor.getUserId());
 
+                multipart.addFormField("type", "3");
+                multipart.addFilePart("video", uploadFileI);
 
-
-
-                multipart.addFormField("user_id",session_vendor.getUserId());
-
-                multipart.addFormField("type","3");
-                multipart.addFilePart("video",uploadFileI);
-
-                System.out.println(" my service video   uploadFileI>>>>>>>>>>>>> ** "+uploadFileI+" ");
+                System.out.println(" my service video   uploadFileI>>>>>>>>>>>>> ** " + uploadFileI + " ");
 
 
                 List<String> response = multipart.finish();
 
 
-
                 for (String line : response) {
                     System.out.println("ye hai   " + line);
-                    String responseupdate=line;
-                    System.out.println(TAG+"Upload Response>>>>>>>>>>>>> ** "+responseupdate);
+                    String responseupdate = line;
+                    System.out.println(TAG + "Upload Response>>>>>>>>>>>>> ** " + responseupdate);
 
                     JSONObject json = new JSONObject(responseupdate);    // create JSON obj from string
                     Result = json.getString("result");    // this will return correct
                     msg = json.getString("msg");    // this will return correct
-                    System.out.println(TAG+"Result-------------       "+Result);
+                    System.out.println(TAG + "Result-------------       " + Result);
 
                 }
-
 
             } catch (IOException | JSONException ex) {
                 System.err.println(ex);
@@ -343,44 +328,36 @@ public class VendorProfilSixActivity extends AppCompatActivity implements Surfac
 
         protected void onPostExecute(String result) {
             progressDialog.dismiss();
-             if (Result != null && Result.equalsIgnoreCase("true")){
-
+            if (Result != null && Result.equalsIgnoreCase("true")) {
                 verification_success_dialogue();
-            }else{
+            } else {
                 verification_failure_dialogue();
             }
-
         }
     }
-/*
-verification_success_dialogue
- */
-    public void verification_success_dialogue()
-    {
+
+    /*
+    verification_success_dialogue
+     */
+    public void verification_success_dialogue() {
         android.app.AlertDialog.Builder builder = new AlertDialog.Builder(VendorProfilSixActivity.this);
         LayoutInflater inflater = getLayoutInflater();
-        View dialogView = inflater.inflate(R.layout.vendor_activation_succes_dialog,null);
+        View dialogView = inflater.inflate(R.layout.vendor_activation_succes_dialog, null);
         builder.setCancelable(false);
         builder.setView(dialogView);
-
         Button btn_yes = (Button) dialogView.findViewById(R.id.btn_yes);
-
         final Dialog dialog = builder.create();
-
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-
         btn_yes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 session.setService_providr_status("1");
-                Intent in=new Intent(VendorProfilSixActivity.this, LandingActivity_Service_provider.class);
+                Intent in = new Intent(VendorProfilSixActivity.this, LandingActivity_Service_provider.class);
                 startActivity(in);
 
             }
         });
-         dialog.show();
+        dialog.show();
     }
 
 
@@ -388,17 +365,24 @@ verification_success_dialogue
     verification_failure_dialogue
      */
 
-    public void verification_failure_dialogue()
-    {
+    public void verification_failure_dialogue() {
         android.app.AlertDialog.Builder builder = new AlertDialog.Builder(VendorProfilSixActivity.this);
         LayoutInflater inflater = getLayoutInflater();
-        View dialogView = inflater.inflate(R.layout.vendor_activation_failure_dialog,null);
+        View dialogView = inflater.inflate(R.layout.vendor_activation_failure_dialog, null);
         builder.setCancelable(false);
         builder.setView(dialogView);
 
-        Button btn_yes = (Button) dialogView.findViewById(R.id.btn_yes);
-
+        Button btn_yes = dialogView.findViewById(R.id.btn_yes);
+        ImageView closeBtn = dialogView.findViewById(R.id.closeBtn);
         final Dialog dialog = builder.create();
+
+        closeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
 
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
@@ -406,7 +390,7 @@ verification_success_dialogue
         btn_yes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in=new Intent(VendorProfilSixActivity.this, VendorProfileActivity.class);
+                Intent in = new Intent(VendorProfilSixActivity.this, VendorProfileActivity.class);
                 startActivity(in);
 
             }

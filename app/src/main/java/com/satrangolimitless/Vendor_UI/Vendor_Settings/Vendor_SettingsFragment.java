@@ -8,6 +8,7 @@ import android.widget.LinearLayout;
 
 import androidx.fragment.app.Fragment;
 
+import com.satrangolimitless.LandingActivity_Service_provider;
 import com.satrangolimitless.R;
 public class Vendor_SettingsFragment extends Fragment {
 
@@ -28,7 +29,7 @@ public class Vendor_SettingsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
+        LandingActivity_Service_provider.Layout_hader.setVisibility(View.GONE);
         View root=   inflater.inflate(R.layout.fragment_vendorsettings, container, false);
 
         linearlayout=root.findViewById(R.id.linearlayout);
@@ -42,7 +43,6 @@ public class Vendor_SettingsFragment extends Fragment {
         linearlayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fragment = null;
                 fragment = new Vendor_TermsAndConditionfragment();
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
@@ -55,7 +55,6 @@ public class Vendor_SettingsFragment extends Fragment {
         l_privacy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fragment = null;
                 fragment = new Vendor_Privacyfragment();
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
@@ -68,7 +67,6 @@ public class Vendor_SettingsFragment extends Fragment {
         l_faq.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fragment = null;
                 fragment = new Vendor_FAQfragment();
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
@@ -80,7 +78,6 @@ public class Vendor_SettingsFragment extends Fragment {
         suggestion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fragment = null;
                 fragment = new Vendor_SuggestionAndfeedbackfragment();
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
@@ -92,7 +89,6 @@ public class Vendor_SettingsFragment extends Fragment {
         ll_complaint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fragment = null;
                 fragment = new Vendor_Complaintfragment();
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
@@ -105,7 +101,6 @@ public class Vendor_SettingsFragment extends Fragment {
         requstcomplaints.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fragment = null;
                 fragment = new Vendor_mycomplaintsandrequest();
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()

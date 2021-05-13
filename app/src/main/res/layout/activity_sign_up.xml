@@ -149,6 +149,7 @@
                                     android:drawableLeft="@drawable/ic_users"
                                     android:drawableRight="@drawable/ic_pencil"
                                     android:drawablePadding="@dimen/_10sdp"
+                                    android:textStyle="bold"
                                     android:hint="@string/entername"
                                     android:inputType="text"
                                     android:maxLines="1"
@@ -200,7 +201,6 @@
 
 
                             <TextView
-
                                 android:id="@+id/signIn_DOB"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -253,7 +253,7 @@
                             android:id="@+id/txttermsandcond"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/cheese"></TextView>
+                            android:text="@string/cheese"/>
                     </LinearLayout>
 
                     <LinearLayout

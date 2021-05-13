@@ -456,7 +456,6 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                                 session.setUser_name(name);
                                 session.setMobile(phone);
                                 session.setProfileimage(image);
-
                                 session_vendor.set_onlinestatus(online_status);
 
 

@@ -96,6 +96,7 @@
                                 <com.hootsuite.nachos.NachoTextView
                                     android:id="@+id/etProfession"
                                     android:layout_width="match_parent"
+                                    android:visibility="gone"
                                     android:layout_height="match_parent"
                                     android:background="@android:color/transparent"
                                     android:drawableStart="@drawable/ic_graduation_cap"
