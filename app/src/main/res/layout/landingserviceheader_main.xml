@@ -19,27 +19,32 @@
             android:layout_width="match_parent">
 
             <LinearLayout
-                android:layout_weight=".8"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_weight=".8"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/_1sdp">
 
                 <ImageView
-                    android:layout_gravity="center"
                     android:id="@+id/drawerimage"
-                    android:src="@drawable/ic_menu"
-                    android:layout_weight=".6"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="@dimen/_1sdp"
+                    android:src="@drawable/ic_menu">
 
                 </ImageView>
 
                 <ImageView
-                    android:layout_weight=".2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
                     android:layout_gravity="right"
-                    android:src="@drawable/vendorsidelogo"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:paddingTop="@dimen/_3sdp"
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    android:src="@drawable/vendorsidelogo" />
 
             </LinearLayout>
             <LinearLayout
@@ -59,7 +64,7 @@
                 android:id="@+id/imgprofilev"
                     android:layout_width="@dimen/_45sdp"
                     android:layout_height="@dimen/_45sdp"
-                    app:civ_border_color="@color/yellow"
+                    app:civ_border_color="@color/green"
                     app:civ_border_width="@dimen/_2sdp"
                     android:src="@drawable/images"/>
 

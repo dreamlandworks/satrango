@@ -77,9 +77,10 @@
                                         android:drawableLeft="@drawable/ic_location_searching"
                                         android:drawablePadding="@dimen/_7sdp"
                                         android:ellipsize="end"
-                                        android:maxLines="1"
+                                        android:maxLines="2"
+                                        android:textSize="@dimen/_10sdp"
                                         android:padding="@dimen/_10sdp"
-                                        android:text="Karol Bagh Delhi" />
+                                        android:text="Srinivasa Nagar, Bank Colony, Vijayawada" />
 
                                 </LinearLayout>
 
@@ -134,8 +135,9 @@
                                     <TextView
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginLeft="@dimen/_10sdp"
+                                        android:layout_marginLeft="@dimen/_25sdp"
                                         android:text=" Change Profile"
+                                        android:layout_marginTop="@dimen/_5sdp"
                                         android:textColor="@color/gray" />
 
                                     <LinearLayout
@@ -147,11 +149,12 @@
 
 
                                         <androidx.cardview.widget.CardView
-                                            android:layout_width="@dimen/_100sdp"
+                                            android:layout_width="@dimen/_110sdp"
                                             android:layout_height="@dimen/_60sdp"
                                             app:cardBackgroundColor="@color/yellow"
                                             app:cardCornerRadius="@dimen/_20sdp"
                                             app:cardElevation="@dimen/_3sdp"
+                                            android:layout_marginLeft="@dimen/_18sdp"
                                             app:cardUseCompatPadding="true">
 
                                             <LinearLayout
@@ -232,7 +235,8 @@
                             android:drawableRight="@drawable/ic_mic"
                             android:drawablePadding="@dimen/_7sdp"
                             android:ellipsize="end"
-                            android:hint="search in thousands of services"
+                            android:hint="Try: 'Washing Machine Repair' , 'App Development' etc.,"
+                            android:textSize="@dimen/_12sdp"
                             android:maxLines="1"
                             android:padding="@dimen/_12sdp"
                             android:scrollbars="none" />
@@ -280,7 +284,7 @@
                             android:padding="@dimen/_10sdp"
                             android:text="View More"
                             android:textAlignment="textEnd"
-                            android:textColor="@color/colorPrimaryDark"
+                            android:textColor="@color/red"
                             android:textSize="@dimen/_10sdp"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -337,7 +341,7 @@
                                 android:padding="@dimen/_10sdp"
                                 android:text="View More"
                                 android:textAlignment="textEnd"
-                                android:textColor="@color/colorPrimaryDark"
+                                android:textColor="@color/red"
                                 android:textSize="@dimen/_10sdp"
                                 android:textStyle="bold" />
                         </LinearLayout>
@@ -391,7 +395,7 @@
                                 android:padding="@dimen/_10sdp"
                                 android:text="View More"
                                 android:textAlignment="textEnd"
-                                android:textColor="@color/colorPrimaryDark"
+                                android:textColor="@color/red"
                                 android:textSize="@dimen/_10sdp"
                                 android:textStyle="bold" />
                         </LinearLayout>
